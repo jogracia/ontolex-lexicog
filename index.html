@@ -208,9 +208,10 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 	  <section>
 	  <h3>Lexicographic resource</h3> 
 	  
-	  A straightforward linked data representation of many dictionaries is by treating every dictionary entry as an <tt>ontolex:LexicalEntry</tt>. Then, such lexical entries are grouped by one (or several) instances of <tt>lime:Lexicon</tt>. However, in many cases (see [<cite><a href="#bib-bosque-module">10</a></cite>]), there is no one to one mapping between the entries in the dictionary and the lexical entries in the lexicon. For instance, synonyms and translations of some dictionary entries can appear as "extra" information of such entries, without their own entry, in a source dictionary. However, in Ontolex, such synonyms and translations should be treated as "first class citizens" with their own lexical entries and senses. In such situations, there is a disparity between the created Ontolex lexicon and the original dictionay. 
+	  <!-- A straightforward linked data representation of many dictionaries is by treating every dictionary entry as an <tt>ontolex:LexicalEntry</tt>. Then, such lexical entries are grouped by one (or several) instances of <tt>lime:Lexicon</tt>.  -->
+	  There are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one to one mapping between the entries in a dictionary or lexical resource and the lexical entries in an Ontolex lexicon. For instance, synonyms and translations of some dictionary entries can appear as "extra" information of such entries, without their own entry, in a source dictionary. However, in Ontolex, such synonyms and translations should be treated as "first class citizens" with their own lexical entries and senses. In such situations, there is a disparity between the created Ontolex lexicon and the original dictionay. 
 	  
-	  In order to support the original grouping of entries in a source dictionary or, more in general, to represent a particular view or organisation of the lexicographic information in a language resource, which might differ from its arrangement in an Ontolex lexicon, the class <tt>lexicog:LexicographicResource</tt> is introduced. TBC
+	  In order to support the original grouping of entries in a source dictionary or, more in general, to represent a particular view or organisation of the lexicographic information in a language resource (which might differ from its arrangement in an Ontolex lexicon) the class <tt>lexicog:LexicographicResource</tt> is introduced. TBC
 	  
 	  
 	  <div class='entity'>
@@ -222,10 +223,27 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 			<p>A <strong>lexicographic resource</strong> represents a collection of entries that BLA BLA BLA and conforms a logical unit that BLA BLA.</p>
 		</div>
 		<div class='description'>
-			<p><strong>SubClassOf:</strong> void:Dataset, lime:language min 1 dct:language</p>
+			<p><strong>SubClassOf:</strong> void:Dataset, lime:language min 1 xsd:language</p>
 		</div>
 	  </div>
 	  
+	  [QUESTION1: SHOULD WE MODIFY THE DOMAIN OF lime:language (TO COVER lexicog:LexicographicResource) OR USE dc:language INSTEAD?]
+	  <br>
+	  [QUESTION2: SHOULD WE OVERLOAD THE lime:entry PROPERTY WITH A lexicog:entry?]
+	 	 
+	  <p>A simple example of a lexicographic resource in English that collects several lexical entries is given below:</p>
+	  	  
+	  <div class='beispiel'>
+		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
+		<div>
+		<pre><code>:person_n a ontolex:LexicalEntry . 
+:animal_n a ontolex:LexicalEntry .
+
+:myDictionary a lexicog:LexicographicResource ;    
+	lime:language &quot;en&quot; ; 
+	lexicog:entry :person_n, :animal_n .		</code></pre>
+		</div>
+	  </div>
 	  
 	  
 	  </section>
