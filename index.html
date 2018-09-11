@@ -130,7 +130,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 		<li> The extended use of <em>lemon</em> to convert language resources (including lexicographical resources) into linked data,
 		<li> the nature of the <em>lemon</em> model being descriptive but not prescriptive, which facilities neutrality towards different lexicographic views,
 		<li> the coming together of the lexicography and the Semantic Web communities, and
-		<li> the possibility of reusing already available mechanisms in <em>lemon</em> (instead of "re-inventing the wheel").
+		<li> the possibility of reusing already available mechanisms in <em>lemon</em>, preventing researchers from "re-inventing the wheel" <!(instead of "re-inventing the wheel").->
 	   </ol>
 
 	  </section>
@@ -138,19 +138,23 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 	  <h3> Aim and scope </h3>
 
 	  <p>
-		The main goal of this module is to complement the <em>lemon</em> core module, OntoLex, and to overcome its limitations when modelling lexicographic information as linked data in a way that is <i>agnostic of the underlying lexicographic view</i> and minimizes information loss.
+		The main goal of this module is to complement the <em>lemon</em> core module, OntoLex, and to overcome its limitations when modelling lexicographic information as linked data in a way that is <i>agnostic to the underlying lexicographic view</i> and minimises information loss.
 	  </p>
 
 	<p> The scope of the model is two-fold:
 		<ol>
-			<li> modelling <em>existing</em> lexicographic resources as linked data, to allow their later publication and interoperation by following Semantic Web standards, and
+			<li> Modelling <em>existing</em> lexicographic resources as linked data, to allow their later publication and interoperation by following Semantic Web standards, and
 			<li> providing a conceptual / abstract model of language and linguistic objects in lexicography that will allow to build linked data-based lexicographic resources from scratch.
 		</ol>
 
-	In fact, although the primary goal might be to model existing dictionaries as linked data, this can be done by extracting the features they have in common and modelling in a way that is decoupled from specific linguistic views. Thus, this module should remain highly re-usable across dictionaries, as well as useful for new linked data-based lexicographic resources built from scratch (see the notion of <em>linked data-native dictionaries</em> at [<cite><a href="#bib-gracia-native">12</a></cite>]). We assume of course that <em>many specific ingredients from specific dictionaries and views will still need ad-hoc constructs</em>, but having a few common entities defined in the module will help to overcome the limitations that have been detected when current Ontolex is applied to lexicographic data, and can greatly benefit interoperability.
+Modelling existing dictionaries as linked data can be done by first extracting the features they have in common and modelling them in a way that is decoupled from specific linguistic views. Although the primary goal might be to model existing resources, the module should remain highly re-usable across dictionaries and useful for new linked data-based lexicographic works built from scratch (see the notion of <em>linked data-native dictionaries</em> at [<cite><a href="#bib-gracia-native">12</a></cite>]). Naturally, we assume that <em>many specific ingredients from specific dictionaries and views will still need ad-hoc constructs</em>. Still, having a small set of common entities defined in the module will help to overcome the limitations that have been detected in the experiences applying Ontolex to lexicographic data, and can greatly benefit interoperability.
+
+	<!In fact, although the primary goal might be to model existing dictionaries as linked data, this can be done by extracting the features they have in common and modelling in a way that is decoupled from specific linguistic views. Thus, this module should remain highly re-usable across dictionaries, as well as useful for new linked data-based lexicographic resources built from scratch->
 
 	<div class="note"><p>
-	In terms of applying the module, we propose the following best practice or "rule of thumb" when representing a dictionary as linked data: always that the entities in the Ontoex model suffice for representing the resource's lexicographic information (e.g., lexical entry, part of speech, translation, ...), then the Ontolex lexicographic module should not be instantiated; in case that some lexicographic information cannot be modelled by using neither the core of Ontolex nor its other modules (e.g., to denote sense ordering), then the module will be instantiated, but avoiding duplicities and keeping extra information to the minimum.
+	In terms of applying the module, we propose the following best practice or "rule of thumb" when representing a dictionary as linked data: as long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicographic module should not be instantiated. In case that there is some lexicographic information that cannot be modelled by using either OntoLex or any of the other <em>lemon</em> modules (e.g., to denote sense ordering), then the model should be instantiated by avoiding duplicities and keeping extra information to the minimum.
+
+  <!always that the entities in the Ontoex model suffice for representing the resource's lexicographic information (e.g., lexical entry, part of speech, translation, ...), then the Ontolex lexicographic module should not be instantiated; in case that some lexicographic information cannot be modelled by using neither the core of Ontolex nor its other modules (e.g., to denote sense ordering), then the module will be instantiated, but avoiding duplicities and keeping extra information to the minimum.->
 	</p></div>
 
 
@@ -168,7 +172,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 		</pre>
 	  </p>
 
-	  <p> Ontolex core model and other modules:
+	  <p> OntoLex (core) model and other <em>lemon</em> modules:
 	   <pre><code class="cm">
 		@prefix ontolex: &lt;http://www.w3.org/ns/lemon/ontolex#&gt; .
 		@prefix synsem: &lt;http://www.w3.org/ns/lemon/synsem#&gt; .
@@ -202,20 +206,30 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 
 
     <section>
-      <h2>Lexicography Module (lexicog)</h2>
+      <h2>Lexicography Module (<i>lexicog</i>)</h2>
 
-	  The following diagram depicts the Ontolex Lexicography module (lexicog). Boxes represent classes of the model. Arrows with filled heads represent object properties. [WE HAVE TO MARK DIFFERNTLY THE ONTOLEX CORE ENTITIES AND THE ONES FROM THE MODULE]
+	  The following diagram depicts the OntoLex Lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information that describe lexical elements as found in dictionaries (shaded in orange).
 
-	  [FIGURE OF THE SCHEME COMES HERE]
+    <figure>
+        <img src="img/ontolex-lexicography-20180911.png" title="ontolex-lexicography-20180911.png" alt="ontolex-lexicography-20180911.png" ><figcaption>Lemon_Lexicography_Module.png</figcaption>
+    </figure>
+
+
 
 	  <section>
-	  <h3>Lexicographic resource</h3>
+	  <h3>Lexicographic Resource</h3>
 
 	  <!-- A straightforward linked data representation of many dictionaries is by treating every dictionary entry as an <tt>ontolex:LexicalEntry</tt>. Then, such lexical entries are grouped by one (or several) instances of <tt>lime:Lexicon</tt>.  -->
-	  There are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one to one mapping between the entries in a dictionary or lexical resource and the lexical entries in an Ontolex lexicon. For instance, synonyms and translations of some dictionary entries can appear as "extra" information of such entries, without their own entry, in a source dictionary. However, in Ontolex, such synonyms and translations should be treated as "first class citizens" with their own lexical entries and senses. In such situations, there is a disparity between the created Ontolex lexicon and the original dictionay.
+	  There are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one-to-one mapping between the entries in a dictionary or lexicographical resource and the lexical entries in a <i>lemon</i> lexicon.
 
-	  In order to support the original grouping of entries in a source dictionary or, more in general, to represent a particular view or organisation of the lexicographic information in a language resource (which might differ from its arrangement in an Ontolex lexicon) the class <tt>lexicog:LexicographicResource</tt> is introduced. TBC
+    For instance, some dictionary entries contain information about their translations and synonyms, but these latter do not have their own dictionary entry in the source dictionary. Still, such translations and synonyms can be treated as "first class citizens" in the graph by representing them as <tt>ontolex:LexicalEntr[ies]</tt>. In such situations, there is a disparity between the created <i>lemon</i> lexicon and the original dictionay, as the linked-data representation would include entries not encoded in the original resource as such.
 
+        <!For instance, synonyms and translations of some dictionary entries can appear as "extra" information of such entries, without their own entry, in a source dictionary. However, in Ontolex, such synonyms and translations should be treated as "first class citizens" with their own lexical entries and senses. ->
+
+    <p>In order to support the original grouping of entries in a source dictionary or, more in general, to represent a particular view or organisation of the lexicographic information in a language resource, which might differ from its arrangement in <i>lemon</i> lexicon, the class <tt>lexicog:LexicographicResource</tt> is introduced. </p>
+
+[TO DO: FILL IN THIS BOX]
+[TO DO: DISCUSS JORGE'S COMMENTED OUT QUESTIONS]
 
 	  <div class='entity'>
 		<h3>Lexicographic Resource (Class)</h3>
@@ -230,10 +244,9 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 		</div>
 	  </div>
 
-	  [QUESTION1: SHOULD WE MODIFY THE DOMAIN OF lime:language (TO COVER lexicog:LexicographicResource) OR USE dc:language INSTEAD?]
+	 <! [QUESTION1: SHOULD WE MODIFY THE DOMAIN OF lime:language (TO COVER lexicog:LexicographicResource) OR USE dc:language INSTEAD?] ->
 	  <br>
-	  [QUESTION2: SHOULD WE OVERLOAD THE lime:entry PROPERTY WITH A lexicog:entry?]
-
+	 <! [QUESTION2: SHOULD WE OVERLOAD THE lime:entry PROPERTY WITH A lexicog:entry?]->
 	  <p>A simple example of a lexicographic resource in English that collects several lexical entries is given below:</p>
 
 	  <div class='beispiel'>
@@ -252,12 +265,54 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 	  </section>
 
 	  <section>
-	  <h3>Super entry</h3>
+	  <h3>Super Entry</h3>
 
-		TBC
+    <div class='entity'>
+    <h3>Super Entry (Class)</h3>
+    <div>
+      <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#SuperEntry" class="uri">http://www.w3.org/nl/lemon/lexicog#SuperEntry</a></p>
+    </div>
+    <div class='comment'>
+      <p>A <strong>super entry</strong> represents a collection of entries that BLA BLA BLA and conforms a logical unit that BLA BLA.</p>
+    </div>
+    <div class='description'>
+      <p><strong>SubClassOf:</strong> void:Dataset, lime:language min 1 xsd:language</p>
+    </div>
+    </div>
+
+[TO DO: FILL IN THIS BOX]
+
+      <p>The lack of a one-to-one mapping from a dictionary entry to a <tt>ontolex:LexicalEntry</tt> referred above often translates into a situation in which a structure in the original resource needs to be splitted into several <tt>ontolex:LexicalEntr[ies]</tt> for the resulting resource to be OntoLex-compliant. For example, we find this scenario in dictionaries that do not make a dictionary entry split in terms of the part-of-speech of a word. In these resources, the senses of a (polysemous) word are bundled together under the same dictionary entry even though they depend on  different parts-of-speech, which in these cases can be given as annotations just before the sense, e.g. <i>(n.)</i>, especially in non-digitally born resources. Likewise, a dictionary entry can take different parts of speech depending on its syntactic behavior (e.g. adjective and adverb) without meaning change.</p>
+
+      <p>As <tt>ontolex:LexicalEntr[ies]</tt> have a <strong>single</strong> part-of-speech, a dictionary entry  maps to several <tt>ontolex:LexicalEntr[ies]</tt> in these cases. </p>
+
+      <p><tt>lexicog:SuperEntry</tt> is introduced to represent the entry as it is encoded in the original resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by lexicographers, which in turn is supported by the occurrances of the word in the corpus used for dictionary compilation. </p>
+
+      TBC
+
+
+
 	  </section>
 
+    <section>
+      <h3>SuperEntryComponent</h3>
 
+      <div class='entity'>
+      <h3>Super Entry Component (Class)</h3>
+      <div>
+        <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#SuperEntryComponent" class="uri">http://www.w3.org/nl/lemon/lexicog#SuperEntryComponent</a></p>
+      </div>
+      <div class='comment'>
+        <p>A <strong>super entry component</strong> represents a collection of entries that BLA BLA BLA and conforms a logical unit that BLA BLA.</p>
+      </div>
+      <div class='description'>
+        <p><strong>SubClassOf:</strong> void:Dataset, lime:language min 1 xsd:language</p>
+      </div>
+      </div>
+
+      <p>[TO DO: FILL IN THIS BOX]</p>
+
+    </section>
 
 	</section>
 
