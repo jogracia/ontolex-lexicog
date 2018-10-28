@@ -47,7 +47,6 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 
 
 
-
 	<script src="javascripts/codemirror-compressed.js"></script>
 	<script src="http://codemirror.net/mode/sparql/sparql.js"></script>
 	<script src="http://codemirror.net/addon/runmode/runmode.js"></script>
@@ -59,7 +58,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
           specStatus: "CG-DRAFT",
           doRDFa: "1.1",
           shortName:  "lexicography-ontolex",
-		  publishDate:  "2018-09-29",
+		  publishDate:  "2018-10-28",
           editors: [
                 {   name:       "Julia Bosque-Gil",
                     url:        "http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/phdstudents/360-jbosque/index.html ",
@@ -121,9 +120,9 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 	  <p> <em>lemon</em> as the outcome of the OntoLex group and its previous version (<a href="https://lemon-model.net/">lemon</a> [<cite><a href="#bib-lemon_paper">1</a></cite>]) have been increasingly used in the context of dictionaries and lexicographical data to convert existent lexicographic information into the standards and formats of the Semantic Web. Such preliminary experiences comprise monolingual [<cite><a href="#bib-klimek-kdict">2</a></cite>], bilingual [<cite><a href="#bib-gracia-apertium">3</a></cite>], and multilingual [<cite><a href="#bib-bosque-kdict">4</a></cite>] dictionaries, as well as diachronic [<cite><a href="#bib-kahn-diachronic">5</a></cite>], dialectal [<cite><a href="#bib-declerck-dialectal">6</a></cite>], and etymological ones [<cite><a href="#bib-abromeit-etymological">7</a></cite>], among others.
 	  The added value of using linked data technologies in lexicography and its implications for the micro and macro structure of dictionaries have been explored as well by several authors [<cite><a href="#bib-bosque-lexicography">8</a></cite>, <cite><a href="#bib-declerck-paneuropean">9</a></cite>].
 
- After analysing the literature, the proposers of this module perceived an obvious need for reaching some agreement that allows for a better and more interoperable migration of existing dictionaries into linked data [<cite><a href="#bib-bosque-module">10</a></cite>]. For illustration, the OGL ontology [<cite><a href="#bib-parvizi-oxford">11</a></cite>] has its own notion of dictionary entry  materialised in the <tt>ogl:Entry</tt> class, while in [<cite><a href="#bib-bosque-kdict">4</a></cite>] the ad-hoc  <tt>kd:dictionaryEntry</tt> relation was introduced in the conversion of the KD Multilingual Global Series dictionaries, i.e, different researchers introduced their own modelling solutions to account for similar notions. Being interoperability a key issue in linked data technologies, building a common space in which these concepts can be agreed on and commonly defined comes as a logical step. The OntoLex community is the natural forum to accomplish this for several reasons:
+ After analysing the literature, the proposers of this module perceived an obvious need for reaching some agreement that allows for a better and more inter-operable migration of existing dictionaries into linked data [<cite><a href="#bib-bosque-module">10</a></cite>]. For illustration, the OGL ontology [<cite><a href="#bib-parvizi-oxford">11</a></cite>] has its own notion of dictionary entry  materialised in the <tt>ogl:Entry</tt> class, while in [<cite><a href="#bib-bosque-kdict">4</a></cite>] the ad-hoc  <tt>kd:dictionaryEntry</tt> relation was introduced in the conversion of the KD Multilingual Global Series dictionaries, i.e, different researchers introduced their own modelling solutions to account for similar notions. Being interoperability a key issue in linked data technologies, building a common space in which these concepts can be agreed on and commonly defined comes as a logical step. The OntoLex community is the natural forum to accomplish this for several reasons:
  
- <!We can briefly mention some references in the literature that illustrate cases in which lemon sufficed, and references that shed light to the kind of specific cases where it does not. That would give evidence that the lexicography module is not always needed and that this also depends on the representation requirements of the resource. The lists of issues that we have in the Wiki and their bib references, along with the minutes available online, give overall a good sense of the problematic, so I initially would refrain from motivating the module extensively in this document in the Motivation section. With respect to the recommendation to limit its use, we can indicate that the module adds some complexity, meaning, it just adds additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographical view is not key, reusing lemon and keeping things simple would be wiser. We can mention this in that section of the Spec, too.->
+ <!We can briefly mention some references in the literature that illustrate cases in which lemon sufficed, and references that shed light to the kind of specific cases where it does not. That would give evidence that the lexicography module is not always needed and that this also depends on the representation requirements of the resource. The lists of issues that we have in the Wiki and their bib references, along with the minutes available online, give overall a good sense of the problematic, so I initially would refrain from motivating the module extensively in this document in the Motivation section.->
 
       
 	   <ol>
@@ -143,15 +142,15 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 
 	<p> The scope of the model is two-fold:
 		<ol>
-			<li> Modelling <em>existing</em> lexicographic resources as linked data, to allow their later publication and interoperation by following Semantic Web standards, and
+			<li> Modelling <em>existing</em> lexicographic resources as linked data, to allow their later publication and inter-operation by following Semantic Web standards, and
 			<li> providing a conceptual / abstract model of language and linguistic objects in lexicography that will allow to build linked data-based lexicographic resources from scratch.
 		</ol>
 
-Modelling existing dictionaries as linked data can be done by first extracting the features they have in common and modelling them in a way that is decoupled from specific linguistic views. Although the primary goal might be to model existing resources, the module should remain highly re-usable across dictionaries and useful for new linked data-based lexicographic works built from scratch (see the notion of <em>linked data-native dictionaries</em> at [<cite><a href="#bib-gracia-native">12</a></cite>]). Naturally, we assume that <em>many specific ingredients from specific dictionaries and views will still need ad-hoc constructs</em>. Still, having a small set of common entities defined in the module will help to overcome the limitations that have been detected in the experiences applying Ontolex to lexicographic data, and can greatly benefit interoperability.
+Modelling existing dictionaries as linked data can be done by first extracting the features they have in common and modelling them in a way that is decoupled from specific linguistic views. Although the primary goal might be to model existing resources, the module should remain highly re-usable across dictionaries and useful for new linked data-based lexicographic works built from scratch (see the notion of <em>linked data-native dictionaries</em> at [<cite><a href="#bib-gracia-native">12</a></cite>]). Naturally, we assume that <em>many specific ingredients from specific dictionaries and views will still need ad-hoc constructs</em>. Still, having a small set of common entities defined in the module will help to overcome the limitations that have been detected in the experiences of instantiating <em>lemon</em> with lexicographic data, and can greatly benefit interoperability.
 
 	<div class="note"><p>
-	In terms of applying the module, we propose the following best practice or "rule of thumb" when representing a dictionary as linked data: as long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicographic module should not be instantiated. In case that there is some lexicographic information that cannot be modelled by using either OntoLex or any of the other <em>lemon</em> modules (e.g., to denote sense ordering), then the model should be instantiated by avoiding duplicities and keeping extra information to the minimum.
-
+	In terms of applying the module, we propose the following best practice or "rule of thumb" when representing a dictionary as linked data: as long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicography module should not be instantiated. The reason behind this is that this module adds some complexity by providing additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographical view is not key, reusing <em>lemon</em> would allow to keep the representation simpler but still sufficient. In case that there is some lexicographic information that cannot be modelled by using either OntoLex or any of the other <em>lemon</em> modules (e.g., to denote sense ordering), then the model should be instantiated by avoiding duplicities and keeping extra information to the minimum.
+	
 
 	</p></div>
 
@@ -206,7 +205,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
     <section>
       <h2>Lexicography Module (<i>lexicog</i>)</h2>
 
-	  The following diagram depicts the OntoLex Lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information that describe lexical elements as found in dictionaries (shaded in orange).
+	  The following diagram depicts the OntoLex Lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information describing lexical elements as found in dictionaries (shaded in orange).
 
     <figure>
         <img src="img/ontolex-lexicography-20180911.png" title="ontolex-lexicography-20180911.png" alt="ontolex-lexicography-20180911.png" ><figcaption>Lemon_Lexicography_Module.png</figcaption>
@@ -219,9 +218,9 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
 	  <!-- A straightforward linked data representation of many dictionaries is by treating every dictionary entry as an <tt>ontolex:LexicalEntry</tt>. Then, such lexical entries are grouped by one (or several) instances of <tt>lime:Lexicon</tt>.  -->
 
-    There are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one-to-one mapping between the entries in a dictionary or lexicographical resource and the lexical entries in a <i>lemon</i> lexicon.
+    There are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one-to-one mapping between the entries in a dictionary, or lexicographical resource in general, and the lexical entries in a <i>lemon</i> lexicon (<tt>lime:Lexicon</tt>). 
 
-    For instance, some dictionary entries contain information about their translations and synonyms, but these latter do not have their own dictionary entry in the source dictionary. Still, such translations and synonyms can be treated as "first class citizens" in the graph by representing them as <tt>ontolex:LexicalEntr[ies]</tt>. In such situations, there is a disparity between the created <i>lemon</i> lexicon and the original dictionay, as the linked-data representation would include entries not encoded in the original resource as dictionary entries. For this reason, this is class is intended to represent the original lexicographic resource.
+    For instance, some dictionary entries contain information about their translations and synonyms, but it may be the case that these latter do not have their own dictionary entry in the source dictionary. Still, such translations and synonyms can be treated as "first class citizens" in the graph by representing them as <tt>ontolex:LexicalEntr[ies]</tt>. In such situations, there is a disparity between the created <i>lime</i> lexicon and the original dictionary, as the linked data representation would include entries not encoded in the original resource as dictionary entries. For this reason, this is class is intended to represent the original lexicographic resource.
 
     <div class='entity'>
        <h3>Lexicographic Resource (Class)</h3>
@@ -236,7 +235,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
     		</div>
     </div>
 
-	  <p>A simple example of a lexicographic resource in English that collects several lexical entries is given below. While in this example <tt>:person_n</tt> and animal <tt>:animal_n</tt> are lexical entries compliant to the <tt>ontolex:LexicalEntry</tt> definition, a dictionary may provide only one single dictionary entry for <i>good</i>, compressing its noun, adjective and (colloquial) adverb definitions under one same structure. While the generated <tt>lime:Lexicon</tt> will contain entries with one single part of speech, following the <i>lemon</i> model, the <tt>lexicog:LexicographicResource</tt> instance will gather entities only as they were presented in the original lexicographic resource in order to keep track of the of original representation in its RDF version:</p>
+	  <p>A simple example of a lexicographic resource in English that collects several lexical entries is given below. While in this example <tt>:person_n</tt> and <tt>:animal_n</tt> are lexical entries compliant to the <tt>ontolex:LexicalEntry</tt> definition, a dictionary may provide only one single dictionary entry for the word <i>good</i>, compressing its noun, adjective and (colloquial) adverb definitions under one same structure. While the generated <tt>lime:Lexicon</tt> will contain entries with one single part of speech, following the <i>lemon</i> model, the <tt>lexicog:LexicographicResource</tt> instance will gather entities <i>as they were presented in the original lexicographic resource</i> in order to keep track of the of original representation in its RDF version:</p>
 
 	  <div class='beispiel'>
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
@@ -244,15 +243,15 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 		<pre><code>
       :person_n a ontolex:LexicalEntry .
       :animal_n a ontolex:LexicalEntry .
-      :good_adj_n_adv a lexicog:SuperEntry.
       :good_adj a ontolex:LexicalEntry.
       :good_adv a ontolex:LexicalEntry .
       :good_n a ontolex:LexicalEntry .
-
+      :good_adj_n_adv a lexicog:SuperEntry.
+      
       :myDictionary a lexicog:LexicographicResource ;
 	       dc:language &quot;en&quot; ;
 	       lexicog:entry :person_n, :animal_n ;
-         lexicog:superEntry :good_adj_n_adv .
+               lexicog:superEntry :good_adj_n_adv .
 
       :myLexicon a lime:Lexicon;
          lime:entry :person_n, :animal_n, :good_n, :good_adj, :good_adv .
@@ -266,11 +265,11 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	  <h3>Super Entry</h3>
 
 
-    <p>The lack of a one-to-one mapping from a dictionary entry to a <tt>ontolex:LexicalEntry</tt> referred above often translates into a situation in which a structure in the original resource needs to be splitted into several <tt>ontolex:LexicalEntr[ies]</tt> for the resulting resource to be OntoLex-compliant. For example, we find this scenario in dictionaries that do not make a dictionary entry split in terms of the part-of-speech of a word. In these resources, the senses of a (polysemous) word are bundled together under the same dictionary entry even though they depend on different parts-of-speech, which in these cases can be given as annotations just before the sense, e.g. <i>(n.)</i>, especially in non-digitally born resources. We may find this configuration also in dictionary entries that can take different parts of speech depending on its syntactic behavior (e.g. adjective and adverb) without meaning change. </p>
+    <p>The lack of a one-to-one mapping from a dictionary entry to a <tt>ontolex:LexicalEntry</tt> referred above often translates into a situation in which a structure in the original resource needs to be split into several <tt>ontolex:LexicalEntr[ies]</tt> for the resulting resource to be OntoLex-compliant. For example, we find this scenario in dictionaries that do not make a dictionary entry split in terms of the part-of-speech of a word. In these resources, the senses of a (polysemous) word are bundled together under the same dictionary entry even though they depend on different parts-of-speech. In these cases, these may be given as annotations just before the sense, e.g. <i>(n.)</i>, especially in non-digitally born resources. We can find this configuration also in dictionary entries that take different parts of speech depending on its syntactic behavior (e.g. adjective and adverb) without meaning change. </p>
 
-    <p>In addition to bundling together lexical entries with different part of speech, an entry in a lexicographic resouce can be composed of other (sub-)structures arranged in a particular order or hierarchy, such as senses, nested entries, etc. </p>
+    <p>In addition to bundling together lexical entries with different parts of speech, an entry in a lexicographic resource can also be composed of other (sub-)structures arranged in a particular order or hierarchy, such as senses, nested entries, etc. </p>
 
-    <p><tt>lexicog:SuperEntry</tt> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by lexicographers, which in turn is supported by the occurrances of the word in the corpus used for dictionary compilation. The class is thus intended to be the counterpart of a dictionary entry in the linked data representation of a dictionary.</p>
+    <p><tt>lexicog:SuperEntry</tt> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by lexicographers (supported by the occurrences of the word in the corpus used for dictionary compilation). This class is thus intended to be the counterpart of a dictionary entry in the linked data representation of a dictionary.</p>
 
 
     <div class='entity'>
@@ -279,7 +278,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
       <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#SuperEntry" class="uri">http://www.w3.org/nl/lemon/lexicog#SuperEntry</a></p>
     </div>
     <div class='comment'>
-      <p>A <strong>super entry</strong> is a structural element that represents a lexicogrpahic article or record as it is arranged in a source lexicographic resource (not converted to RDF). As such, it supports the description of lexical entries according to the lexicogrpahic microstructure, decided upon during a lexicographic resouce compilation process. It is a collection of lexicog:SuperEntryComponents, arranged or not in a specific order. </p>
+      <p>A <strong>super entry</strong> is a structural element that represents a lexicographic article or record as it is arranged in a source lexicographic resource (not converted to RDF). As such, it supports the description of lexical entries according to the lexicographic micro-structure, decided upon during a lexicographic resource compilation process. It is a collection of lexicog:SuperEntryComponents, arranged or not in a specific order. </p>
     </div>
     <div class='description'>
       <p><strong>SubClassOf:</strong> rdfs:Container</p>
@@ -290,29 +289,30 @@ Modelling existing dictionaries as linked data can be done by first extracting t
     <section>
       <h3>SuperEntryComponent</h3>
 
-      <div class='entity'>
+      <p>SuperEntry is intended to fulfill a structural function so as to serve as counterpart of a lexicographic record in a resource, which may or may not be straightly mapped into <tt>ontolex:LexicalEntries</tt>. However, these lexicographic records often contain sub-structures to refer to senses, sense groups, or nested entries. In an analogy to <a href="https://www.w3.org/ns/csvw"> W3C's CSVW vocabulary </a>, where a <tt>csvw:Table</tt> consists of <tt>csvw:Row(s)</tt> and <tt>csvw:Column(s)</tt>, we can state that <tt>lexicog:SuperEntry</tt> also contains structural components, namely, <tt>lexicog:SuperEntryComponents</tt>. These components can refer to <tt>ontolex:LexicalSenses</tt> or <tt>ontolex:LexicalEntries</tt>, depending on the arrangement in the lexicographic resource. Components can in turn be arranged in a specific order and/or hierarchy, if desired, or just declared to be part of a <tt>lexicog:SuperEntry</tt>. <p>
+      
+        <div class='entity'>
       <h3>Super Entry Component (Class)</h3>
       <div>
         <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#SuperEntryComponent" class="uri">http://www.w3.org/nl/lemon/lexicog#SuperEntryComponent</a></p>
       </div>
       <div class='comment'>
-        <p>A <strong>super entry component</strong> is a structural element that represents the (sub-)structures of lexicographic articles that provide information about senses or sub-entries. If desired, SuperEntryComponents can be arranged in a specific ordered and/or a hierarchy. </p>
+        <p>A <strong>super entry component</strong> is a structural element that represents the (sub-)structures of lexicographic articles providing information about senses or sub-entries. If desired, SuperEntryComponents can be arranged in a specific ordered and/or a hierarchy. </p>
       </div>
       <div class='description'>
         <p><strong>SubClassOf:</strong> rdfs:Container</p>
       </div>
       </div>
 
-      <p>SuperEntry is intented to fulfill a structural function so as to serve as counterpart of a lexicographic record in a lexicographic resource, which may or may not be straightly mapped into ontolex:LexicalEntries. However, these lexicographic records often contain sub-structures to refer to senses, sense groups, or nested entries. In an analogy to W3C's CSVW vocabulary, where a csvw:Table consists of csvw:Row(s) and csvw:Column(s), we can state that lexicog:SuperEntry may also contain structural components, namely, lexicog:SuperEntryComponents. These components may refer to ontolex:LexicalSenses or ontolex:LexicalEntries, depending on the arrangement in the original lexicographic resource. Components can in turn be arranged in a specific order and/or hierarchy, if desired, or just declared to be part of a SuperEntry. <p>
       
-      <p>Coming back to the previous example, a lexicographic record "animal" in a resource can group under the same dictionary entry animal-n, and animal-adj, which both share phonetic representation and etymology. The following example is extracted from the American Heriage Dictionary: <p>
+      <p>Coming back to the previous example, a lexicographic record for the word <i>animal</i> can group (under the same dictionary entry) descriptions for the lexical entries <i>animal</i> (n.), and <i>animal</i> (adj.), which both share phonetic representation and etymology. The following example is extracted from the American Heritage Dictionary [<cite><a href="#american-heritage-dictionary">16</a></cite>]:<p>
       
       
 <blockquote cite="https://www.ahdictionary.com/word/search.html?q=animal">
 <strong>an·i·mal</strong>
  <p>n.
  <p>
-1. Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)[...]  </p> 
+1. Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia) [...]  </p> 
 <p>
 2. An animal organism other than a human, especially a mammal.
 </p>
@@ -327,7 +327,7 @@ adj.
 <p>
 </blockquote>
       
-Here we can detect two different ontolex:LexicalEntries grouped together in the same lexicographic record, each with a sense order.  If this article were to be recreated with the lexicog vocabulary, we would have the following RDF triples: 
+Here we can detect two different <tt>ontolex:LexicalEntries</tt> grouped together in the same lexicographic record, each with a sense ordering.  If this exact lexicographic record were to be recreated with the <i>lexicog</i> vocabulary, we would have the following RDF triples: 
 
  <div class='beispiel'>
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
@@ -338,59 +338,71 @@ Here we can detect two different ontolex:LexicalEntries grouped together in the 
       :animal_n_adj a lexicog:SuperEntry.
 
       :myDictionary a lexicog:LexicographicResource ;
-	       dc:language &quot;en&quot; ;
-         	lexicog:superEntry :animal_n_adj. 
+	 dc:language &quot;en&quot; ;
+         lexicog:superEntry :animal_n_adj.       
       :myLexicon a lime:Lexicon;
          lime:entry :animal_n, :animal_adj. 
   
-       :animal_n_adj a lexicog:SuperEntry ;
-          rdfs:member :animal_n_comp; :animal_adj_comp. 
-       :animal_n_comp a lexicog:SuperEntryComponent;
-		lexicog:describes :animal_n . 
-       :animal_adj_comp a lexicog:SuperEntryComponent;
-		lexicog:describes :animal_adj. 
+      :animal_n_adj a lexicog:SuperEntry ;
+         rdfs:member :animal_n_comp; :animal_adj_comp.
+           
+      :animal_n_comp a lexicog:SuperEntryComponent;
+         lexicog:describes :animal_n . 
+      :animal_adj_comp a lexicog:SuperEntryComponent;
+         lexicog:describes :animal_adj. 
 
     </code></pre>
 		</div>
 	  </div>
 
 <div class="note"><p>
-	Note that this only states that there is a structure (SuperEntry) which contains sub-strubctures (components) which describe lexical elements.  If a dictionary describes animal-adj and animal-n in different records or if this exact arrangement is not to be transfered to the RDF representation, this approach would not be necessary. 
-	</p></div>
+	Note that this only states that there is a structure (SuperEntry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries.  If a dictionary describes <i>animal </i>(adj.) and <i>animal</i> (n.) in different records or if this exact arrangement is not to be transfered to the RDF representation, this approach would not be necessary. 
+</p></div>
 
-This same approach can he applied to capture the order of senses in the previous example: 
+This same approach can be applied to capture the sense order in the previous example: 
 
 <div class='beispiel'>
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
 		<div>
 		<pre><code>
-      :animal_n a ontolex:LexicalEntry ; 
-         ontolex:isLexicalizedBy :animal_n_1_lc ; :animal_n_2_lc ;
+ 
+      :myDictionary a lexicog:LexicographicResource ;
+	 dc:language &quot;en&quot; ;
+         lexicog:superEntry :animal_n_adj.       
+      :myLexicon a lime:Lexicon;
+         lime:entry :animal_n, :animal_adj. 		
+		
+      :animal_n a ontolex:LexicalEntry ;
          ontolex:sense :animal_n_sense_1, :animal_n_sense_2 . 
-  :animal_n_1_lc  a ontolex:LexicalConcept: 
+         
+      :animal_n_sense_1 a ontolex:LexicalSense ;
+         ontolex:isLexicalizedSenseOf :animal_n_1_lc . 
+      :animal_n_sense_2 a ontolex:LexicalSense;
+         ontolex:isLexicalizedSenseOf :animal_n_2_lc .
+       
+      :animal_n_1_lc  a ontolex:LexicalConcept: 
 	skos:definition &quot;Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)&quot;@en. 
-	
-:animal_n_2_lc  a ontolex:LexicalConcept: 
+      :animal_n_2_lc  a ontolex:LexicalConcept: 
 	skos:definition &quot;An animal organism other than a human, especially a mammal.&quot;@en. 
+	
+      :animal_n_adj a lexicog:SuperEntry;
+         rdfs:member :animal_n_comp; :animal_adj_comp.
+           
+      :animal_n_comp a lexicog:SuperEntryComponent;
+	 lexicog:describes :animal_n ; 
+         rdf:_1: :animal_n_sense_1_comp; 
+	 rdf:_2  :animal_n_sense_2_comp. 
 
-:animal_n_sense_1 a ontolex:LexicalSense . 
-:animal_n_sense_2 a ontolex:LexicalSense. 
-
- :animal_n_comp a lexicog:SuperEntryComponent;
-		lexicog:describes :animal_n ; 
-                rdf:_1: :animal_n_sense_1_comp; 
-		rdf:_2  :animal_n_sense_2_comp. 
-
-:animal_n_sense_1_comp a lexicog:SuperEntryComponent ;
-	lexicog:describes :animal_n_sense_1. 
-:animal_n_sense_2_comp a lexicog:SuperEntryComponent ;
-	lexicog:describes :animal_n_sense_2. 
+      :animal_n_sense_1_comp a lexicog:SuperEntryComponent ;
+	 lexicog:describes :animal_n_sense_1. 
+      :animal_n_sense_2_comp a lexicog:SuperEntryComponent ;
+	 lexicog:describes :animal_n_sense_2. 
 
     </code></pre>
 		</div>
 	  </div>
 
-Other dictionaries list in order the senses of the dictonary entry without any explicit sub-entry division per part-of-speech beyond an annotation for part of speech. E.g. blanco, in Spanish, 'white' (adj) or 'gap, target, (mus.) half note' (noun). see http://dle.rae.es/srv/fetch?id=5eNsBBo or http://clave.smdiccionarios.com/app.php,  for example.  In these cases, SuperEntryComponents can be used to describe ontolex:LexicalSenses, and then in turn be arranged in order according to the lexicographic record:
+In the dictionary entry, other dictionaries provide an ordered list of senses without any explicit sub-entry division per part-of-speech beyond an annotation at the sense level. E.g. the Spanish dictionary <i>Diccionario de la Lengua Epañola</i> lists all the senses of the word <i>blanco</i>, 'white' (adj.), 'gap, target, (mus.) half note'(n.). under the same dictionary entry, in an ordered list. In these cases, <tt>lexicog:SuperEntryComponents</tt> can be used to describe <tt>ontolex:LexicalSenses</tt>, and then in turn be arranged in the order given in the lexicographical article: 
 
 <div class='beispiel'>
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
@@ -400,23 +412,17 @@ Other dictionaries list in order the senses of the dictonary entry without any e
       :blanco_n a ontolex:LexicalEntry . 
       :blanco_adj ontolex:LexicalEntry.
       :blanco_n_adj a lexicog:SuperEntry.
-
-      :myDictionary a lexicog:LexicographicResource ;
-	       dc:language &quot;en&quot; ;
-         	lexicog:superEntry :blanco_n_adj. 
-      :myLexicon a lime:Lexicon;
-         lime:entry :blanco_n, :blanco_adj. 
   
-       :blanco_n_adj a lexicog:SuperEntry ;
+      :blanco_n_adj a lexicog:SuperEntry ;
           rdfs:_1 :blanco_adj_1_comp; 
           rdfs:_2 :blanco_adj_2_comp; 
           [...]
           rdfs:_10 :blanco_n_10_comp . 
 
-       :blanco_adj_1_comp a lexicog:SuperEntryComponent;
-		lexicog:describes :blanco_adj_sense_1. 
-       :animal_n_10_comp a lexicog:SuperEntryComponent;
-		lexicog:describes :blanco_n_sense_10.  
+      :blanco_adj_1_comp a lexicog:SuperEntryComponent;
+         lexicog:describes :blanco_adj_sense_1. 
+      :blanco_n_10_comp a lexicog:SuperEntryComponent;
+         lexicog:describes :blanco_n_sense_10.  
 
       :blanco_adj ontolex:sense  :blanco_adj_sense_1 . 
       :blanco_n ontolex:sense :blanco_n_sense_10. 
@@ -426,8 +432,27 @@ Other dictionaries list in order the senses of the dictonary entry without any e
 	  </div>
 
     </section>
+    
+    <section>
+	  <h3>subcomponent</h2>
+
+	   <div class='entity'>
+      <h3>subcomponent (Object Property)</h3>
+      <div>
+        <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#subComponent" class="uri">http://www.w3.org/nl/lemon/lexicog#subComponent</a></p>
+      </div>
+      <div class='comment'>
+        <p>The property <strong>subComponent</strong> TO CONTINUE</p>
+      </div>
+      <div class='description'>
+        <p><strong>SubClassOf:</strong> TO CONTINUE</p>
+      </div>
+      </div>
 
 	</section>
+
+	</section>
+	
 
 	<section>
 	  <h2>Usage guidelines</h2>
@@ -484,14 +509,20 @@ Congress, pp. 329–343. 2014.
 
 
 
-<dt id="bib-stolk-onomasiological">[?]</dt>
+<dt id="bib-stolk-onomasiological">[13]</dt>
 <dd> S. Stolk, <cite>"OntoLex and Onomasiological Ordering: Supporting Topical Thesauri"</cite> in Proc. of the LDK2017 Workshops, NUI Galway, Ireland, 18 June (pp. 60–67), 2017.
 
-<dt id="bib-elmaarouf-verbs">[?]</dt>
+<dt id="bib-elmaarouf-verbs">[14]</dt>
 <dd> I. El Maarouf, J. Bradbury, and P. Hanks, <cite>"PDEV-lemon: a Linked Data implementation of the Pattern Dictionary of English Verbs based on the Lemon model"</cite>. In 3rd Workshop on Linked Data in Linguistics: Multilingual Knowledge Resources and Natural Language Processing (p. 88). 2014.
 
-<dt id="bib-kahn-citations">[?]</dt>
+<dt id="bib-kahn-citations">[15]</dt>
 <dd> F. Khan and F. Boschetti, <cite>"Towards a Representation of Citations in Linked Data Lexical Resources"</cite> In proc. of the XVIII EURALEX International Congress (EURALEX 2018). 2018
+
+<dt id="american-heritage-dict">[16]</dt>
+<dd><cite>animal. American Heritage Dictionary. Houghton Mifflin Harcourt, 1994.</cite> Last accessed 28.10.18. 
+
+<dt id="RAE-dict">[17]</dt>
+<dd><cite>blanco. Diccionario de la Lengua Española (DLE). Versión electrónica de la 23. Edición. December 2017.</cite> Last accessed 28.10.18. 
 
 
 </body>
