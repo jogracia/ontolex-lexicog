@@ -371,7 +371,7 @@ This same approach can be applied to capture the sense order in the previous exa
 		<pre><code>
 
       :myDictionary a lexicog:LexicographicResource ;
-	 dct:language &quot;en&quot; ;
+	 dct:language "en";
          lexicog:superEntry :animal_n_adj.
       :myLexicon a lime:Lexicon;
          lime:entry :animal_n, :animal_adj.
@@ -385,9 +385,9 @@ This same approach can be applied to capture the sense order in the previous exa
          ontolex:isLexicalizedSenseOf :animal_n_2_lc .
 
       :animal_n_1_lc  a ontolex:LexicalConcept:
-	skos:definition &quot;Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)&quot;@en.
+	skos:definition "Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)"@en.
       :animal_n_2_lc  a ontolex:LexicalConcept:
-	skos:definition &quot;An animal organism other than a human, especially a mammal.&quot;@en.
+	skos:definition "An animal organism other than a human, especially a mammal."@en.
 
       :animal_n_adj a lexicog:SuperEntry;
          rdfs:member :animal_n_comp; :animal_adj_comp.
@@ -438,20 +438,89 @@ In the dictionary entry, other dictionaries provide an ordered list of senses wi
     </section>
 
     <section>
-    <h3>FormRestriction</h2>
+    <h3>FormRestriction</h3>
+    
+    There are numerous cases in which a lexicographic record specifies the grammatical features the lemma shows when used in some of its senses. For example, in English, the lemmas <i>good</i>, <i>manner</i>,  <i>air</i> or <i>wood</i> have senses which are usually (or only) attested when the word is used in plural, often indicated with the lemma in plural form, or with an usage note in the dictionary entry. [<cite><a href="#OED-dict-air">17</a></cite>]
+    
+
+<blockquote cite="https://en.oxforddictionaries.com/definition/air">
+<strong>air</strong>
+ <p>n. [...]
+ <p>
+2. An impression of a quality or manner given by someone or something. [...]  
+</p>
+<p style="margin-left: 40px">
+   2.1 <strong>(airs)</strong> An annoyingly affected and condescending manner.
+</p>
+[...]
+
+</blockquote>
+    
+
+<p>      
+    While there are plural nouns which only occur in plural form (e.g. <i>ammends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <i>glassses</i> in the Oxford Dictionaries, in an entry separate from <i>glass</i>, as opposed to its treatment as a sub-sense of a sense of the lemma <i>glass</i> in the Merriam Webster Dictionary, with the annotation  "<i><strong>glasses</strong> plural</i>"). [TO-DO: INSERT LINKS] 
+
+</p>   
+    
+<p>
+There are dictionaries which provide grammatical annotations indicating varying gender in the senses of the same dictionary entry. For example, in Spanish, the lemma <i>policía</i> can be used in feminine or masculine if denoting a police officer, but only in feminine when denoting the police force or administration. Depending on the criteria followed for headword selection during the compilation of the resource, e.g. etymology, in these cases we may find two independent entries or one single entry with senses with different gender restrictions. 
+
+</p>
+    
+The <tt>lexicog:FormRestriction</tt> class is intended to provide a way to specify, from an external catalogue of linguitic data categories, the required (set of) grammatical features of a lemma when used in a specific <tt>ontolex:LexicalSense</tt>. 
+     
 
      <div class='entity'>
       <h3>FormRestriction (class)</h3>
       <div>
-        <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#subComponent" class="uri">http://www.w3.org/nl/lemon/lexicog#subComponent</a></p>
+        <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#FormRestriction" class="uri">http://www.w3.org/nl/lemon/lexicog#FormRestriction</a></p>
       </div>
       <div class='comment'>
-        <p>The class <strong>FormRestriction</strong> represents bla bla bla</p>
+        <p>The class <strong>FormRestriction</strong> represents (a set of) grammatical features of a lemma when used in a specific <tt>ontolex:LexicalSense</tt></p>. 
       </div>
       <div class='description'>
         <p><strong>SubClassOf:</strong> TO CONTINUE</p>
       </div>
       </div>
+
+
+The following example is the RDF representation of the above mentioned sense of "air". For the sake of simplicity, we do not account for sense hierarchy in this example (see section [POINTER TO SUBCOMPONENT PROPERTY SECTION FOR SENSE HIERARCHY INFO], and hence we do not instantiate lexicog:SuperEntry or lexicog:SuperEntryComponents here. 
+
+<div class='beispiel'>
+		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
+		<div>
+		<pre><code>
+
+:air_n a ontolex:LexicalEntry;
+   ontolex:sense :air_n_sense_2, :air_n_sense_2-1; 
+   ontolex:canonicalForm :air_n_form . 
+   
+:air_n_form a ontolex:Form;
+   ontolex:writtenRep "air"@en;
+   lexinfo:number lexinfo:singular. 
+   
+
+:air_n_sense_2 a ontolex:LexicalSense; 
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_lc . 
+:air_n_sense_2-1 a ontolex:LexicalSense; 
+   ontolex:isLexicalizedSenseOf :air_n_sense_2-1_lc ;
+   lexicog:restrictedTo :air_n_formRes. 
+   
+:air_n_formRes a lexicog:FormRestriction ;
+   lexinfo:number lexinfo:plural .    
+   
+:air_n_sense_2_lc a ontolex:LexicalConcept;
+   skos:definition "An impression of a quality or manner given by someone or something"@en. 
+   
+:air_n_sense_2-1_lc a ontolex:LexicalConcept;
+   skos:definition "An annoyingly affected and condescending manner"@en. 
+   
+
+    </code></pre>
+		</div>
+	  </div>
+
+
 
   </section>
 
@@ -546,6 +615,25 @@ In the dictionary entry, other dictionaries provide an ordered list of senses wi
 
 </section>
 
+<section>
+	  <h3>restrictedTO</h2>
+
+	   <div class='entity'>
+      <h3>subcomponent (Object Property)</h3>
+      <div>
+        <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#subComponent" class="uri">http://www.w3.org/nl/lemon/lexicog#subComponent</a></p>
+      </div>
+      <div class='comment'>
+        <p>The property <strong>subComponent</strong> TO CONTINUE</p>
+      </div>
+      <div class='description'>
+        <p><strong>SubClassOf:</strong> TO CONTINUE</p>
+      </div>
+      </div>
+
+
+</section>
+
 
 
 	</section>
@@ -620,6 +708,9 @@ Congress, pp. 329–343. 2014.
 
 <dt id="RAE-dict">[17]</dt>
 <dd><cite>blanco. Diccionario de la Lengua Española (DLE). Versión electrónica de la 23. Edición. December 2017.</cite> Last accessed 28.10.18.
+
+<dt id="OED-dict-air">[17]</dt>
+<dd><cite>air. Oxford English Living Dictionaries Online. </cite> Last accessed 01.11.18. https://en.oxforddictionaries.com/definition/air
 
 
 </body>
