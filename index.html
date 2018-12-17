@@ -212,7 +212,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	  The following diagram depicts the OntoLex Lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information describing lexical elements as found in dictionaries (shaded in orange).
 
     <figure>
-        <img src="img/ontolex-lexicography-2018-10.png" title="ontolex-lexicography-2018-10.png" alt="ontolex-lexicography-2018-10.png" ><figcaption>Lemon_Lexicography_Module.png</figcaption>
+        <img src="img/ontolex-lexicography-module_v.3.png" title="ontolex-lexicography-module_v.3.png" alt="ontolex-lexicography-2018-10.png" ><figcaption>Lemon_Lexicography_Module.png</figcaption>
     </figure>
 
 
@@ -265,8 +265,12 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	  </div>
 	 </section>
 
+
+
+
+
 	  <section>
-	  <h3>Super Entry</h3>
+	  <h3>Entry</h3>
 
 
     <p>The lack of a one-to-one mapping from a dictionary entry to a <tt>ontolex:LexicalEntry</tt> referred above often translates into a situation in which a structure in the original resource needs to be split into several <tt>ontolex:LexicalEntr[ies]</tt> for the resulting resource to be OntoLex-compliant. For example, we find this scenario in dictionaries that do not make a dictionary entry split in terms of the part-of-speech of a word. In these resources, the senses of a (polysemous) word are bundled together under the same dictionary entry even though they depend on different parts-of-speech. In these cases, these may be given as annotations just before the sense, e.g. <i>(n.)</i>, especially in non-digitally born resources. We can find this configuration also in dictionary entries that take different parts of speech depending on its syntactic behavior (e.g. adjective and adverb) without meaning change. </p>
@@ -277,20 +281,42 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
 
     <div class='entity'>
-    <h3>Super Entry (Class)</h3>
+    <h3>Entry (Class)</h3>
     <div>
-      <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#SuperEntry" class="uri">http://www.w3.org/nl/lemon/lexicog#SuperEntry</a></p>
+      <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#SuperEntry" class="uri">http://www.w3.org/nl/lemon/lexicog#Entry</a></p>
     </div>
     <div class='comment'>
       <p>A <strong>super entry</strong> is a structural element that represents a lexicographic article or record as it is arranged in a source lexicographic resource (not converted to RDF). As such, it supports the description of lexical entries according to the lexicographic micro-structure, decided upon during a lexicographic resource compilation process. It is a collection of lexicog:SuperEntryComponents, arranged or not in a specific order. </p>
     </div>
     <div class='description'>
-      <p><strong>SubClassOf:</strong> rdfs:Container</p>
+      <p><strong>SubClassOf:</strong> Lexicographic Component</p>
     </div>
     </div>
 	  </section>
 
     <section>
+    <h3>entry</h3>
+
+
+ <div id="entry" class="entity">
+ <h3 id="entry-object-property">Entry (Object Property)<a class="self-link" aria-label="§" href="#describes-object-property"></a></h3>
+ <div>
+ <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#describes" class="uri">http://www.w3.org/ns/lemon/lexicog#entry</a></p>
+ </div>
+ <div class="comment">
+ <p>The property <strong>entry</strong> relates a BLA BLA </p>
+ </div>
+ <div class="description">
+ <p><strong>Domain</strong>: LexicographicResource</p>
+ <p><strong>Range</strong>: Entry</p>
+ </div>
+ </div>
+
+ </section>
+
+
+
+    <!-- <section>
     <h3>supEntry [to-discuss@Leiden]</h2>
      <div class='entity'>
       <h3>supEntry (Object Property)</h3>
@@ -305,9 +331,9 @@ Modelling existing dictionaries as linked data can be done by first extracting t
       </div>
       </div>
 
-    </section>
+    </section> -->
 
-    <section>
+    <!-- <section>
     <h3>entry [to-discuss@Leiden]</h3>
      <div class='entity'>
       <h3>describes (Object Property)</h3>
@@ -323,8 +349,8 @@ Modelling existing dictionaries as linked data can be done by first extracting t
       </div>
       </section>
 
-    <section>
-      <h3>SuperEntryComponent</h3>
+    <section> -->
+      <h3>LexicographicComponent</h3>
 
       <p>SuperEntry is intended to fulfill a structural function so as to serve as counterpart of a lexicographic record in a resource, which may or may not be straightly mapped into <tt>ontolex:LexicalEntries</tt>. However, these lexicographic records often contain sub-structures to refer to senses, sense groups, or nested entries. In an analogy to <a href="https://www.w3.org/ns/csvw"> W3C's CSVW vocabulary </a>, where a <tt>csvw:Table</tt> consists of <tt>csvw:Row(s)</tt> and <tt>csvw:Column(s)</tt>, we can state that <tt>lexicog:SuperEntry</tt> also contains structural components, namely, <tt>lexicog:SuperEntryComponents</tt>. These components can refer to <tt>ontolex:LexicalSenses</tt> or <tt>ontolex:LexicalEntries</tt>, depending on the arrangement in the lexicographic resource. Components can in turn be arranged in a specific order and/or hierarchy, if desired, or just declared to be part of a <tt>lexicog:SuperEntry</tt>. <p>
 
