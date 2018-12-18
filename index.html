@@ -527,21 +527,21 @@ There are cases in which lexicographic components are arranged in a particular h
     <section>
     <h3>describes</h3>
 
-    Since <tt>lexicog:SuperEntryComponents</tt> fulfill a structural function to reflect the arrangment of the descriptions provided in a lexicographic resource (order, hierarchy, grouping, etc.), they do not encode lexical content themselves. This is accounted for by OntoLex elements, which are <i>decribed</i> by the components. This is grounded on the idea that a lexicographic resource describes the lexicon of a language (set of languages, dialect, field of study, etc.) following different criteria, e.g. the intended use of the resource, lexicographic tradition, etc. which can affect the description of the lexical content, leading to, for instance, two different resources describing the same lexicon differently.
+    Since <tt>lexicog:LexicographicComponents</tt> fulfill a structural function to reflect the arrangment of the descriptions provided in a lexicographic resource (order, hierarchy, grouping, etc.), they do not encode lexical content themselves. This is usually accounted for by OntoLex elements, which are <i>described</i> by the components. This is grounded on the idea that a lexicographic resource describes the lexicon of a language (set of languages, dialect, field of study, etc.) following different criteria, e.g. the intended use of the resource, lexicographic tradition, etc. which can affect the description of the lexical content, leading to, for instance, two different resources describing the same lexicon differently. However, theoretically a component could describe any information provided in the resource, so the range remains unspecified. 
 
-    The property <tt>lexicog:describes</tt> allows to link components to the Ontolex core elements that encode lexical data:
+    The property <tt>lexicog:describes</tt> allows to link <tt>lexicog:LexicographicComponents</tt> to the Ontolex core elements that capture lexical data:
 
 <div id="describes" class="entity">
-<h3 id="subterm-object-property">Describes (Object Property)<a class="self-link" aria-label="§" href="#describes-object-property"></a></h3>
+<h3 id="describes-object-property">Describes (Object Property)<a class="self-link" aria-label="§" href="#describes-object-property"></a></h3>
 <div>
 <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#describes" class="uri">http://www.w3.org/ns/lemon/lexicog#describes</a></p>
 </div>
 <div class="comment">
-<p>The property <strong>describes</strong> relates a BLA BLA </p>
+<p>The property <strong>describes</strong> relates a lexicographic component to any element of the lexical </p>
 </div>
 <div class="description">
-<p><strong>Domain</strong>: SuperEntryComponent</p>
-<p><strong>Range</strong>: LexicalEntry and LexicalSense</p>
+<p><strong>Domain</strong>: LexicographicComponent</p>
+<p><strong>Range</strong>: </p>
 </div>
 </div>
 
