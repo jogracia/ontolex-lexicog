@@ -207,8 +207,8 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
 
     <section>
-    
-      <!-- we need to include cardinality restrictions if any -- check that 
+
+      <!-- we need to include cardinality restrictions if any -- check that
 
     </section> -->
       <h2>Lexicography Module (<i>lexicog</i>)</h2>
@@ -295,12 +295,12 @@ Modelling existing dictionaries as linked data can be done by first extracting t
     </div>
     </div>
     </section>
-  
+
    <section>
   <h3>entry</h3>
 
-  A the lexical layer, a <tt>lime:Lexicon</tt> contains <tt>lime:Entr[ies]</tt>. In the same way, <tt>lexicog:LexicographicResources</tt> are arranged around entries or records, the property <tt>lexicog:entry</tt> relates the class representing the resource to the actual record. 
-  
+  A the lexical layer, a <tt>lime:Lexicon</tt> contains <tt>lime:Entr[ies]</tt>. In the same way, <tt>lexicog:LexicographicResources</tt> are arranged around entries or records, the property <tt>lexicog:entry</tt> relates the class representing the resource to the actual record.
+
 
  <div id="entry" class="entity">
  <h3 id="entry-object-property">Entry (Object Property)<a class="self-link" aria-label="§" href="#entry-object-property"></a></h3>
@@ -355,7 +355,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
     <section> -->
     <section>
-    
+
     <h3>Lexicographic Component</h3>
 
       <p>Entry is intended to fulfill a structural function so as to serve as counterpart of a lexicographic record in a resource, which may or may not be straightly mapped into <tt>ontolex:LexicalEntries</tt>. However, these lexicographic records often contain sub-structures to refer to senses, sense groups, or nested entries. In an analogy to <a href="https://www.w3.org/ns/csvw"> W3C's CSVW vocabulary </a>, where a <tt>csvw:Table</tt> consists of <tt>csvw:Row(s)</tt> and <tt>csvw:Column(s)</tt>, we can state that there are structural components in a lexicographic resource, <tt>lexicog:LexicographicComponents</tt> that can describe <tt>ontolex:LexicalSenses</tt> or <tt>ontolex:LexicalEntries</tt>, depending on the arrangement in the lexicographic resource. Components can in turn be arranged in a specific order and/or hierarchy, if desired, or just be declared to be part of a <tt>lexicog:Entry</tt>. <p>
@@ -408,7 +408,7 @@ Here we can detect two different <tt>ontolex:LexicalEntries</tt> grouped togethe
       :myDictionary a lexicog:LexicographicResource ;
 	 dct:language &quot;en&quot; ;
          lexicog:entry :animal_n_adj.
-       
+
       :myLexicon a lime:Lexicon;
          lime:entry :animal_n, :animal_adj.
 
@@ -500,12 +500,12 @@ In the dictionary entry, other dictionaries provide an ordered list of senses wi
 		</div>
 	  </div>
     </section>
-    
+
 
     <section>
- 
-    <h3>subComponent</h3> 
-    
+
+    <h3 id=subComponent>subComponent</h3>
+
 There are cases in which lexicographic components are arranged in a particular hierarchy: a dictionary entry may include a list of senses (even with sub-senses) or sub-entries. If the exact order in which these components are arragend is not to be reflected in the RDF representation, the <tt>lexicog:subComponent</tt> property serves to encode the hierarchical arrangement.
 
 <div id="subComponent" class="entity">
@@ -521,13 +521,13 @@ There are cases in which lexicographic components are arranged in a particular h
 <p><strong>Range</strong>: Lexicographic Component</p>
 <p><strong>SubClassOf:</strong> rdfs:member</p>
 </div>
-</div>     
+</div>
 </section>
 
     <section>
     <h3>describes</h3>
 
-    Since <tt>lexicog:LexicographicComponents</tt> fulfill a structural function to reflect the arrangment of the descriptions provided in a lexicographic resource (order, hierarchy, grouping, etc.), they do not encode lexical content themselves. This is usually accounted for by OntoLex elements, which are <i>described</i> by the components. This is grounded on the idea that a lexicographic resource describes the lexicon of a language (set of languages, dialect, field of study, etc.) following different criteria, e.g. the intended use of the resource, lexicographic tradition, etc. which can affect the description of the lexical content, leading to, for instance, two different resources describing the same lexicon differently. However, theoretically a component could describe any information provided in the resource, so the range remains unspecified. 
+    Since <tt>lexicog:LexicographicComponents</tt> fulfill a structural function to reflect the arrangment of the descriptions provided in a lexicographic resource (order, hierarchy, grouping, etc.), they do not encode lexical content themselves. This is usually accounted for by OntoLex elements, which are <i>described</i> by the components. This is grounded on the idea that a lexicographic resource describes the lexicon of a language (set of languages, dialect, field of study, etc.) following different criteria, e.g. the intended use of the resource, lexicographic tradition, etc. which can affect the description of the lexical content, leading to, for instance, two different resources describing the same lexicon differently. However, theoretically a component could describe any information provided in the resource, so the range remains unspecified.
 
     The property <tt>lexicog:describes</tt> allows to link <tt>lexicog:LexicographicComponents</tt> to the Ontolex core elements that capture lexical data:
 
@@ -579,6 +579,11 @@ There are dictionaries which provide grammatical annotations indicating varying 
 
 The <tt>lexicog:FormRestriction</tt> class is intended to provide a way to specify, from an external catalogue of linguitic data categories, the required (set of) grammatical features of a lemma when used in a specific <tt>ontolex:LexicalSense</tt>.
 
+<!--
+[TO CHECK: the word "restriction" here evokes a `reduction' of the number of features, but in some cases a sense may occur in feminine and masculine in a sense, and only in masculine in the rest of the list (e.g. ratón, ratona (mouse)). Where does the restriction go?]
+<section> -->
+
+
 
      <div class='entity'>
       <h3>FormRestriction (class)</h3>
@@ -594,7 +599,7 @@ The <tt>lexicog:FormRestriction</tt> class is intended to provide a way to speci
       </div>
 
 
-The following example is the RDF representation of the above mentioned sense of "air". For the sake of simplicity, we do not account for sense hierarchy in this example (see section [POINTER TO SUBCOMPONENT PROPERTY SECTION FOR SENSE HIERARCHY INFO], and hence we do not instantiate lexicog:SuperEntry or lexicog:SuperEntryComponents here.
+The following example is the RDF representation of the above mentioned sense of "air". For the sake of simplicity, we do not account for sense hierarchy in this example (see <a href="#subComponent"> section 2.5</a>, and hence we do not instantiate <tt>lexicog:LexicographicComponents</tt> here.
 
 <div class='beispiel'>
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
@@ -608,7 +613,6 @@ The following example is the RDF representation of the above mentioned sense of 
 :air_n_form a ontolex:Form;
    ontolex:writtenRep "air"@en;
    lexinfo:number lexinfo:singular.
-
 
 :air_n_sense_2 a ontolex:LexicalSense;
    ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
@@ -632,6 +636,7 @@ The following example is the RDF representation of the above mentioned sense of 
   </section>
 
   <section>
+
   <h3>restrictedTo</h3>
 
 The <tt>lexicog:restrictedTo</tt> allows to relate an <tt>ontolex:LexicalSense</tt> to its <tt>lexicog:FormRestriction</tt>, if any:
@@ -656,7 +661,7 @@ The <tt>lexicog:restrictedTo</tt> allows to relate an <tt>ontolex:LexicalSense</
   <section>
   <h3>UsageExample</h3>
 
-There are occasions in lexicographic recodrs also include example of use of an entry in each of its senses. While these examples can be captured as <tt>skos:examples</tt> of <tt>ontolex:LexicalConcept(s)</tt>, sometimes there is more information about the example beyond the text itself. For instance, a bilingual dictionary such as Word Reference can include, for a sense, a usage example and a translation of the usage example in the target language:
+There are occasions in lexicographic records also include example of use of an entry in each of its senses. While these examples can be captured as <tt>skos:examples</tt> of <tt>ontolex:LexicalConcept(s)</tt>, sometimes there is more information about the example beyond the text itself. For instance, a bilingual dictionary such as Word Reference [INSERT BIB] can include, for a sense, a usage example and a translation of the usage example in the target language:
 
 
 <blockquote cite="https://www.wordreference.com/es/translation.asp?tranword=monastery">
@@ -677,7 +682,7 @@ There are occasions in lexicographic recodrs also include example of use of an e
 
 </blockquote>
 
-The class <tt>lexicog:example</tt> is intentended to represent a single example as a resouce in order to be able to link it to any other information related to it provided in the lexicographic resource, from translations to usage notes:
+The class <tt>lexicog:UsageExample</tt> is intentended to represent a single example as a resouce in order to be able to link it to any other information related to it provided in the lexicographic resource, from translations to usage notes:
 
 <div class='beispiel'>
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
@@ -765,13 +770,9 @@ Im those cases in which it is necessary to instantiate a <tt>lexicog:UsageExampl
 </div>
 
 </section>
-
-
 </section>
 
-</section>
-
-	</section>
+<!--
 
 
 	<section>
@@ -780,6 +781,7 @@ Im those cases in which it is necessary to instantiate a <tt>lexicog:UsageExampl
 	  TBC
 
 	</section>
+   -->
 
 	<h2>Acknowledgements</h2>
 
