@@ -189,12 +189,11 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 		@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt;.
 		@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;.
 		@prefix skos: &lt;http://www.w3.org/2004/02/skos#&gt;.
-		<!-- @prefix dbr: &lt;http://dbpedia.org/resource/&gt;.
-		@prefix dbo: &lt;http://dbpedia.org/ontology/&gt;. -->
 		@prefix void: &lt;http://rdfs.org/ns/void#&gt;. 
 		@prefix lexinfo: &lt;http://www.lexinfo.net/ontology/2.0/lexinfo#&gt;.
 		@prefix dct: &lt;http://purl.org/dc/terms/&gt;.
-		<!-- @prefix provo: &lt;http://www.w3.org/ns/prov#&gt;.--></code>
+		<!-- @prefix provo: &lt;http://www.w3.org/ns/prov#&gt;.--><!-- @prefix dbr: &lt;http://dbpedia.org/resource/&gt;.
+		@prefix dbo: &lt;http://dbpedia.org/ontology/&gt;. --></code>
   	   </pre>
 	  </p>
 	  </section>
@@ -254,7 +253,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
     <p>In addition to bundling together lexical entries with different parts of speech, an entry in a lexicographic resource can also be composed of other (sub-)structures arranged in a particular order or hierarchy, such as senses, nested entries, etc. </p>
 -->
-    <p>The class <a href="#Entry">Entry</a> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by lexicographers (supported by the occurrences of the word in the corpus used for dictionary compilation). This class is thus intended to be the counterpart of the lemon lexical entry in the linked data representation of a dictionary, and fulfills a structural function. Although there are no features differentiating an <a href="#Entry">Entry</a> from its parent class, <a href="#LexicographicComponent">Lexicographic Component</a>, the former is used as the root of the lexicographic record and its role as core of the resource facilitates human readability of the RDF representation of the entry structure. </p>
+    <p>The class <a href="#Entry">Entry</a> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by lexicographers (supported by the occurrences of the word in the corpus used for dictionary compilation). This class is thus intended to be the counterpart of the lemon lexical entry in the linked data representation of a dictionary, and fulfills a structural function. <!-- Although there are no features differentiating an <a href="#Entry">Entry</a> from its parent class, <a href="#LexicographicComponent">Lexicographic Component</a>, the former is used as the root of the lexicographic record and its role as core of the resource facilitates human readability of the RDF representation of the entry structure. </p> -->
 
     <div id="Entry" class='entity'>
     <h3>Entry (Class)</h3>
@@ -273,7 +272,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
    <section>
   <h3>entry</h3>
 
-  The property <a href="#entry">entry</a> relates the class representing the <a href="#LexicographicResources">lexicographic resource</a> to the actual <a href="#Entry">entry</a> (or 'record' in the literature). This property is a counterpart for <tt>lime:entry</tt>, which relates <tt>lime:Lexicon</tt> to <tt>ontolex:LexicalEntry</tt>. 
+  The property <a href="#entry">entry</a> relates an instance of the class representing the <a href="#LexicographicResource">lexicographic resource</a> to the actual <a href="#Entry">entry</a> (or 'record' in the literature). This property is a counterpart for <tt>lime:entry</tt>, which relates <tt>lime:Lexicon</tt> to <tt>ontolex:LexicalEntry</tt>. 
 
 
  <div id="entry" class="entity">
@@ -290,7 +289,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
  </div>
  </div>
 
-  <p>A simple example of an <a href="#Entry">entry</a> belonging to a <a href="#LexicographicResource">lexicographic resource</a> in English is given below. In this example, a dictionary provides one single dictionary entry for the word <i>good</i>, compressing its noun, adjective and (colloquial) adverb definitions under one same structure. This is not compliant with the definition of <tt>ontolex:LexicalEntry</tt>, which requires a single part of speech. Therefore, a <tt>lime:Lexicon</tt> accounting for the lexical information in this dictionary will contain three lexical entries, one per part of speech. On the other hand, an instance of the <a href="#LexicographicResource"> Lexicographic Resource </a> class will gather entities <i>as they were presented in the original dictionary</i> in order to keep track of the of original representation. In this example, <i>good</i> will be the only entry of the lexicographic resource.   
+  <p>A simple example of an <a href="#Entry">entry</a> belonging to a <a href="#LexicographicResource">lexicographic resource</a> in English is given below. In this example, a dictionary provides one single dictionary entry for the word <i>animal</i>, compressing its noun and adjective definitions under one same structure. This is not compliant with the definition of <tt>ontolex:LexicalEntry</tt>, which requires a single part of speech. Therefore, a <tt>lime:Lexicon</tt> accounting for the lexical information in this dictionary will contain two lexical entries, one per part of speech. On the other hand, an instance of the <a href="#LexicographicResource"> Lexicographic Resource </a> class will gather entities <i>as they were presented in the original dictionary</i> in order to keep track of the original representation. In this example, <i>animal</i> will be the only entry of the lexicographic resource.   
   </p> 
   
   <!--While in this example <tt>:person_n</tt> and <tt>:animal_n</tt> are lexical entries compliant to the <tt>ontolex:LexicalEntry</tt> definition, a dictionary may provide only one single dictionary entry for the word <i>good</i>, compressing its noun, adjective and (colloquial) adverb definitions under one same structure. While the generated <tt>lime:Lexicon</tt> will contain entries with one single part of speech, following the <i>lemon</i> model, the <tt>lexicog:LexicographicResource</tt> instance will gather entities <i>as they were presented in the original lexicographic resource</i> in order to keep track of the of original representation in its RDF version:</p> -->
@@ -300,22 +299,21 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 		<div>
 		<pre><code>
      <!-- :person_n a ontolex:LexicalEntry .
-      :person_n_entry a lexicog:Entry .
+      :person_n_entry a lexicog:Entry . -->
       :animal_n a ontolex:LexicalEntry .
-      :animal_n_entry a lexicog:Entry . -->
-      :good_adj a ontolex:LexicalEntry.
+	  :animal_adj a ontolex:LexicalEntry .
+      :animal_n_entry a lexicog:Entry . 
+    <!--  :good_adj a ontolex:LexicalEntry.
       :good_adv a ontolex:LexicalEntry .
       :good_n a ontolex:LexicalEntry .
-      :good_entry a lexicog:Entry .
-	  <!-- renombro :good_adj_n_adv_entry -> :good_entry poe simplicidad --> 
-
+      :good_adj_n_adv_entry a lexicog:Entry . -->
       :myDictionary a lexicog:LexicographicResource ;
-	       dct:language &quot;en&quot; ;
-	       lexicog:entry <!--:person_n_entry, :animal_n_entry, --> :good_entry .
+	    dct:language &quot;en&quot; ;
+	    lexicog:entry :animal_entry .
 
       :myLexicon a lime:Lexicon;
-         lime:entry <!-- :person_n, :animal_n, --> :good_n, :good_adj, :good_adv .
-
+	    lime:language &quot;en&quot; ;
+	    lime:entry  :animal_n, :animal_adj .
     </code></pre>
 		</div>
 	  </div>
@@ -363,7 +361,11 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
     <h3>Lexicographic Component</h3>
 
-      <p>Entry is intended to fulfill a structural function so as to serve as counterpart of a lexicographic record in a resource, which may or may not be straightly mapped into <tt>ontolex:LexicalEntries</tt>. However, these lexicographic records often contain sub-structures to refer to senses, sense groups, or nested entries. In an analogy to <a href="https://www.w3.org/ns/csvw"> W3C's CSVW vocabulary </a>, where a <tt>csvw:Table</tt> consists of <tt>csvw:Row(s)</tt> and <tt>csvw:Column(s)</tt>, we can state that there are structural components in a lexicographic resource, <tt>lexicog:LexicographicComponents</tt> that can describe <tt>ontolex:LexicalSenses</tt> or <tt>ontolex:LexicalEntries</tt>, depending on the arrangement in original resource. Components can in turn be arranged in a specific order and/or hierarchy, if desired, or just be declared to be part of a <tt>lexicog:Entry</tt>. Lexicographic components do not necessarily decribe lexical data but can often fulfill a grouping function to gather other compoments that do. This makes <tt>lexicog:LexicographicComponents</tt> semantically weak but structurally strong.<p>
+	 <p>A <a href="#LexicographicComponent">lexicographic component</a> is a structural element in the <a href="#LexicographicResource">lexicographic resource</a> that represents either a lexicographic record or any other sub-structure to refer to senses, sense groups, or nested entries. Lexicographic components do not necessarily describe lexical data but can often fulfill a grouping function to gather other components that do. <a href="#Entry">Entry</a> is a particular subclass of <a href="#LexicographicComponent">Lexicographic Component</a> used to represent the main "entry point" in the dictionary, i.e., the root of the lexicographic record.   
+	 The <a href="#LexicographicComponent">lexicographic components</a> can describe lexical senses (<tt>ontolex:LexicalSense</tt>) or lexical entries (<tt>ontolex:LexicalEntry</tt>), depending on the arrangement in the original resource. Components can in turn be arranged in a specific order and/or hierarchy or just be declared to be part of an <a href="#Entry">entry</a>. </p>
+	
+     <!-- <p>Entry is intended to fulfill a structural function so as to serve as counterpart of a lexicographic record in a resource, which may or may not be straightly mapped into <tt>ontolex:LexicalEntries</tt>. However, these lexicographic records often contain sub-structures to refer to senses, sense groups, or nested entries. In an analogy to <a href="https://www.w3.org/ns/csvw"> W3C's CSVW vocabulary </a>, where a <tt>csvw:Table</tt> consists of <tt>csvw:Row(s)</tt> and <tt>csvw:Column(s)</tt>, 
+	 We can state that there are structural components in a lexicographic resource, <tt>lexicog:LexicographicComponents</tt> that can describe <tt>ontolex:LexicalSenses</tt> or <tt>ontolex:LexicalEntries</tt>, depending on the arrangement in original resource. Components can in turn be arranged in a specific order and/or hierarchy, if desired, or just be declared to be part of a <tt>lexicog:Entry</tt>. Lexicographic components do not necessarily decribe lexical data but can often fulfill a grouping function to gather other compoments that do. This makes <tt>lexicog:LexicographicComponents</tt> semantically weak but structurally strong.<p> --> 
 
         <div id="LexicographicComponent" class='entity'>
       <h3>Lexicographic Component (Class)</h3>
@@ -400,15 +402,16 @@ adj.
 <p>
 </blockquote>
 
-Here we can detect two different <tt>ontolex:LexicalEntries</tt> grouped together in the same lexicographic record, each with a sense ordering.  If this exact lexicographic record were to be recreated with the <i>lexicog</i> vocabulary, we would have the following RDF triples:
+Here we can detect two different <tt>ontolex:LexicalEntries</tt> grouped together in the same lexicographic record, each with a sense ordering. If this exact lexicographic record were to be recreated with the <i>lexicog</i> vocabulary, we would have the following RDF triples, which extends our previous example with some additional information about the lexicographic components. Notice that we can capture the sense ordering by simply using the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>:
 
+<!-- MOVER MAS ABAJO; CUANDO YA SE HAYA PRESENTADO subcomponent
  <div class='beispiel'>
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
 		<div>
 		<pre><code>
       :animal_n a ontolex:LexicalEntry .
       :animal_adj ontolex:LexicalEntry.
-      :animal_n_adj a lexicog:Entry.
+      :animal_entry a lexicog:Entry.
 
       :myDictionary a lexicog:LexicographicResource ;
 	 dct:language &quot;en&quot; ;
@@ -428,6 +431,37 @@ Here we can detect two different <tt>ontolex:LexicalEntries</tt> grouped togethe
     </code></pre>
 		</div>
 	  </div>
+-->
+
+ <div class='beispiel'>
+		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>
+		<div>
+		<pre><code>
+    :animal_n a ontolex:LexicalEntry .
+    :animal_adj ontolex:LexicalEntry.
+    :animal_entry a lexicog:Entry.
+
+    :myDictionary a lexicog:LexicographicResource ;
+       dct:language &quot;en&quot; ;
+       lexicog:entry :animal_n_adj.
+
+    :myLexicon a lime:Lexicon;
+       lime:language &quot;en&quot; ;
+       lime:entry :animal_n, :animal_adj.
+
+    :animal_entry rdf:_1 :animal_n_comp; 
+       rdf:_2 :animal_adj_comp.
+
+    :animal_n_comp a lexicog:LexicographicComponent;
+       lexicog:describes :animal_n .
+    :animal_adj_comp a lexicog:LexicographicComponent;
+       lexicog:describes :animal_adj.
+
+    </code></pre>
+		</div>
+	  </div>
+
+
 
 <div class="note"><p>
 	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries.  If a dictionary describes <i>animal </i>(adj.) and <i>animal</i> (n.) in different records, the instantiation of lexicog:Entry would suffice. Alternatively, if this exact arrangement is not to be transfered to the RDF representation, the approach would not be necessary.
