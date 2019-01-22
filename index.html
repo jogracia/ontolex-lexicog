@@ -322,7 +322,7 @@ adj.
  
  
   
-  <p>In this example, a dictionary provides one single dictionary entry for the word <i>animal</i>, compressing its noun and adjective definitions under one same structure. This is not compliant with the definition of <tt>ontolex:LexicalEntry</tt>, which requires a single part of speech. Therefore, a <tt>lime:Lexicon</tt> accounting for the lexical information in this dictionary will contain two lexical entries, one per part of speech. On the other hand, an instance of the <a href="#LexicographicResource"> Lexicographic Resource </a> class will gather entities <i>as they were presented in the original dictionary</i> in order to keep track of the original representation. In this example, <i>animal</i> will be the only entry of the lexicographic resource:
+  <p>In this example, a dictionary provides one single dictionary entry for the word <i>animal</i>, comprising its noun and adjective definitions under one same structure. This is not compliant with the definition of <tt>ontolex:LexicalEntry</tt>, which requires a single part of speech. Therefore, a <tt>lime:Lexicon</tt> accounting for the lexical information in this dictionary will contain two lexical entries, one per part of speech. On the other hand, an instance of the <a href="#LexicographicResource"> Lexicographic Resource </a> class will gather entities <i>as they were presented in the original dictionary</i> in order to keep track of the original representation. In this example, <i>animal</i> will be the only entry of the lexicographic resource:
   </p>
 
   <!--While in this example <tt>:person_n</tt> and <tt>:animal_n</tt> are lexical entries compliant to the <tt>ontolex:LexicalEntry</tt> definition, a dictionary may provide only one single dictionary entry for the word <i>good</i>, compressing its noun, adjective and (colloquial) adverb definitions under one same structure. While the generated <tt>lime:Lexicon</tt> will contain entries with one single part of speech, following the <i>lemon</i> model, the <tt>lexicog:LexicographicResource</tt> instance will gather entities <i>as they were presented in the original lexicographic resource</i> in order to keep track of the of original representation in its RDF version:</p> -->
@@ -534,7 +534,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
 	 <!--  DISCUTIR ESTA NOTE -->
 
 <div class="note"><p>
-	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries.  If a dictionary describes <i>animal </i>(adj.) and <i>animal</i> (n.) in different records, the instantiation of lexicog:Entry would suffice. Alternatively, if this exact arrangement is not to be transfered to the RDF representation, this approach would not be necessary.
+	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries. In case that this arrengement is not present in the dictionary or there is no need to represent it in RDF (e.g., <i>animal </i>(adj.) and <i>animal</i> (n.) appear in different records) then the instantiation of lexicog:Entry, without sub-components, would suffice to keep trace of the collection of lexicographic entries contained in the resource. 
 </p></div>
 
 
@@ -571,13 +571,13 @@ The following code extends the previous example by adding more subcomponents tha
     :animal_adj_sense_1 a ontolex:LexicalSense .
     :animal_adj_sense_2 a ontolex:LexicalSense .
 
-    :animal_n_sense_1_comp a a lexicog:LexicographicComponent ;
+    :animal_n_sense_1_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n_sense_1 .
     :animal_n_sense_2_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n_sense_2 .
     :animal_adj_sense_1_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_adj_sense_1 .
-    :animal_adj_sense_2_comp a a lexicog:LexicographicComponent ;
+    :animal_adj_sense_2_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_adj_sense_2 .
 
     :animal_n_comp rdf:_1 :animal_n_sense_1_comp ;
@@ -743,7 +743,7 @@ In our running example, we have represented so far the structural components of 
     <h3 id=subComponent>subComponent</h3>
 
 There are cases in which lexicographic components are arranged in a particular hierarchy: a dictionary entry may include a list of senses (even with sub-senses) or sub-entries. <!--If the exact order in which these components are arragend is not to be reflected in the RDF representation, the <tt>lexicog:subComponent</tt> property serves to encode the hierarchical arrangement.-->
-This can be expressed by means of the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>. In case that one wants to explicitly reflect that this is a hierarchical relation between lexicographic components, the <tt>lexicog:subComponent</tt> property can be used instead of, or in addition to, such RDF container mechanism.  
+This can be expressed by means of the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>. In case that one wants to explicitly reflect that this is a hierarchical relation between lexicographic components, the <tt>lexicog:subComponent</tt> property can be used instead of, or in addition to, such RDF container mechanisms.  
 
 
 <div id="subComponent" class="entity">
@@ -763,7 +763,7 @@ This can be expressed by means of the RDF native mechanisms for <a href="https:/
 </section>
 
 
-As an example, let us re-write a small part of pour previous example to describes that the only entry in our lexical resource has two components, as follows:
+As an example, let us re-write a small part of our previous example to describe that the only entry in our lexical resource has two components, as follows:
 
 	<pre><code>
     
@@ -833,7 +833,7 @@ Julia, replying to myself: I would say the restriction goes on those senses whic
         <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#FormRestriction" class="uri">http://www.w3.org/nl/lemon/lexicog#FormRestriction</a></p>
       </div>
       <div class='comment'>
-        <p>The class <strong>FormRestriction</strong> represents (a set of) grammatical features of a lemma when used in a specific <tt>ontolex:LexicalSense</tt> in cases in which these sense does not occur with all the available <tt>ontolex:Form</tt>(s) of the <tt>ontolex:LexicalEntry</tt>.</p>
+        <p>There are cases in which a specific <tt>ontolex:LexicalSense</tt> does not occur with all the available <tt>ontolex:Form</tt>(s) of the <tt>ontolex:LexicalEntry</tt>. In those cases, the class <strong>FormRestriction</strong> represents (a set of) grammatical features of the <tt>ontolex:Form</tt>(s) in which that sense occurs. The sense does not occur in those forms whose features do not match with those of such a set.</p>
       </div>
       <div class='description'>
         <p><strong>SubClassOf:</strong> owl:Thing</p>
@@ -852,7 +852,7 @@ The <tt>lexicog:restrictedTo</tt> allows to relate an <tt>ontolex:LexicalSense</
 <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#restrictedTo" class="uri">http://www.w3.org/ns/lemon/lexicog#restrictedTo</a></p>
 </div>
 <div class="comment">
-<p>The property <strong>restrictedTo</strong> relates a LexicalSense with a FormRestriction when a lexicographic resource provides information about the specific morphological features of the lemma in that sense.</p>
+<p>The property <strong>restrictedTo</strong> relates a LexicalSense with a FormRestriction when a lexicographic resource provides information about the specific morphological features of the <tt>ontolex:Form</tt> in that sense.</p>
 </div>
 <div class="description">
 <p><strong>Domain</strong>: LexicalSense</p>
@@ -870,14 +870,19 @@ The following example is the RDF representation of the above mentioned sense of 
 
 :air_n a ontolex:LexicalEntry;
    ontolex:sense :air_n_sense_2, :air_n_sense_2_1;
-   ontolex:canonicalForm :air_n_form .
+   ontolex:canonicalForm :air_n_form ;
+   ontolex:otherForm :airs_n_form .
 
- <!-- FALTARIA EL PLURAL NO??? --> 
    
 :air_n_form a ontolex:Form;
    ontolex:writtenRep "air"@en;
    lexinfo:number lexinfo:singular.
 
+:airs_n_form a ontolex:Form;
+   ontolex:writtenRep "airs"@en;
+   lexinfo:number lexinfo:plural.
+
+   
 :air_n_sense_2 a ontolex:LexicalSense;
    ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
 :air_n_sense_2_1 a ontolex:LexicalSense;
@@ -916,7 +921,7 @@ The class <tt>lexicog:UsageExample</tt> is intentended to represent a single exa
        <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#UsageExample" class="uri">http://www.w3.org/nl/lemon/lexicog#UsageExample</a></p>
      </div>
      <div class='comment'>
-       <p>The class <strong>UsageExample</strong> represents a textual example of the usage of a sense in a given lexicographic record.</p>
+       <p>The class <strong>UsageExample</strong> represents a textual example of the usage of a sense in a given lexicographic record. A usage example can group several string values, in which case they will encode the same meaning. Thus, if such values are expressed in different languages, they can be interpreted as translations. </p>
      </div>
      <div class='description'>
        <p><strong>SubClassOf:</strong> rdf:value min 1 xsd:string, owl:Thing </p>
@@ -971,7 +976,7 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 		<div>
 		<pre><code>
 
-##Entries
+# Entries
 :monastery_n a ontolex:LexicalEntry;
    ontolex:sense :monastery_sense_1, :monastery_sense 2.
 :monasterio_n a ontolex:LexicalEntry;
@@ -979,7 +984,7 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 :congregación_n a ontolex:LexicalEntry;
       ontolex:sense :congregación_monastery-sense.
 
-##Senses
+# Senses
 :monastery_n_sense_1 a ontolex:LexicalSense;
    ontolex:isLexicalizedSenseOf :monastery_n_sense_1_lc ;
    lexicog:example :monastery_n_sense_1_ex.
@@ -992,13 +997,13 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 :congregación_monastery-sense a ontolex:LexicalSense;
   ontolex:isLexicalizedSenseOf :monastery_n_sense_2_lc .
 
-## Concepts
+# Concepts
 :monastery_n_sense_1_lc a ontolex:LexicalConcept;
   skos:definition "monk's residence"@en.
 :monastery_n_sense_2_lc a ontolex:LexicalConcept;
      skos:definition "community of monks"@en.
 
-## Translations
+# Translations
 :monastery_n_sense_1-monasterio_monastery-sense-tr a vartrans:Translation;
    vartrans:source :monastery_n_sense_1;
    vartrans:target :monasterio_monastery-sense.
@@ -1006,7 +1011,7 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
   vartrans:source :monastery_n_sense_2;
   vartrans:target :congregación_monastery-sense.
 
-## Examples
+# Examples
 :monastery_n_sense_1_ex a lexicog:UsageExample;
    rdf:value "We visited a Buddhist monastery deep in a jungle."@en;
    rdf:value "Visitamos un monasterio budista en medio de la selva."@es.
