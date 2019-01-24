@@ -1,0 +1,88 @@
+ @prefix :      <#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix lime:  <http://www.w3.org/ns/lemon/lime#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix lexicog: <http://www.w3.org/ns/lemon/lexicog#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+
+
+  :animal_entry a lexicog:Entry .
+    :animal_n a ontolex:LexicalEntry .
+    :animal_adj a ontolex:LexicalEntry .
+
+
+    :myDictionary a lexicog:LexicographicResource;
+       dct:language "en" ;
+       lexicog:entry :animal_entry .
+
+    :myLexicon a lime:Lexicon;
+       lime:language "en" ;
+       lime:entry :animal_n, :animal_adj .
+
+    :animal_entry rdfs:member :animal_n_comp ;
+       rdfs:member :animal_adj_comp .
+	   	   
+    :animal_n_comp a lexicog:LexicographicComponent ;
+       lexicog:describes :animal_n .
+    :animal_adj_comp a lexicog:LexicographicComponent ;
+       lexicog:describes :animal_adj .		
+	
+    :animal_n_sense_1 a ontolex:LexicalSense .
+    :animal_n_sense_2 a ontolex:LexicalSense .
+    :animal_adj_sense_1 a ontolex:LexicalSense .
+    :animal_adj_sense_2 a ontolex:LexicalSense .
+
+    :animal_n_sense_1_comp a lexicog:LexicographicComponent ;
+       lexicog:describes :animal_n_sense_1 .
+    :animal_n_sense_2_comp a lexicog:LexicographicComponent ;
+       lexicog:describes :animal_n_sense_2 .
+    :animal_adj_sense_1_comp a lexicog:LexicographicComponent ;
+       lexicog:describes :animal_adj_sense_1 .
+    :animal_adj_sense_2_comp a lexicog:LexicographicComponent ;
+       lexicog:describes :animal_adj_sense_2 .
+
+    :animal_n_comp rdf:_1 :animal_n_sense_1_comp ;
+	   rdf:_2 :animal_n_sense_2_comp .
+	   
+	:animal_adj_comp rdf:_1 :animal_adj_sense_1_comp ;
+	   rdf:_2 :animal_adj_sense_2_comp .
+	
+	
+	
+	
+	
+	:animal_form a ontolex:Form ;
+	     ontolex:writtenRep "animal"@en .
+	
+	:animal_n ontolex:lexicalForm :animal_form ;
+	    lexinfo:partOfSpeech lexinfo:noun .
+		
+	:animal_adj ontolex:lexicalForm :animal_form ;
+	    lexinfo:partOfSpeech lexinfo:adjective .
+        
+	
+    :animal_n_1_concept  a ontolex:LexicalConcept ;
+		skos:definition "Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)"@en .
+	
+	:animal_n_2_concept  a ontolex:LexicalConcept;
+		skos:definition "An animal organism other than a human, especially a mammal."@en .
+
+	:animal_adj_1_concept  a ontolex:LexicalConcept ;
+		skos:definition "Relating to, characteristic of, or derived from an animal or animals, especially when not human: animal cells; animal welfare."@en .
+	
+	:animal_adj_2_concept  a ontolex:LexicalConcept;
+		skos:definition "Relating to the physical as distinct from the rational or spiritual nature of people: animal instincts and desires."@en .
+	   
+	   
+    :animal_n_sense_1 ontolex:isLexicalizedSenseOf :animal_n_1_concept .
+    :animal_n_sense_2 ontolex:isLexicalizedSenseOf :animal_n_2_concept .
+    :animal_adj_sense_1 ontolex:isLexicalizedSenseOf :animal_adj_1_concept .
+    :animal_adj_sense_2 ontolex:isLexicalizedSenseOf :animal_adj_2_concept .
+

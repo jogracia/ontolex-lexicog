@@ -1,0 +1,42 @@
+@prefix :      <file:///home/labra/#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix lexicog: <http://www.w3.org/ns/lemon/lexicog#> .
+@prefix lime:  <http://www.w3.org/ns/lemon/lime#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+
+# Entries
+:monastery_n a ontolex:LexicalEntry ;
+   ontolex:sense :monastery_sense .
+:monasterio_n a ontolex:LexicalEntry ;
+      ontolex:sense :monasterio_monastery-sense .
+
+# Senses
+:monastery_n_sense a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :monastery_n_sense_concept ;
+   lexicog:example :monastery_n_sense_ex .
+
+:monasterio_monastery-sense a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :monastery_n_sense_concept .
+
+
+# Concepts
+:monastery_n_sense_concept a ontolex:LexicalConcept ;
+  skos:definition "monk's residence"@en .
+
+# Translations
+:monastery_n_sense-monasterio_monastery-sense-tr a vartrans:Translation ;
+   vartrans:source :monastery_n_sense ;
+   vartrans:target :monasterio_monastery-sense .
+
+# Examples
+:monastery_n_sense_ex a lexicog:UsageExample;
+   rdf:value "We visited a Buddhist monastery deep in a jungle."@en;
+   rdf:value "Visitamos un monasterio budista en medio de la selva."@es.

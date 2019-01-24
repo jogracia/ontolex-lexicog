@@ -1,0 +1,45 @@
+@prefix :      <file:///home/labra/#> .
+@prefix void:  <http://rdfs.org/ns/void#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
+@prefix lexicog: <http://www.w3.org/ns/lemon/lexicog#> .
+@prefix lime:  <http://www.w3.org/ns/lemon/lime#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos#> .
+@prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
+
+ :air_n a ontolex:LexicalEntry;
+   ontolex:sense :air_n_sense_2, :air_n_sense_2_1;
+   ontolex:canonicalForm :air_n_form ;
+   ontolex:otherForm :airs_n_form .
+
+   
+:air_n_form a ontolex:Form;
+   ontolex:writtenRep "air"@en;
+   lexinfo:number lexinfo:singular.
+
+:airs_n_form a ontolex:Form;
+   ontolex:writtenRep "airs"@en;
+   lexinfo:number lexinfo:plural.
+
+   
+:air_n_sense_2 a ontolex:LexicalSense;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
+:air_n_sense_2_1 a ontolex:LexicalSense;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2-1_lc ;
+   lexicog:restrictedTo :air_n_formRes.
+
+:air_n_formRes a lexicog:FormRestriction ;
+   lexinfo:number lexinfo:plural .
+
+:air_n_sense_2_lc a ontolex:LexicalConcept;
+   skos:definition "An impression of a quality or manner given by someone or something"@en.
+
+:air_n_sense_2_1_lc a ontolex:LexicalConcept;
+   skos:definition "An annoyingly affected and condescending manner"@en.
+
+
