@@ -13,11 +13,6 @@
 @prefix ontolex: <http://www.w3.org/ns/lemon/ontolex#> .
 
 
-    :animal_entry a lexicog:Entry .
-    :animal_n a ontolex:LexicalEntry .
-    :animal_adj a ontolex:LexicalEntry .
-
-
     :myDictionary a lexicog:LexicographicResource;
        dct:language "en" ;
        lexicog:entry :animal_entry .
@@ -26,8 +21,11 @@
        lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
-    :animal_entry rdfs:member :animal_n_comp ;
-       rdfs:member :animal_adj_comp .
+    :animal_entry a lexicog:Entry .
+    :animal_n a ontolex:LexicalEntry .
+    :animal_adj a ontolex:LexicalEntry .
+	   
+    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n .
@@ -48,8 +46,11 @@
     :animal_adj_sense_2_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_adj_sense_2 .
 
-    :animal_n_comp rdf:_1 :animal_n_sense_1_comp ;
+    :animal_n_comp 
+	   rdf:_1 :animal_n_sense_1_comp ;
 	   rdf:_2 :animal_n_sense_2_comp .
 	   
-	:animal_adj_comp rdf:_1 :animal_adj_sense_1_comp ;
+	:animal_adj_comp
+	   rdf:_1 :animal_adj_sense_1_comp ;
 	   rdf:_2 :animal_adj_sense_2_comp .
+	   

@@ -25,9 +25,7 @@
        lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
- 
-    :animal_entry rdfs:member :animal_n_comp ;
-       rdfs:member :animal_adj_comp .
+    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n .

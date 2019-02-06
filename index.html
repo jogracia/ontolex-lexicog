@@ -116,12 +116,12 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 
 	  <section>
 	  <h3> Background and motivation </h3>
-      <p> The <a href="https://www.w3.org/2016/05/ontolex/"><em>lemon</em> model</a> provides a <a href="https://www.w3.org/2016/05/ontolex/#core">core</a> vocabulary (OntoLex) to represent <em>linguistic information</em> associated to ontology and vocabulary elements. The model follows the principle of <em>semantics by reference</em> in the sense that the semantics of a <a href="https://www.w3.org/2016/05/ontolex/#LexicalEntry">lexical entry</a> is expressed by reference to an individual, class or property defined in an ontology. </p>
+      <p> The <a href="https://www.w3.org/2016/05/ontolex/"><em>lemon</em> model</a> provides a <a href="https://www.w3.org/2016/05/ontolex/#core">core</a> vocabulary (OntoLex) to represent <em>linguistic information</em> related to ontology and vocabulary elements. The model follows the principle of <em>semantics by reference</em> in the sense that the semantics of a <a href="https://www.w3.org/2016/05/ontolex/#LexicalEntry">lexical entry</a> is expressed by reference to an individual, class or property defined in an ontology. </p>
 
-	  <p> The current version of <em>lemon</em> (as an outcome of the OntoLex group, sometimes referred as OntoLex-<i>lemon</i> in the literature) as well as its previous version (<a href="https://lemon-model.net/">lemon</a> [<cite><a href="#bib-mccrae-lemon">1</a></cite>]) have been increasingly used in the context of the work in dictionaries and lexicographical data to convert existent lexicographic information into the standards and formats of the Semantic Web. Such preliminary experiences comprise monolingual [<cite><a href="#bib-klimek-kdict">2</a></cite>], bilingual [<cite><a href="#bib-gracia-apertium">3</a></cite>], and multilingual [<cite><a href="#bib-bosque-kdict">4</a></cite>] dictionaries, as well as diachronic [<cite><a href="#bib-kahn-diachronic">5</a></cite>], dialectal [<cite><a href="#bib-declerck-dialectal">6</a></cite>], and etymological ones [<cite><a href="#bib-abromeit-etymological">7</a></cite>], among others.
+	  <p> The current version of <em>lemon</em> (as an outcome of the OntoLex group, sometimes referred as OntoLex-<i>lemon</i> in the literature) as well as its previous version (<a href="https://lemon-model.net/">lemon</a> [<cite><a href="#bib-mccrae-lemon">1</a></cite>]) have been increasingly used in the context of work in dictionaries and lexicographical data to convert existent lexicographic information into the standards and formats of the Semantic Web. Such preliminary experiences comprise monolingual [<cite><a href="#bib-klimek-kdict">2</a></cite>], bilingual [<cite><a href="#bib-gracia-apertium">3</a></cite>], and multilingual [<cite><a href="#bib-bosque-kdict">4</a></cite>] dictionaries, as well as diachronic [<cite><a href="#bib-kahn-diachronic">5</a></cite>], dialectal [<cite><a href="#bib-declerck-dialectal">6</a></cite>], and etymological ones [<cite><a href="#bib-abromeit-etymological">7</a></cite>], among others.
 	  The added value of using linked data technologies in lexicography and its implications for the micro and macro structure of dictionaries have been explored as well by several authors [e.g., <cite><a href="#bib-bosque-lexicography">8</a></cite>, <cite><a href="#bib-declerck-paneuropean">9</a></cite>]. </p>
 
-<p> After analysing the literature, the proposers of this module perceived a strong need for reaching some agreement that allows for a better and more inter-operable migration of existing dictionaries into linked data [<cite><a href="#bib-bosque-module">10</a></cite>]. For illustration, the Oxford Global Language ontology [<cite><a href="#bib-parvizi-oxford">11</a></cite>] has its own notion of <i>dictionary entry</i>  materialised in the <tt>ogl:Entry</tt> class, while in [<cite><a href="#bib-bosque-kdict">4</a></cite>] the ad-hoc  <tt>kd:dictionaryEntry</tt> relation was introduced in the conversion of the multilingual Global Series of KDictionaries, i.e, different researchers introduced their own modelling solutions to account for similar notions. Interoperability is a key issue in linked data technologies, thus building a common space in which these concepts can be agreed upon and commonly defined comes as a logical step. The OntoLex community is the natural forum to accomplish this for several reasons: </p>
+<p> After analysing the literature, the proposers of this module perceived a strong need for reaching some agreement that allows for a better and more inter-operable migration of existing dictionaries into linked data [<cite><a href="#bib-bosque-module">10</a></cite>]. For illustration, the Oxford Global Language ontology [<cite><a href="#bib-parvizi-oxford">11</a></cite>] has its own notion of <i>dictionary entry</i>  materialised in the <tt>ogl:Entry</tt> class, while in [<cite><a href="#bib-bosque-kdict">4</a></cite>] the ad-hoc  <tt>kd:dictionaryEntry</tt> relation was introduced in the conversion of the multilingual Global Series of KDictionaries, i.e, different researchers introduced their own modelling solutions to account for similar notions. Interoperability is a key issue in linked data technologies, thus building a common space in which these concepts can be agreed upon and commonly defined is a logical next step. The OntoLex community is the natural forum to accomplish this for several reasons: </p>
 
  
 	   <ol>
@@ -142,7 +142,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 	<p> The scope of the model is two-fold:
 		<ol>
 			<li> Modelling <em>existing</em> lexicographic resources as linked data, to allow their later publication and inter-operation by following Semantic Web standards, and
-			<li> providing a conceptual / abstract model of language and linguistic objects in lexicography that will allow to build linked data-based lexicographic resources from scratch.
+			<li> providing a conceptual / abstract model of language and linguistic objects in lexicography that will allow for building linked data-based lexicographic resources from scratch.
 		</ol>
 
 Modelling existing dictionaries as linked data can be done by first extracting the features they have in common and modelling them in a way that is decoupled from specific linguistic views. Although the primary goal might be to model existing resources, the module should remain highly re-usable across dictionaries and useful for new linked data-based lexicographic works developed from scratch (see the notion of <em>linked data-native dictionaries</em> at [<cite><a href="#bib-gracia-native">12</a></cite>]). Naturally, we assume that <em>many specific ingredients from specific dictionaries and views will still need ad-hoc constructs</em>. Still, having a small set of common entities defined in the module will help to overcome the limitations that have been detected in the experiences of instantiating <em>lemon</em> with lexicographic data, and can greatly promote interoperability.
@@ -153,7 +153,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 			<li> As long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicography module should not be instantiated.
 			<li> In the case of lexicographic information that cannot be modelled by using either OntoLex nor any of the other <em>lemon</em> modules (e.g., to denote sense ordering), the model should be instantiated while avoiding duplicities and keeping extra information to the minimum.
 		</ol>
-	The reason behind this is that this module adds some complexity by providing additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographic view is not essential, reusing <em>lemon</em> would allow to keep the representation simpler but yet sufficient.
+	The reason behind this is that this module adds some complexity by providing additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographic view is not essential, reusing <em>lemon</em> would allow for keeping the representation simpler but yet sufficient.
 
 	</p></div>
 
@@ -207,7 +207,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	  The following diagram depicts the OntoLex lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties, while arrows with empty heads represent the <tt>rdfs:subClassOf</tt> relation. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information describing lexical elements as found in dictionaries (shaded in orange).
 
     <figure>
-        <img src="img/ontolex-lexicography-module_v.4.png" title="ontolex-lexicography-module_v.4.png" alt="ontolex-lexicography-module_v.4.png" ><figcaption>Lemon_Lexicography_Module.png</figcaption>
+        <img src="img/ontolex-lexicography-module_v.4.png" title="ontolex-lexicography-module_v.4.png" alt="ontolex-lexicography-module_v.4.png" ><figcaption>The OntoLex lexicography module (lexicog). The upper part accounts for structures common in lexicographic resources and the bottom part describes the lexicon, i.e., the elements describing the lexical information.</figcaption>
     </figure>
 
 
@@ -219,7 +219,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
     <p>The class <tt>lime:Lexicon</tt> has been used in the literature as a natural way of modelling a collection of dictionary entries. However, there are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one-to-one mapping between the entries in a dictionary, or lexicographic resource in general, and the lexical entries in a <i>lemon</i> lexicon (<tt>lime:Lexicon</tt>).
     For instance, some dictionary entries contain information about their translations and synonyms, though the latter might not have their own dictionary entry in the source dictionary. Still, such translations and synonyms can be treated as "first class citizens" in the RDF graph by representing them as <i>lemon</i> lexical entries with <tt>ontolex:LexicalEntry</tt>. In such situations, there is a disparity between the ensuing <i>lemon</i> lexicon and the original dictionary, as the linked data representation would include entries not encoded in the original resource as dictionary entries.</p>
 
-	<p>Thus, the class <a href="#LexicographicResource">Lexicographic Resource</a> is intended to represent the original resource, in order to keep trace of the collection of lexicographic <a href="#Entry">entries</a> contained in it. This does not replace, but complement, the use of <tt>lime:Lexicon</tt>, which will include the lexical entries explicitly declared in the resource along with other ones (e.g., synonyms, tranlsations, as in the above example)</p>
+	<p>Thus, the class <a href="#LexicographicResource">Lexicographic Resource</a> is intended to represent the original resource, in order to keep track of the collection of lexicographic <a href="#Entry">entries</a> contained in it. This does not replace, but complements, the use of <tt>lime:Lexicon</tt>, which will include the lexical entries explicitly declared in the resource along with other ones (e.g., synonyms, translations)</p>
 
     <div id="LexicographicResource" class='entity'>
        <h3>Lexicographic Resource (Class)</h3>
@@ -331,8 +331,8 @@ adj.
 	    lime:entry  :animal_n, :animal_adj .
 		
      :animal_entry a lexicog:Entry .
-      :animal_n a ontolex:LexicalEntry .
-      :animal_adj a ontolex:LexicalEntry .
+     :animal_n a ontolex:LexicalEntry .
+     :animal_adj a ontolex:LexicalEntry .
 
 	
     </code></pre>
@@ -385,8 +385,7 @@ adj.
     :animal_n a ontolex:LexicalEntry .
     :animal_adj a ontolex:LexicalEntry .
 
-    :animal_entry rdfs:member :animal_n_comp ;
-       rdfs:member :animal_adj_comp .
+    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent .
     :animal_adj_comp a lexicog:LexicographicComponent .
@@ -405,7 +404,7 @@ adj.
 
     Since <tt>lexicog:LexicographicComponents</tt> fulfill a structural function to reflect the arrangment of the descriptions provided in a lexicographic resource (order, hierarchy, grouping, etc.), they do not encode lexical content themselves. This is usually accounted for by OntoLex elements, which are <i>described</i> by the components. This is grounded on the idea that a lexicographic resource describes the lexicon of a language (set of languages, dialect, field of study, etc.) following different criteria, e.g. the intended use of the resource, lexicographic tradition, etc. which can affect the description of the lexical content, leading to, for instance, two different resources describing the same lexicon differently. However, in theory, a component could describe any information provided in the resource, e.g. etymology, so the range of the property is not limited to current <i>lemon</i> elements.
 
-    The property <tt>lexicog:describes</tt> allows to link <tt>lexicog:LexicographicComponents</tt> to the Ontolex core elements that capture lexical data:
+    The property <tt>lexicog:describes</tt> allows us to link <tt>lexicog:LexicographicComponents</tt> to the Ontolex core elements that capture lexical data:
 
 <div id="describes" class="entity">
 <h3 id="describes-object-property">Describes (Object Property)<a class="self-link" aria-label="§" href="#describes-object-property"></a></h3>
@@ -461,7 +460,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
 		<div>-->
 		<pre id="example3" class="example"><code>
     :myDictionary a lexicog:LexicographicResource;
-       dct:language "en&" ;
+       dct:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
@@ -474,8 +473,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
 	   
  <!--   :animal_entry rdf:_1 :animal_n_comp ;
        rdf:_2 :animal_adj_comp . -->
-    :animal_entry rdfs:member :animal_n_comp ;
-       rdfs:member :animal_adj_comp .
+    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n .
@@ -489,7 +487,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
 	 <!--  DISCUTIR ESTA NOTE -->
 
 <div class="note"><p>
-	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries. In case that this arrangement is not present in the dictionary or that there is no need to represent it in RDF (e.g., <i>animal </i>(adj.) and <i>animal</i> (n.) appear in different records) then the instantiation of lexicog:Entry, without sub-components, would suffice to keep trace of the collection of lexicographic entries contained in the resource. 
+	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries. In case that this arrangement is not present in the dictionary or that there is no need to represent it in RDF (e.g., <i>animal </i>(adj.) and <i>animal</i> (n.) appear in different records) then the instantiation of lexicog:Entry, without sub-components, would suffice to keep track of the collection of lexicographic entries contained in the resource. 
 </p></div>
 
 
@@ -501,19 +499,18 @@ The following code extends the previous example by adding more subcomponents tha
 		<pre id="example4" class="example"><code>
 
     :myDictionary a lexicog:LexicographicResource;
-       dct:language &quot;en&quot; ;
+       dct:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
-       lime:language &quot;en&quot; ;
+       lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
     :animal_entry a lexicog:Entry .
     :animal_n a ontolex:LexicalEntry .
-    :animal_adj ontolex:LexicalEntry .
+    :animal_adj a ontolex:LexicalEntry .
 	   
-    :animal_entry rdfs:member :animal_n_comp ;
-       rdfs:member :animal_adj_comp .
+    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n .
@@ -534,11 +531,13 @@ The following code extends the previous example by adding more subcomponents tha
     :animal_adj_sense_2_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_adj_sense_2 .
 
-    :animal_n_comp rdf:_1 :animal_n_sense_1_comp ;
-	   rdf:_2 :animal_n_sense_2_comp ;
+    :animal_n_comp 
+	   rdf:_1 :animal_n_sense_1_comp ;
+	   rdf:_2 :animal_n_sense_2_comp .
 	   
-	:animal_adj_comp rdf:_1 :animal_adj_sense_1_comp ;
-	   rdf:_2 :animal_adj_sense_2_comp ;
+	:animal_adj_comp
+	   rdf:_1 :animal_adj_sense_1_comp ;
+	   rdf:_2 :animal_adj_sense_2_comp .
 	   
 
 
@@ -612,19 +611,18 @@ In our running example, we have represented so far the structural components of 
 		<pre id="example5" class="example"><code>
 
     :myDictionary a lexicog:LexicographicResource;
-       dct:language &quot;en&quot; ;
+       dct:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
-       lime:language &quot;en&quot; ;
+       lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
-   
-    :animal_entry a lexicog:Entry .
+	   
+	:animal_entry a lexicog:Entry .
     :animal_n a ontolex:LexicalEntry .
-    :animal_adj ontolex:LexicalEntry .
+    :animal_adj a ontolex:LexicalEntry .
 
-    :animal_entry rdfs:member :animal_n_comp ;
-       rdfs:member :animal_adj_comp .
+    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n .
@@ -636,23 +634,23 @@ In our running example, we have represented so far the structural components of 
     :animal_adj_sense_1 a ontolex:LexicalSense .
     :animal_adj_sense_2 a ontolex:LexicalSense .
 
-    :animal_n_sense_1_comp a a lexicog:LexicographicComponent ;
+    :animal_n_sense_1_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n_sense_1 .
     :animal_n_sense_2_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n_sense_2 .
     :animal_adj_sense_1_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_adj_sense_1 .
-    :animal_adj_sense_2_comp a a lexicog:LexicographicComponent ;
+    :animal_adj_sense_2_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_adj_sense_2 .
 
     :animal_n_comp rdf:_1 :animal_n_sense_1_comp ;
-	   rdf:_2 :animal_n_sense_2_comp ;
+	   rdf:_2 :animal_n_sense_2_comp .
 	   
 	:animal_adj_comp rdf:_1 :animal_adj_sense_1_comp ;
-	   rdf:_2 :animal_adj_sense_2_comp ;
-	
+	   rdf:_2 :animal_adj_sense_2_comp .
+		
 	:animal_form a ontolex:Form ;
-	     ontolex writtenRep "animal" .
+	     ontolex:writtenRep "animal"@en .
 	
 	:animal_n ontolex:lexicalForm :animal_form ;
 	    lexinfo:partOfSpeech lexinfo:noun .
@@ -660,21 +658,19 @@ In our running example, we have represented so far the structural components of 
 	:animal_adj ontolex:lexicalForm :animal_form ;
 	    lexinfo:partOfSpeech lexinfo:adjective .
         
-	
-    :animal_n_1_concept  a ontolex:LexicalConcept ;
-		skos:definition &quot;Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)&quot;@en .
+	:animal_n_1_concept  a ontolex:LexicalConcept ;
+		skos:definition "Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)"@en .
 	
 	:animal_n_2_concept  a ontolex:LexicalConcept;
-		skos:definition &quot;An animal organism other than a human, especially a mammal.&quot;@en .
+		skos:definition "An animal organism other than a human, especially a mammal."@en .
 
 	:animal_adj_1_concept  a ontolex:LexicalConcept ;
-		skos:definition &quot;Relating to, characteristic of, or derived from an animal or animals, especially when not human: animal cells; animal welfare.&quot;@en .
+		skos:definition "Relating to, characteristic of, or derived from an animal or animals, especially when not human: animal cells; animal welfare."@en .
 	
 	:animal_adj_2_concept  a ontolex:LexicalConcept;
-		skos:definition &quot;Relating to the physical as distinct from the rational or spiritual nature of people: animal instincts and desires.&quot;@en .
+		skos:definition "Relating to the physical as distinct from the rational or spiritual nature of people: animal instincts and desires."@en .
 	   
-	   
-    :animal_n_sense_1 ontolex:isLexicalizedSenseOf :animal_n_1_concept .
+	:animal_n_sense_1 ontolex:isLexicalizedSenseOf :animal_n_1_concept .
     :animal_n_sense_2 ontolex:isLexicalizedSenseOf :animal_n_2_concept .
     :animal_adj_sense_1 ontolex:isLexicalizedSenseOf :animal_adj_1_concept .
     :animal_adj_sense_2 ontolex:isLexicalizedSenseOf :animal_adj_2_concept .
@@ -706,7 +702,7 @@ This can be expressed by means of the RDF native mechanisms for <a href="https:/
 <div class="description">
 <p><strong>Domain</strong>: Lexicographic Component</p>
 <p><strong>Range</strong>: Lexicographic Component</p>
-<p><strong>SubClassOf:</strong> rdfs:member</p>
+<p><strong>SubPropertyOf:</strong> rdfs:member</p>
 </div>
 </div>
 </section>
@@ -760,7 +756,7 @@ As an example, let us re-write <a href="#example2">Example 2</a> to describe tha
 
 
 <p>
-    While there are plural nouns which only occur in plural form (e.g. <i>ammends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glassses</i></a> in Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glasses">19</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
+    While there are plural nouns which only occur in plural form (e.g. <i>ammends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glasses</i></a> in Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glasses">19</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
       <i>glass</i></a> in Merriam Webster Dictionary, with the annotation  "<i><strong>glasses</strong> plural</i>" [<cite><a href="#MWD-glass">20</a></cite>].
 
 </p>
@@ -793,7 +789,7 @@ Julia, replying to myself: I would say the restriction goes on those senses whic
 
   <h3>restrictedTo</h3>
 
-The <tt>lexicog:restrictedTo</tt> allows to relate an <tt>ontolex:LexicalSense</tt> to its <tt>lexicog:FormRestriction</tt>, if any:
+The <tt>lexicog:restrictedTo</tt> allows us to relate an <tt>ontolex:LexicalSense</tt> to its <tt>lexicog:FormRestriction</tt>, if any:
 
 <div id="restrictedTo" class="entity">
 <h3 id="restrictedTo-object-property">RestrictedTo (Object Property)<a class="self-link" aria-label="§" href="#restrictedTo-object-property"></a></h3>
@@ -881,7 +877,7 @@ The class <tt>lexicog:UsageExample</tt> is intentended to represent a textual ex
   <section>
   <h3>example</h3>
 
-In those cases in which it is necessary to instantiate a <tt>lexicog:UsageExample</tt> because there is further information about an example beyond the text itself (otherwise, <tt>skos:example</tt> would suffice), the <tt>lexicog:example</tt> property allows to link an <tt>ontolex:LexicalSense</tt> to a <tt>lexicog:UsageExample</tt> element.
+In those cases in which it is necessary to instantiate a <tt>lexicog:UsageExample</tt> because there is further information about an example beyond the text itself (otherwise, <tt>skos:example</tt> would suffice), the <tt>lexicog:example</tt> property allows us to link an <tt>ontolex:LexicalSense</tt> to a <tt>lexicog:UsageExample</tt> element.
 
 <div id="example" class="entity">
 <h3 id="example-object-property">example (Object Property)<a class="self-link" aria-label="§" href="#example-object-property"></a></h3>
