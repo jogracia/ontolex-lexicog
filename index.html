@@ -389,8 +389,7 @@ adj.
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent .
     :animal_adj_comp a lexicog:LexicographicComponent .
- 
-    </code></pre>
+     </code></pre>
 	  
 	  </div> 
 <!--	 </div> -->
@@ -471,15 +470,12 @@ Following our example, we can use the <a href="#describes">describes</a> propert
     :animal_n a ontolex:LexicalEntry .
     :animal_adj ontolex:LexicalEntry .
 	   
- <!--   :animal_entry rdf:_1 :animal_n_comp ;
-       rdf:_2 :animal_adj_comp . -->
     :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_n .
     :animal_adj_comp a lexicog:LexicographicComponent ;
        lexicog:describes :animal_adj .
-
     </code></pre>
 	 
 	 
@@ -497,7 +493,6 @@ The following code extends the previous example by adding more subcomponents tha
 		<!--<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>-->
 		<div>
 		<pre id="example4" class="example"><code>
-
     :myDictionary a lexicog:LexicographicResource;
        dct:language "en" ;
        lexicog:entry :animal_entry .
@@ -535,42 +530,9 @@ The following code extends the previous example by adding more subcomponents tha
 	   rdf:_1 :animal_n_sense_1_comp ;
 	   rdf:_2 :animal_n_sense_2_comp .
 	   
-	:animal_adj_comp
-	   rdf:_1 :animal_adj_sense_1_comp ;
-	   rdf:_2 :animal_adj_sense_2_comp .
-	   
-
-
-<!--
-	
-    :animal_n_sense_1 a ontolex:LexicalSense ;
-        ontolex:isLexicalizedSenseOf :animal_n_1_lc .
-    :animal_n_sense_2 a ontolex:LexicalSense;
-        ontolex:isLexicalizedSenseOf :animal_n_2_lc .
-
-		 
-		 
-		 
-		 
-		 
-    :animal_n_1_lc  a ontolex:LexicalConcept;
-	skos:definition &quot;Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)&quot;@en.
-	  :animal_n_2_lc  a ontolex:LexicalConcept;
-	skos:definition &quot;An animal organism other than a human, especially a mammal.&quot;@en.
-
-      :animal_n_adj a lexicog:Entry;
-         lexicog:subComponent :animal_n_comp; :animal_adj_comp.
-
-      :animal_n_comp a lexicog:LexicographicComponent;
-	 lexicog:describes :animal_n ;
-         rdf:_1: :animal_n_sense_1_comp;
-	 rdf:_2  :animal_n_sense_2_comp.
-
-      :animal_n_sense_1_comp a lexicog:LexicographicComponent ;
-	 lexicog:describes :animal_n_sense_1.
-      :animal_n_sense_2_comp a lexicog:LexicographicComponent ;
-	 lexicog:describes :animal_n_sense_2.
--->
+    :animal_adj_comp
+       rdf:_1 :animal_adj_sense_1_comp ;
+       rdf:_2 :animal_adj_sense_2_comp .
     </code></pre>
 		</div>
 	
@@ -609,7 +571,6 @@ In our running example, we have represented so far the structural components of 
 
 	<div>
 		<pre id="example5" class="example"><code>
-
     :myDictionary a lexicog:LexicographicResource;
        dct:language "en" ;
        lexicog:entry :animal_entry .
@@ -618,7 +579,7 @@ In our running example, we have represented so far the structural components of 
        lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 	   
-	:animal_entry a lexicog:Entry .
+    :animal_entry a lexicog:Entry .
     :animal_n a ontolex:LexicalEntry .
     :animal_adj a ontolex:LexicalEntry .
 
@@ -644,38 +605,36 @@ In our running example, we have represented so far the structural components of 
        lexicog:describes :animal_adj_sense_2 .
 
     :animal_n_comp rdf:_1 :animal_n_sense_1_comp ;
-	   rdf:_2 :animal_n_sense_2_comp .
+       rdf:_2 :animal_n_sense_2_comp .
 	   
-	:animal_adj_comp rdf:_1 :animal_adj_sense_1_comp ;
-	   rdf:_2 :animal_adj_sense_2_comp .
+    :animal_adj_comp rdf:_1 :animal_adj_sense_1_comp ;
+       rdf:_2 :animal_adj_sense_2_comp .
 		
-	:animal_form a ontolex:Form ;
-	     ontolex:writtenRep "animal"@en .
+    :animal_form a ontolex:Form ;
+       ontolex:writtenRep "animal"@en .
 	
-	:animal_n ontolex:lexicalForm :animal_form ;
-	    lexinfo:partOfSpeech lexinfo:noun .
+    :animal_n ontolex:lexicalForm :animal_form ;
+       lexinfo:partOfSpeech lexinfo:noun .
 		
-	:animal_adj ontolex:lexicalForm :animal_form ;
-	    lexinfo:partOfSpeech lexinfo:adjective .
+    :animal_adj ontolex:lexicalForm :animal_form ;
+       lexinfo:partOfSpeech lexinfo:adjective .
         
-	:animal_n_1_concept  a ontolex:LexicalConcept ;
-		skos:definition "Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)"@en .
+    :animal_n_1_concept  a ontolex:LexicalConcept ;
+       skos:definition "Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)"@en .
 	
-	:animal_n_2_concept  a ontolex:LexicalConcept;
-		skos:definition "An animal organism other than a human, especially a mammal."@en .
+    :animal_n_2_concept  a ontolex:LexicalConcept;
+       skos:definition "An animal organism other than a human, especially a mammal."@en .
 
-	:animal_adj_1_concept  a ontolex:LexicalConcept ;
-		skos:definition "Relating to, characteristic of, or derived from an animal or animals, especially when not human: animal cells; animal welfare."@en .
+    :animal_adj_1_concept  a ontolex:LexicalConcept ;
+       skos:definition "Relating to, characteristic of, or derived from an animal or animals, especially when not human: animal cells; animal welfare."@en .
 	
-	:animal_adj_2_concept  a ontolex:LexicalConcept;
-		skos:definition "Relating to the physical as distinct from the rational or spiritual nature of people: animal instincts and desires."@en .
+    :animal_adj_2_concept  a ontolex:LexicalConcept;
+       skos:definition "Relating to the physical as distinct from the rational or spiritual nature of people: animal instincts and desires."@en .
 	   
-	:animal_n_sense_1 ontolex:isLexicalizedSenseOf :animal_n_1_concept .
+    :animal_n_sense_1 ontolex:isLexicalizedSenseOf :animal_n_1_concept .
     :animal_n_sense_2 ontolex:isLexicalizedSenseOf :animal_n_2_concept .
     :animal_adj_sense_1 ontolex:isLexicalizedSenseOf :animal_adj_1_concept .
-    :animal_adj_sense_2 ontolex:isLexicalizedSenseOf :animal_adj_2_concept .
-
-		 		 
+    :animal_adj_sense_2 ontolex:isLexicalizedSenseOf :animal_adj_2_concept .		 		 
     </code></pre>
 		</div>
 
@@ -711,13 +670,12 @@ This can be expressed by means of the RDF native mechanisms for <a href="https:/
 As an example, let us re-write <a href="#example2">Example 2</a> to describe that the only entry in our lexical resource has two components, as follows:
 
 	<pre id="example6" class="example"><code>
-    
-    :myDictionary a lexicog:LexicographicResource;
-       dct:language &quot;en&quot; ;
+    :myDictionary a lexicog:LexicographicResource ;
+       dct:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
-       lime:language &quot;en&quot; ;
+       lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
     :animal_entry a lexicog:Entry .
@@ -730,7 +688,6 @@ As an example, let us re-write <a href="#example2">Example 2</a> to describe tha
 	   	   
     :animal_n_comp a lexicog:LexicographicComponent ;
     :animal_adj_comp a lexicog:LexicographicComponent ;
- 
     </code></pre>
 
   
@@ -812,39 +769,35 @@ The following example is the RDF representation of the above mentioned sense of 
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>-->
 		<div>
 		<pre id="example7" class="example"><code>
-
-:air_n a ontolex:LexicalEntry;
-   ontolex:sense :air_n_sense_2, :air_n_sense_2_1;
+:air_n a ontolex:LexicalEntry ;
+   ontolex:sense :air_n_sense_2, :air_n_sense_2_1 ;
    ontolex:canonicalForm :air_n_form ;
    ontolex:otherForm :airs_n_form .
 
-   
-:air_n_form a ontolex:Form;
-   ontolex:writtenRep "air"@en;
-   lexinfo:number lexinfo:singular.
+:air_n_form a ontolex:Form ;
+   ontolex:writtenRep "air"@en ;
+   lexinfo:number lexinfo:singular .
 
-:airs_n_form a ontolex:Form;
-   ontolex:writtenRep "airs"@en;
-   lexinfo:number lexinfo:plural.
+:airs_n_form a ontolex:Form ;
+   ontolex:writtenRep "airs"@en ;
+   lexinfo:number lexinfo:plural .
 
-   
-:air_n_sense_2 a ontolex:LexicalSense;
+:air_n_sense_2 a ontolex:LexicalSense ;
    ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
-:air_n_sense_2_1 a ontolex:LexicalSense;
+   
+:air_n_sense_2_1 a ontolex:LexicalSense ;
    ontolex:isLexicalizedSenseOf :air_n_sense_2-1_lc ;
-   lexicog:restrictedTo :air_n_formRes.
+   lexicog:restrictedTo :air_n_formRes .
 
 :air_n_formRes a lexicog:FormRestriction ;
    lexinfo:number lexinfo:plural .
 
-:air_n_sense_2_lc a ontolex:LexicalConcept;
-   skos:definition "An impression of a quality or manner given by someone or something"@en.
+:air_n_sense_2_lc a ontolex:LexicalConcept ;
+   skos:definition "An impression of a quality or manner given by someone or something"@en .
 
-:air_n_sense_2_1_lc a ontolex:LexicalConcept;
-   skos:definition "An annoyingly affected and condescending manner"@en.
-
-
-    </code></pre>
+:air_n_sense_2_1_lc a ontolex:LexicalConcept ;
+   skos:definition "An annoyingly affected and condescending manner"@en .
+   </code></pre>
 		</div>
 	  <!--</div>-->
   </section>
@@ -920,12 +873,11 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 		<p><a href='Examples/example1.png' class='tn'/><img src='Examples/example1.png'/></a></p>-->
 		<div>
 		<pre id="example8" class="example"><code>
-
 # Entries
 :monastery_n a ontolex:LexicalEntry ;
    ontolex:sense :monastery_sense .
 :monasterio_n a ontolex:LexicalEntry ;
-      ontolex:sense :monasterio_monastery-sense .
+   ontolex:sense :monasterio_monastery-sense .
 
 # Senses
 :monastery_n_sense a ontolex:LexicalSense ;
@@ -934,7 +886,6 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 
 :monasterio_monastery-sense a ontolex:LexicalSense ;
    ontolex:isLexicalizedSenseOf :monastery_n_sense_concept .
-
 
 # Concepts
 :monastery_n_sense_concept a ontolex:LexicalConcept ;
@@ -949,7 +900,6 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 :monastery_n_sense_ex a lexicog:UsageExample;
    rdf:value "We visited a Buddhist monastery deep in a jungle."@en;
    rdf:value "Visitamos un monasterio budista en medio de la selva."@es.
-
     </code></pre>
 		</div>
 	  <!--</div>-->
