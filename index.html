@@ -119,14 +119,14 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
       <p> The <a href="https://www.w3.org/2016/05/ontolex/"><em>lemon</em> model</a> provides a <a href="https://www.w3.org/2016/05/ontolex/#core">core</a> vocabulary (OntoLex) to represent <em>linguistic information</em> associated to ontology and vocabulary elements. The model follows the principle of <em>semantics by reference</em> in the sense that the semantics of a <a href="https://www.w3.org/2016/05/ontolex/#LexicalEntry">lexical entry</a> is expressed by reference to an individual, class or property defined in an ontology. </p>
 
 	  <p> The current version of <em>lemon</em> (as an outcome of the OntoLex group, sometimes referred as OntoLex-<i>lemon</i> in the literature) as well as its previous version (<a href="https://lemon-model.net/">lemon</a> [<cite><a href="#bib-mccrae-lemon">1</a></cite>]) have been increasingly used in the context of the work in dictionaries and lexicographical data to convert existent lexicographic information into the standards and formats of the Semantic Web. Such preliminary experiences comprise monolingual [<cite><a href="#bib-klimek-kdict">2</a></cite>], bilingual [<cite><a href="#bib-gracia-apertium">3</a></cite>], and multilingual [<cite><a href="#bib-bosque-kdict">4</a></cite>] dictionaries, as well as diachronic [<cite><a href="#bib-kahn-diachronic">5</a></cite>], dialectal [<cite><a href="#bib-declerck-dialectal">6</a></cite>], and etymological ones [<cite><a href="#bib-abromeit-etymological">7</a></cite>], among others.
-	  The added value of using linked data technologies in lexicography and its implications for the micro and macro structure of dictionaries have been explored as well by several authors [<cite><a href="#bib-bosque-lexicography">8</a></cite>, <cite><a href="#bib-declerck-paneuropean">9</a></cite>]. </p>
+	  The added value of using linked data technologies in lexicography and its implications for the micro and macro structure of dictionaries have been explored as well by several authors [e.g., <cite><a href="#bib-bosque-lexicography">8</a></cite>, <cite><a href="#bib-declerck-paneuropean">9</a></cite>]. </p>
 
-<p> After analysing the literature, the proposers of this module perceived an obvious need for reaching some agreement that allows for a better and more inter-operable migration of existing dictionaries into linked data [<cite><a href="#bib-bosque-module">10</a></cite>]. For illustration, the OGL ontology [<cite><a href="#bib-parvizi-oxford">11</a></cite>] has its own notion of <i>dictionary entry</i>  materialised in the <tt>ogl:Entry</tt> class, while in [<cite><a href="#bib-bosque-kdict">4</a></cite>] the ad-hoc  <tt>kd:dictionaryEntry</tt> relation was introduced in the conversion of the KD Multilingual Global Series dictionaries, i.e, different researchers introduced their own modelling solutions to account for similar notions. Being interoperability a key issue in linked data technologies, building a common space in which these concepts can be agreed on and commonly defined comes as a logical step. The OntoLex community is the natural forum to accomplish this for several reasons: </p>
+<p> After analysing the literature, the proposers of this module perceived a strong need for reaching some agreement that allows for a better and more inter-operable migration of existing dictionaries into linked data [<cite><a href="#bib-bosque-module">10</a></cite>]. For illustration, the Oxford Global Language ontology [<cite><a href="#bib-parvizi-oxford">11</a></cite>] has its own notion of <i>dictionary entry</i>  materialised in the <tt>ogl:Entry</tt> class, while in [<cite><a href="#bib-bosque-kdict">4</a></cite>] the ad-hoc  <tt>kd:dictionaryEntry</tt> relation was introduced in the conversion of the multilingual Global Series of KDictionaries, i.e, different researchers introduced their own modelling solutions to account for similar notions. Interoperability is a key issue in linked data technologies, thus building a common space in which these concepts can be agreed upon and commonly defined comes as a logical step. The OntoLex community is the natural forum to accomplish this for several reasons: </p>
 
  
 	   <ol>
-		<li> The extended use of <em>lemon</em> to convert language resources (including lexicographical resources) into linked data,
-		<li> the nature of the <em>lemon</em> model being descriptive but not prescriptive, which facili neutrality towards different lexicographic views,
+		<li> The extended use of <em>lemon</em> to convert language resources (including lexicographic resources) into linked data,
+		<li> the nature of the <em>lemon</em> model being descriptive but not prescriptive, which facilitates neutrality towards different lexicographic views,
 		<li> the coming together of the lexicography and the Semantic Web communities, and
 		<li> the possibility of reusing already available mechanisms in <em>lemon</em>, preventing researchers from "re-inventing the wheel."
 	   </ol>
@@ -145,15 +145,15 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 			<li> providing a conceptual / abstract model of language and linguistic objects in lexicography that will allow to build linked data-based lexicographic resources from scratch.
 		</ol>
 
-Modelling existing dictionaries as linked data can be done by first extracting the features they have in common and modelling them in a way that is decoupled from specific linguistic views. Although the primary goal might be to model existing resources, the module should remain highly re-usable across dictionaries and useful for new linked data-based lexicographic works built from scratch (see the notion of <em>linked data-native dictionaries</em> at [<cite><a href="#bib-gracia-native">12</a></cite>]). Naturally, we assume that <em>many specific ingredients from specific dictionaries and views will still need ad-hoc constructs</em>. Still, having a small set of common entities defined in the module will help to overcome the limitations that have been detected in the experiences of instantiating <em>lemon</em> with lexicographic data, and can greatly benefit interoperability.
+Modelling existing dictionaries as linked data can be done by first extracting the features they have in common and modelling them in a way that is decoupled from specific linguistic views. Although the primary goal might be to model existing resources, the module should remain highly re-usable across dictionaries and useful for new linked data-based lexicographic works developed from scratch (see the notion of <em>linked data-native dictionaries</em> at [<cite><a href="#bib-gracia-native">12</a></cite>]). Naturally, we assume that <em>many specific ingredients from specific dictionaries and views will still need ad-hoc constructs</em>. Still, having a small set of common entities defined in the module will help to overcome the limitations that have been detected in the experiences of instantiating <em>lemon</em> with lexicographic data, and can greatly promote interoperability.
 
 	<div class="note"><p>
 	In terms of applying the module, we propose the following best practice or "rule of thumb" when representing a dictionary as linked data:
 		<ol>
 			<li> As long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicography module should not be instantiated.
-			<li> In case that there is some lexicographic information that cannot be modelled by using either OntoLex or any of the other <em>lemon</em> modules (e.g., to denote sense ordering), then the model should be instantiated but avoiding duplicities and keeping extra information to the minimum.
+			<li> In the case of lexicographic information that cannot be modelled by using either OntoLex nor any of the other <em>lemon</em> modules (e.g., to denote sense ordering), the model should be instantiated while avoiding duplicities and keeping extra information to the minimum.
 		</ol>
-	The reason behind this is that this module adds some complexity by providing additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographical view is not key, reusing <em>lemon</em> would allow to keep the representation simpler but still sufficient.
+	The reason behind this is that this module adds some complexity by providing additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographic view is not essential, reusing <em>lemon</em> would allow to keep the representation simpler but yet sufficient.
 
 	</p></div>
 
@@ -204,7 +204,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
     <h2>Lexicography Module (<i>lexicog</i>)</h2>
 
-	  The following diagram depicts the OntoLex Lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties, while arrows with empty heads represent the <tt>rdfs:subClassOf</tt> relation. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information describing lexical elements as found in dictionaries (shaded in orange).
+	  The following diagram depicts the OntoLex lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties, while arrows with empty heads represent the <tt>rdfs:subClassOf</tt> relation. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information describing lexical elements as found in dictionaries (shaded in orange).
 
     <figure>
         <img src="img/ontolex-lexicography-module_v.4.png" title="ontolex-lexicography-module_v.4.png" alt="ontolex-lexicography-module_v.4.png" ><figcaption>Lemon_Lexicography_Module.png</figcaption>
@@ -216,8 +216,8 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
 	  <h3>Lexicographic Resource</h3>
 
-    <p>The class <tt>lime:Lexicon</tt> has been used in the literature as a natural way of modelling a collection of dictionary entries. However, there are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one-to-one mapping between the entries in a dictionary, or lexicographical resource in general, and the lexical entries in a <i>lemon</i> lexicon (<tt>lime:Lexicon</tt>).
-    For instance, some dictionary entries contain information about their translations and synonyms, but it may be the case that these latter do not have their own dictionary entry in the source dictionary. Still, such translations and synonyms can be treated as "first class citizens" in the RDF graph by representing them as <i>lemon</i> lexical entries with <tt>ontolex:LexicalEntry</tt>. In such situations, there is a disparity between the created <i>lemon</i> lexicon and the original dictionary, as the linked data representation would include entries not encoded in the original resource as dictionary entries.</p>
+    <p>The class <tt>lime:Lexicon</tt> has been used in the literature as a natural way of modelling a collection of dictionary entries. However, there are certain situations (see [<cite><a href="#bib-bosque-module">10</a></cite>]) in which there is no one-to-one mapping between the entries in a dictionary, or lexicographic resource in general, and the lexical entries in a <i>lemon</i> lexicon (<tt>lime:Lexicon</tt>).
+    For instance, some dictionary entries contain information about their translations and synonyms, though the latter might not have their own dictionary entry in the source dictionary. Still, such translations and synonyms can be treated as "first class citizens" in the RDF graph by representing them as <i>lemon</i> lexical entries with <tt>ontolex:LexicalEntry</tt>. In such situations, there is a disparity between the ensuing <i>lemon</i> lexicon and the original dictionary, as the linked data representation would include entries not encoded in the original resource as dictionary entries.</p>
 
 	<p>Thus, the class <a href="#LexicographicResource">Lexicographic Resource</a> is intended to represent the original resource, in order to keep trace of the collection of lexicographic <a href="#Entry">entries</a> contained in it. This does not replace, but complement, the use of <tt>lime:Lexicon</tt>, which will include the lexical entries explicitly declared in the resource along with other ones (e.g., synonyms, tranlsations, as in the above example)</p>
 
@@ -227,7 +227,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
            <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#LexicographicResource" class="uri">http://www.w3.org/nl/lemon/lexicog#LexicographicResource</a></p>
     		</div>
     		<div class='comment'>
-    			<p>A <strong>lexicographic resource</strong> represents a collection of lexicographic entries (lexicog:Entry) according to the lexicographic criteria followed in the development of the resource. </p>
+    			<p>A <strong>lexicographic resource</strong> represents a collection of lexicographic entries (lexicog:Entry) according to the lexicographic criteria followed in the development of that resource. </p>
     		</div>
     		<div class='description'>
     			<p><strong>SubClassOf:</strong> void:Dataset, dct:language min 1 xsd:language
@@ -250,7 +250,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
     <p>In addition to bundling together lexical entries with different parts of speech, an entry in a lexicographic resource can also be composed of other (sub-)structures arranged in a particular order or hierarchy, such as senses, nested entries, etc. </p>
 -->
-    <p>The class <a href="#Entry">Entry</a> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by lexicographers (supported by the occurrences of the word in the corpus used for dictionary compilation). This class is thus intended to be the counterpart of the lemon lexical entry (<tt>ontolex:LexicalEntry</tt>) in the linked data representation of a dictionary, and fulfills a structural function. <!-- Although there are no features differentiating an <a href="#Entry">Entry</a> from its parent class, <a href="#LexicographicComponent">Lexicographic Component</a>, the former is used as the root of the lexicographic record and its role as core of the resource facilitates human readability of the RDF representation of the entry structure. </p> -->
+    <p>The class <a href="#Entry">Entry</a> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by the lexicographer (supported by the occurrences of the word or phrase in the corpus used for dictionary compilation). This class is thus intended to be the counterpart of the lemon lexical entry (<tt>ontolex:LexicalEntry</tt>) in the linked data representation of a dictionary, and fulfills a structural function. <!-- Although there are no features differentiating an <a href="#Entry">Entry</a> from its parent class, <a href="#LexicographicComponent">Lexicographic Component</a>, the former is used as the root of the lexicographic record and its role as core of the resource facilitates human readability of the RDF representation of the entry structure. </p> -->
 
     <div id="Entry" class='entity'>
     <h3>Entry (Class)</h3>
@@ -269,7 +269,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
    <section>
   <h3>entry</h3>
 
-  The property <a href="#entry">entry</a> relates an instance of the class representing the <a href="#LexicographicResource">lexicographic resource</a> to the actual <a href="#Entry">entry</a> (or 'record' in the literature). This property is a counterpart for <tt>lime:entry</tt>, which relates <tt>lime:Lexicon</tt> to <tt>ontolex:LexicalEntry</tt>.
+  The property <a href="#entry">entry</a> relates an instance of the class representing the <a href="#LexicographicResource">lexicographic resource</a> to the actual <a href="#Entry">entry</a> (or 'record' in the literature). This property is a counterpart of <tt>lime:entry</tt>, which relates <tt>lime:Lexicon</tt> to <tt>ontolex:LexicalEntry</tt>.
 
 
  <div id="entry" class="entity">
@@ -348,7 +348,7 @@ adj.
 
     <h3>Lexicographic Component</h3>
 
-	 <p>A <a href="#LexicographicComponent">lexicographic component</a> is a structural element in the <a href="#LexicographicResource">lexicographic resource</a> that represents either a lexicographic record or any other sub-structure to refer to senses, sense groups, or nested entries. Lexicographic components do not necessarily describe lexical data but can often fulfill a grouping function to gather other components that do. <a href="#Entry">Entry</a> is a particular subclass of <a href="#LexicographicComponent">Lexicographic Component</a> used to represent the main "entry point" in the dictionary, i.e., the root of the lexicographic record.
+	 <p>A <a href="#LexicographicComponent">lexicographic component</a> is a structural element in the <a href="#LexicographicResource">lexicographic resource</a> that represents either a lexicographic record or any other sub-structure to refer to senses, sense groups, or nested entries. Lexicographic components do not necessarily describe lexical data but can often fulfill a grouping function to gather other components that do. <a href="#Entry">Entry</a> is a particular subclass of <a href="#LexicographicComponent">Lexicographic Component</a> used to represent the main "entry point" in the dictionary, i.e., the headword or the root of the lexicographic record.
 	 The <a href="#LexicographicComponent">lexicographic components</a> can describe lexical senses (<tt>ontolex:LexicalSense</tt>) or lexical entries (<tt>ontolex:LexicalEntry</tt>), depending on the arrangement in the original resource. Components can in turn be arranged in a specific order and/or hierarchy or just be declared to be part of an <a href="#Entry">entry</a>. </p>
 
      <!-- <p>Entry is intended to fulfill a structural function so as to serve as counterpart of a lexicographic record in a resource, which may or may not be straightly mapped into <tt>ontolex:LexicalEntries</tt>. However, these lexicographic records often contain sub-structures to refer to senses, sense groups, or nested entries. In an analogy to <a href="https://www.w3.org/ns/csvw"> W3C's CSVW vocabulary </a>, where a <tt>csvw:Table</tt> consists of <tt>csvw:Row(s)</tt> and <tt>csvw:Column(s)</tt>,
@@ -360,14 +360,14 @@ adj.
         <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#LexicographicComponent" class="uri">http://www.w3.org/nl/lemon/lexicog#LexicographicComponent</a></p>
       </div>
       <div class='comment'>
-        <p>A <strong>lexicographic component</strong> is a structural element that represents the (sub-)structures of lexicographic articles providing information about entries, senses or sub-entries. If desired, lexicographic components can be arranged in a specific ordered and/or a hierarchy. </p>
+        <p>A <strong>lexicographic component</strong> is a structural element that represents the (sub-)structures of lexicographic articles providing information about entries, senses or sub-entries. If desired, lexicographic components can be arranged in a specific order and/or hierarchy. </p>
       </div>
       <div class='description'>
         <p><strong>SubClassOf:</strong> owl:Thing </p>
       </div>
       </div>
 
-	In our <a href="#ExampleAmericanHeritage">previous example</a> we see that two different <tt>ontolex:LexicalEntries</tt> are grouped together in the same lexicographic record (<a href="#Entry">entry</a>). If we want to capture this in our RDF representation, we have to start by stating that the single entry has two lexicographic components. In this example, we capture that the components belong to the entry by simply using the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>, in particular the <tt>rdfs:member</tt> property:
+	In our <a href="#ExampleAmericanHeritage">previous example</a> (animal) two different <tt>ontolex:LexicalEntries</tt> are grouped together in the same lexicographic record (<a href="#Entry">entry</a>). If we want to capture this in our RDF representation, we have to start by stating that the single entry has two lexicographic components. In this example, we indicate that the components belong to the entry by simply using the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>, in particular the <tt>rdfs:member</tt> property:
 	
 <!--	<div class='beispiel'>
 	<p><a href='Examples/example2.png' class='tn'/><img src='Examples/example2.png' width="100%"/></a></p>
@@ -489,7 +489,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
 	 <!--  DISCUTIR ESTA NOTE -->
 
 <div class="note"><p>
-	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries. In case that this arrengement is not present in the dictionary or there is no need to represent it in RDF (e.g., <i>animal </i>(adj.) and <i>animal</i> (n.) appear in different records) then the instantiation of lexicog:Entry, without sub-components, would suffice to keep trace of the collection of lexicographic entries contained in the resource. 
+	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries. In case that this arrangement is not present in the dictionary or that there is no need to represent it in RDF (e.g., <i>animal </i>(adj.) and <i>animal</i> (n.) appear in different records) then the instantiation of lexicog:Entry, without sub-components, would suffice to keep trace of the collection of lexicographic entries contained in the resource. 
 </p></div>
 
 
@@ -605,7 +605,7 @@ In the dictionary entry, other dictionaries provide an ordered list of senses wi
 		</div>
 -->	  <!--</div>-->
 
-In our running example, we have represented so far the structural components of the lexical resource and how they are related to the elements of the lexicon. In order to provide a complete example, we add also the lexical information represented in ontolex (thus, not specific of the <tt>lexicog</tt> module) in the following RDF code:
+In our running example, we have represented so far the structural components of the lexical resource and how they are related to the elements of the lexicon. In order to provide a complete example, we add the lexical information represented in Ontolex (thus, not specific of the <tt>lexicog</tt> module) in the following RDF code:
 
 
 	<div>
@@ -701,7 +701,7 @@ This can be expressed by means of the RDF native mechanisms for <a href="https:/
 <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#subComponent" class="uri">http://www.w3.org/ns/lemon/lexicog#subComponent</a></p>
 </div>
 <div class="comment">
-<p>The property <strong>subComponent</strong> encodes a hierarchical relation between two lexicographical components</p>
+<p>The property <strong>subComponent</strong> encodes a hierarchical relation between two lexicographic components</p>
 </div>
 <div class="description">
 <p><strong>Domain</strong>: Lexicographic Component</p>
@@ -712,7 +712,7 @@ This can be expressed by means of the RDF native mechanisms for <a href="https:/
 </section>
 
 
-As an example, let us re-write <a href="#example2">example 2</a> to describe that the only entry in our lexical resource has two components, as follows:
+As an example, let us re-write <a href="#example2">Example 2</a> to describe that the only entry in our lexical resource has two components, as follows:
 
 	<pre id="example6" class="example"><code>
     
@@ -742,7 +742,7 @@ As an example, let us re-write <a href="#example2">example 2</a> to describe tha
 <section>
     <h3>FormRestriction</h3>
 
-    There are numerous cases in which a lexicographic record specifies the grammatical features the lemma shows when used in some of its senses. For example, in English, the lemmas <i>good</i>, <i>manner</i>,  <i>air</i> or <i>wood</i> have senses which are usually (or only) attested when the word is used in plural, often indicated with the lemma in plural form, as the following entry from Oxford English Living Dictionaries Online [<cite><a href="#OED-dict-air">18</a></cite>], or with an usage note in the dictionary entry:
+    There are numerous cases in which a lexicographic record specifies the grammatical features the lemma shows when used in some of its senses. For example, in English, the lemmas <i>good</i>, <i>manner</i>,  <i>air</i> or <i>wood</i> have senses which are usually (or only) attested when the word is used in plural, often indicated with the lemma in plural form, as the following entry from <i>Oxford English Living Dictionaries Online</i> [<cite><a href="#OED-dict-air">18</a></cite>], or with a usage note in the dictionary entry:
 
 
 <blockquote cite="https://en.oxforddictionaries.com/definition/air">
@@ -760,13 +760,13 @@ As an example, let us re-write <a href="#example2">example 2</a> to describe tha
 
 
 <p>
-    While there are plural nouns which only occur in plural form (e.g. <i>ammends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glassses</i></a> in the Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glasses">19</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
-      <i>glass</i></a> in the Merriam Webster Dictionary, with the annotation  "<i><strong>glasses</strong> plural</i>" [<cite><a href="#MWD-glass">20</a></cite>].
+    While there are plural nouns which only occur in plural form (e.g. <i>ammends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glassses</i></a> in Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glasses">19</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
+      <i>glass</i></a> in Merriam Webster Dictionary, with the annotation  "<i><strong>glasses</strong> plural</i>" [<cite><a href="#MWD-glass">20</a></cite>].
 
 </p>
 
 <p>
-There are dictionaries which provide grammatical annotations indicating varying gender in the senses of the same dictionary entry. For example, in Spanish, the lemma <i>policía</i> can be used in feminine or masculine if denoting a police officer, but only in feminine when denoting the police force or administration. Depending on the criteria followed for headword selection during the compilation of the resource, e.g. etymology, in these cases we may find two independent entries or one single entry with senses with different gender restrictions.
+There are dictionaries which provide grammatical annotations indicating varying gender in the senses of the same dictionary entry. For example, in Spanish, the lemma <i>policía</i> can be used in feminine or masculine if denoting a police officer, but only in feminine when denoting the police force or administration. Depending on the criteria followed for headword selection during the compilation of the resource, e.g. etymology, in these cases we may find two independent entries or one single entry with senses having different gender restrictions.
 
 </p>
 
@@ -782,7 +782,7 @@ Julia, replying to myself: I would say the restriction goes on those senses whic
         <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#FormRestriction" class="uri">http://www.w3.org/nl/lemon/lexicog#FormRestriction</a></p>
       </div>
       <div class='comment'>
-        <p>There are cases in which a specific <tt>ontolex:LexicalSense</tt> does not occur with all the available <tt>ontolex:Form</tt>(s) of the <tt>ontolex:LexicalEntry</tt>. In those cases, the class <strong>FormRestriction</strong> represents (a set of) grammatical features of the <tt>ontolex:Form</tt>(s) in which that sense occurs. The sense does not occur in those forms whose features do not match with those of such a set.</p>
+        <p>There are cases in which a specific <tt>ontolex:LexicalSense</tt> does not occur with all the available <tt>ontolex:Form</tt>(s) of the <tt>ontolex:LexicalEntry</tt>. In those cases, the class <strong>FormRestriction</strong> represents (a set of) grammatical features of the <tt>ontolex:Form</tt>(s) in which that sense occurs. The sense does not occur in forms whose features do not match with those of such a set.</p>
       </div>
       <div class='description'>
         <p><strong>SubClassOf:</strong> owl:Thing</p>
@@ -801,7 +801,7 @@ The <tt>lexicog:restrictedTo</tt> allows to relate an <tt>ontolex:LexicalSense</
 <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#restrictedTo" class="uri">http://www.w3.org/ns/lemon/lexicog#restrictedTo</a></p>
 </div>
 <div class="comment">
-<p>The property <strong>restrictedTo</strong> relates a LexicalSense with a FormRestriction when a lexicographic resource provides information about the specific morphological features of the <tt>ontolex:Form</tt> in that sense.</p>
+<p>The property <strong>restrictedTo</strong> relates a LexicalSense to a FormRestriction when a lexicographic resource provides information about the specific morphological features of the <tt>ontolex:Form</tt> in that sense.</p>
 </div>
 <div class="description">
 <p><strong>Domain</strong>: LexicalSense</p>
@@ -859,8 +859,8 @@ The following example is the RDF representation of the above mentioned sense of 
   <section>
   <h3>UsageExample</h3>
 
-There are occasions in which lexicographic records also include example of use of an entry in each of its senses. While these examples can be captured as <tt>skos:examples</tt> of <tt>ontolex:LexicalConcept</tt>, sometimes there is more information about the example beyond the text itself. 
-The class <tt>lexicog:UsageExample</tt> is intentended to represent a textual example of the usage of a sense in a given lexicographic record. A usage example can group several string values, in which case they will encode the same meaning. Thus, if such values are expressed in different languages, they can be interpreted as translations. usage examples can be linked to any other relevant information related to it provided in, from provenance to usage notes:
+There are occasions in which lexicographic records also include an example of use of an entry in each of its senses. While these examples can be captured as <tt>skos:examples</tt> of <tt>ontolex:LexicalConcept</tt>, sometimes there is more information about the example beyond the text itself. 
+The class <tt>lexicog:UsageExample</tt> is intentended to represent a textual example of the usage of a sense in a given lexicographic record. A usage example can group several string values, in which case they will encode the same meaning. Thus, if such values are expressed in different languages, they can be interpreted as translations. Usage examples can be linked to any other relevant information related to them, from provenance to usage notes:
 
 
 
@@ -974,7 +974,7 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 
 	<h2>Acknowledgements</h2>
 
-	  This work would not have been possible without the constant and major input from everyone in the OntoLex community attending the bi-weekly Lexicography module telecoferences and providing data for discussion. We are specially thankful to Christian Chiarcos and Thierry Declerck for their useful feedback and insightful remarks.
+	  This work would not have been possible without the constant and major input from everyone in the OntoLex community attending the bi-weekly Lexicography module telecoferences and providing data for discussion. We are especially thankful to Christian Chiarcos and Thierry Declerck for their useful feedback and insightful remarks.
 
 
    <h2>References</h2>
