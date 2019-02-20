@@ -64,23 +64,52 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
                     url:        "http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/phdstudents/360-jbosque/index.html ",
                     company:    "Ontology Engineering Group, Universidad Politécnica de Madrid",
                     companyURL: "http://www.oeg-upm.net/" },
-
 				{   name:       "Jorge Gracia",
                     url:        "https://purl.org/net/jorge-gracia",
                     company:    "Aragon Institute of Engineering Research, University of Zaragoza",
                     companyURL: "http://i3a.unizar.es/en" }
           ],
 		  authors: [
-                 {  name:       "Julia Bosque-Gil"},
-				 {  name:       "Jorge Gracia"},
-				 {   name:       "John McCrae"},
-          {   name:       "Philipp Cimiano"},
-				   {   name:       "Sander Stolk"},
-           {   name:       "Fahad Khan"},
-           {   name:       "Katrien Depuydt"},
-             {   name:       "Jesse de Does"},
-             {   name:       "Francesca Frontini"},
-             {   name:       "Ilan Kernerman"}
+        {   name:       "Julia Bosque-Gil",
+            url:        "http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/phdstudents/360-jbosque/index.html ",
+            company:    "Ontology Engineering Group, Universidad Politécnica de Madrid",
+            companyURL: "http://www.oeg-upm.net/" },
+            {   name:       "Jorge Gracia",
+                        url:        "https://purl.org/net/jorge-gracia",
+                        company:    "Aragon Institute of Engineering Research, University of Zaragoza",
+                        companyURL: "http://i3a.unizar.es/en" },
+				 {   name:       "John McCrae",
+            url:  "http://john.mccr.ae/",
+            company: "Insight Centre for Data Analytics, National University of Ireland, Galway",
+          companyURL: "https://www.insight-centre.org/"},
+          {   name:       "Philipp Cimiano",
+          url:  "http://ekvv.uni-bielefeld.de/pers_publ/publ/PersonDetail.jsp?personId=15020699",
+          company: "Cognitive Interaction Technology Excellence Center, Bielefeld University",
+        companyURL: "http://www.sc.cit-ec.uni-bielefeld.de/index.php?id=29&L=1&id=29"},
+				   {   name:       "Sander Stolk",
+           url:  "https://www.universiteitleiden.nl/en/staffmembers/sander-stolk",
+           company: "Centre for the Arts in Society, Leiden University",
+         companyURL: "https://www.universiteitleiden.nl/en"},
+           {   name:       "Fahad Khan",
+           url:  "http://www.ilc.cnr.it/en/content/anas-fahad-khan",
+           company: "Istituto di Linguistica Computazionale “Zampolli”, CNR, Pisa",
+         companyURL: "http://www.ilc.cnr.it/en"},
+           {   name:       "Katrien Depuydt",
+           url:  "katrien.depuydt@ivdnt.org",
+           company: "Institute for Dutch Lexicology, Leiden, Netherlands",
+         companyURL: "https://ivdnt.org/"},
+             {   name:       "Jesse de Does",
+             url:  "jesse.dedoes@ivdnt.org",
+             company: "Institute for Dutch Lexicology, Leiden, Netherlands",
+           companyURL: "https://ivdnt.org/"},
+             {   name:       "Francesca Frontini",
+             url:  "https://sites.google.com/site/francescafrontini/",
+             company: "Paul-Valéry University, Montpellier III",
+           companyURL: "https://www.univ-montp3.fr/"},
+             {   name:       "Ilan Kernerman",
+             url:  "https://www.lexicala.com/k-dictionaries#team",
+             company: "K Dictionaries",
+           companyURL: "https://www.lexicala.com/"}
           ],
 		  previousMaturity: "CG-DRAFT",
 	      previousPublishDate:  "",
@@ -96,7 +125,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
   <body>
     <section id='abstract'>
       <p>
-       This document describes the <em>lexicography module</em> of the Lexicon Model for Ontologies (<em>lemon</em>) as a result of the work of the Ontology Lexica community group (OntoLex). The module is targeted at the representation of dictionaries and any other linguistic resource containing lexicographic data, and addresses structures and annotations commonly found in lexicography. This module operates in combination with the <em>lemon</em> core module, referred to as <em>OntoLex</em>.
+       This document describes the <em>lexicography module</em> of the Lexicon Model for Ontologies (<em>lemon</em>) as a result of the work of the Ontology Lexicon community group (OntoLex). The module is targeted at the representation of dictionaries and any other linguistic resource containing lexicographic data, and addresses structures and annotations commonly found in lexicography. This module operates in combination with the <em>lemon</em> core module, referred to as <em>OntoLex</em>.
 	  </p>
     </section>
 
@@ -141,7 +170,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 
 	<p> The scope of the model is two-fold:
 		<ol>
-			<li> Modelling <em>existing</em> lexicographic resources as linked data, to allow their later publication and inter-operation by following Semantic Web standards, and
+			<li> Modelling <em>existing</em> lexicographic resources as linked data, to allow their later publication by following Semantic Web standards, and
 			<li> providing a conceptual / abstract model of language and linguistic objects in lexicography that will allow for building linked data-based lexicographic resources from scratch.
 		</ol>
 
@@ -150,7 +179,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	<div class="note"><p>
 	In terms of applying the module, we propose the following best practice or "rule of thumb" when representing a dictionary as linked data:
 		<ol>
-			<li> As long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicography module should not be instantiated.
+			<li> As long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicography module need not be applied.
 			<li> In the case of lexicographic information that cannot be modelled by using either OntoLex nor any of the other <em>lemon</em> modules (e.g., to denote sense ordering), the model should be instantiated while avoiding duplicities and keeping extra information to the minimum.
 		</ol>
 	The reason behind this is that this module adds some complexity by providing additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographic view is not essential, reusing <em>lemon</em> would allow for keeping the representation simpler but yet sufficient.
@@ -227,7 +256,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
            <p><strong>URI:</strong> <a href="http://www.w3.org/nl/lemon/lexicog#LexicographicResource" class="uri">http://www.w3.org/nl/lemon/lexicog#LexicographicResource</a></p>
     		</div>
     		<div class='comment'>
-    			<p>A <strong>lexicographic resource</strong> represents a collection of lexicographic entries (lexicog:Entry) according to the lexicographic criteria followed in the development of that resource. </p>
+    			<p>A <strong>lexicographic resource</strong> represents a collection of lexicographic entries (lexicog:Entry) in accord with the lexicographic criteria followed in the development of that resource. </p>
     		</div>
     		<div class='description'>
     			<p><strong>SubClassOf:</strong> void:Dataset, dct:language min 1 xsd:language
@@ -662,7 +691,7 @@ In our running example, we have represented so far the structural components of 
     <h3 id=subComponent>subComponent</h3>
 
 There are cases in which lexicographic components are arranged in a particular hierarchy: a dictionary entry may include a list of senses (even with sub-senses) or sub-entries. <!--If the exact order in which these components are arragend is not to be reflected in the RDF representation, the <tt>lexicog:subComponent</tt> property serves to encode the hierarchical arrangement.-->
-This can be expressed by means of the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>. In case that one wants to explicitly reflect that this is a hierarchical relation between lexicographic components, the <tt>lexicog:subComponent</tt> property can be used instead of, or in addition to, such RDF container mechanisms.
+This can be expressed by means of the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>. In the case that it is necessary to explicitly reflect that this is a hierarchical relation between lexicographic components, the <tt>lexicog:subComponent</tt> property can be used instead of, or in addition to, such RDF container mechanisms.
 
 
 <div id="subComponent" class="entity">
@@ -717,7 +746,7 @@ As an example, let us re-write <a href="#example2">Example 2</a> to describe tha
 <section>
     <h3>FormRestriction</h3>
 
-    There are numerous cases in which a lexicographic record specifies the grammatical features the lemma shows when used in some of its senses. For example, in English, the lemmas <i>good</i>, <i>manner</i>,  <i>air</i> or <i>wood</i> have senses which are usually (or only) attested when the word is used in plural, often indicated with the lemma in plural form, as the following entry from <i>Oxford English Living Dictionaries Online</i> [<cite><a href="#OED-dict-air">18</a></cite>], or with a usage note in the dictionary entry:
+    There are numerous cases in which a lexicographic record specifies the grammatical features the lemma shows when used in some of its senses. For example, in English, the lemmas <i>good</i>, <i>manner</i>,  <i>air</i> or <i>wood</i> have senses which are usually (or only) attested when the word is used in plural, often indicated with the lemma in plural form, as the following entry from <i>Oxford English Living Dictionaries Online</i> [<cite><a href="#OED-dict-air">17</a></cite>], or with a usage note in the dictionary entry:
 
 
 <blockquote cite="https://en.oxforddictionaries.com/definition/air">
@@ -735,8 +764,8 @@ As an example, let us re-write <a href="#example2">Example 2</a> to describe tha
 
 
 <p>
-    While there are plural nouns which only occur in plural form (e.g. <i>ammends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glasses</i></a> in Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glasses">19</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
-      <i>glass</i></a> in Merriam Webster Dictionary, with the annotation  "<i><strong>glasses</strong> plural</i>" [<cite><a href="#MWD-glass">20</a></cite>].
+    While there are plural nouns which only occur in plural form (e.g. <i>amends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glasses</i></a> in Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glasses">18</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
+      <i>glass</i></a> in Merriam Webster Dictionary, with the annotation  "<i><strong>glasses</strong> plural</i>" [<cite><a href="#MWD-glass">19</a></cite>].
 
 </p>
 
@@ -867,7 +896,7 @@ In those cases in which it is necessary to instantiate a <tt>lexicog:UsageExampl
 </div>
 
 
-For instance, a bilingual dictionary such as <a href="https://www.wordreference.com/es/translation.asp?tranword=monastery"> the English-Spanish WordReference Dictionary</a> [<cite><a href="#WR-monasterio">21</a></cite>] can include, for a sense, a usage example and a translation of the usage example in the target language:
+For instance, a bilingual dictionary such as <a href="https://www.wordreference.com/es/translation.asp?tranword=monastery"> the English-Spanish WordReference Dictionary</a> [<cite><a href="#WR-monasterio">20</a></cite>] can include, for a sense, a usage example and a translation of the usage example in the target language:
 
 
 <blockquote cite="https://www.wordreference.com/es/translation.asp?tranword=monastery">
@@ -951,72 +980,70 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 <dd>J. McCrae, G. Aguado-de Cea, P. Buitelaar, P. Cimiano, T. Declerck, A. Gómez-Pérez, J. Gracia, L. Hollink, E. Montiel-Ponsoda, D. Spohr, and T. Wunner, <a href="http://dx.doi.org/10.1007/s10579-012-9182-3"> <cite>"Interchanging lexical resources on the Semantic Web" </cite></a>.  Language Resources and Evaluation, vol. 46, 2012.
 
 <dt id="bib-klimek-kdict">[2]</dt>
-<dd> B. Klimek and M. Brümmer, <cite>"Enhancing lexicography with semantic language databases"</cite> Kernerman Dictionary News, 23, 5-10. 2015.
+<dd> B. Klimek and M. Brümmer, <a href="http://svn.aksw.org/papers/2015/KDICT_Lexicography/public.pdf"><cite>"Enhancing lexicography with semantic language databases"</cite></a>. Kernerman Dictionary News, 23, 5-10, 2015.
 
 <dt id="bib-gracia-apertium">[3]</dt>
-<dd>J. Gracia, M. Villegas, A. Gómez-Pérez, and N. Bel, <cite> "The apertium bilingual dictionaries on the web of data"</cite> Semantic Web Journal, vol. 9, no. 2, pp. 231-240, Jan. 2018.
+<dd>J. Gracia, M. Villegas, A. Gómez-Pérez, and N. Bel,  <a href="http://www.semantic-web-journal.net/content/apertium-bilingual-dictionaries-web-data-0"><cite> "The Apertium Bilingual Dictionaries on the Web of Data"</cite></a>. Semantic Web Journal, vol. 9, no. 2, pp. 231-240, Jan. 2018.
 
 <dt id="bib-bosque-kdict">[4]</dt>
-<dd> J. Bosque-Gil, J. Gracia, E. Montiel-Ponsoda, and G. Aguado-de Cea, <cite>"Modelling multilingual lexicographic resources for the web of data: the k dictionaries case"</cite> in Proc. of GLOBALEX'16 workshop at LREC'15, Portoroz, Slovenia, May 2016.
+<dd> J. Bosque-Gil, J. Gracia, E. Montiel-Ponsoda, and G. Aguado-de Cea, <a href="http://www.lrec-conf.org/proceedings/lrec2016/workshops/LREC2016Workshop-GLOBALEX_Proceedings-v2.pdf#page=71"><cite>"Modelling Multilingual Lexicographic Resources for the Web of Data: the K Dictionaries Case"</cite></a>. Proc. of GLOBALEX'16 workshop at LREC'15, Portoroz, Slovenia, May 2016.
 
 <dt id="bib-kahn-diachronic">[5]</dt>
-<dd> F. Khan, J. E. Díaz-Vera, and M. Monachini, <cite>"Representing Polysemy and Diachronic Lexico-Semantic Data on the Semantic Web"</cite> In SWASH at ESWC (2016)
+<dd> F. Khan, J. E. Díaz-Vera, and M. Monachini,<a href="https://pdfs.semanticscholar.org/d48d/73d559cc50900bf5b8f68270e1c41a444ac4.pdf"><cite>"Representing Polysemy and Diachronic Lexico-Semantic Data on the Semantic Web"</cite></a>. In SWASH at ESWC (2016)
 
 <dt id="bib-declerck-dialectal">[6]</dt>
-<dd> T. Declerck and E. Wandl-Vogt, <cite> "Cross-linking Austrian dialectal Dictionaries through formalized Meanings"</cite> In Proceedings of the XVI EURALEX International
-Congress, pp. 329–343. 2014.
+<dd> T. Declerck and E. Wandl-Vogt, <a href="http://euralex.org/wp-content/themes/euralex/proceedings/Euralex%202014/euralex_2014_023_p_329.pdf"><cite> "Cross-linking Austrian dialectal Dictionaries through formalized Meanings"</cite></a>. Proceedings of the XVI EURALEX International
+Congress, pp. 329–343, 2014.
 
 <dt id="bib-abromeit-etymological">[7]</dt>
-<dd> F. Abromeit, C. Chiarcos, C. Fäth and M. Ionov, <cite>"Linking the Tower of Babel: Modelling a Massive Set of Etymological Dictionaries as RDF"</cite> In LDL 2016 5th Workshop on Linked Data in Linguistics: Managing, Building and Using Linked Language Resources (p. 11). May 2016.
-
+<dd> F. Abromeit, C. Chiarcos, C. Fäth and M. Ionov, <a href="http://www.lrec-conf.org/proceedings/lrec2016/workshops/LREC2016Workshop-LDL2016_Proceedings.pdf#page=22"> <cite>"Linking the Tower of Babel: Modelling a Massive Set of Etymological Dictionaries as RDF"</cite></a>. In LDL 2016 5th Workshop on Linked Data in Linguistics: Managing, Building and Using Linked Language Resources (p. 11), 2016.
 
 <dt id="bib-bosque-lexicography">[8]</dt>
-<dd> J. Bosque-Gil, J. Gracia, and A. Gómez-Pérez, <cite>"Linked data in lexicography"</cite> Kernerman Dictionary News, pp. 19-24, Jul. 2016.
+<dd> J. Bosque-Gil, J. Gracia, and A. Gómez-Pérez, <a href="https://www.lexicala.com/kdn"><cite>"Linked data in lexicography"</cite></a>. Kernerman Dictionary News, pp. 19-24, Jul., 2016.
 
 <dt id="bib-declerck-paneuropean">[9]</dt>
-<dd> T. Declerck, E. Wandl-Vogt, and K. Mörth, <cite>"Towards a Pan European Lexicography by Means of Linked (Open) Data"</cite> In Electronic lexicography in the 21st century: linking lexical data in the digital age. Proceedings of the eLex 2015 conference (pp. 342-355), 2015.
-
+<dd> T. Declerck, E. Wandl-Vogt, and K. Mörth, <a href="https://elex.link/elex2015/proceedings/eLex_2015_22_Declerck+etal.pdf"> <cite>"Towards a Pan European Lexicography by Means of Linked (Open) Data"</cite></a>. In Electronic lexicography in the 21st century: linking lexical data in the digital age. Proceedings of the eLex 2015 conference (pp. 342-355), 2015.
 
 <dt id="bib-bosque-module">[10]</dt>
-<dd> J. Bosque-Gil, J. Gracia, and E. Montiel-Ponsoda, <a href="http://ceur-ws.org/Vol-1899/OntoLex_2017_paper_5.pdf"> <cite>  "Towards a module for lexicography in OntoLex" </cite></a> in Proc. of the LDK workshops: OntoLex, TIAD and Challenges for Wordnets at 1st Language Data and Knowledge conference (LDK 2017), Galway, Ireland, vol. 1899.    CEUR-WS, pp. 74-84, Jun 2017.
+<dd> J. Bosque-Gil, J. Gracia, and E. Montiel-Ponsoda, <a href="http://ceur-ws.org/Vol-1899/OntoLex_2017_paper_5.pdf"> <cite> "Towards a module for lexicography in OntoLex" </cite></a>. Proc. of the LDK workshops: OntoLex, TIAD and Challenges for Wordnets at 1st Language Data and Knowledge conference (LDK 2017), Galway, Ireland, vol. 1899.    CEUR-WS, pp. 74-84, Jun 2017.
 
 <dt id="bib-parvizi-oxford">[11]</dt>
-<dd> A. Parvizi, M. Kohl, M. González, R. Saurí, <cite>"Towards a Linguistic Ontology with an Emphasis on Reasoning and Knowledge Reuse"</cite> Language Resources and Evaluation Conference (LREC), May 2016.
+<dd> A. Parvizi, M. Kohl, M. González, R. Saurí,  <a href="https://pdfs.semanticscholar.org/da29/4532e499a663d36be2ab92a45111c4e5194e.pdf"> <cite>"Towards a Linguistic Ontology with an Emphasis on Reasoning and Knowledge Reuse"</cite></a>. Language Resources and Evaluation Conference (LREC), May 2016.
 
 <dt id="bib-gracia-native">[12]</dt>
-<dd> J. Gracia, I. Kernerman, and J. Bosque-Gil, <a href=" https://elex.link/elex2017/wp-content/uploads/2017/09/paper33.pdf" <cite>"Toward linked data-native dictionaries"</cite> </a> in. Proc. of eLex 2017 conference (Electronic lexicography in the 21st century), in Leiden, Netherlands. Lexical Computing CZ s.r.o., pp. 550-559, Sep. 2017.
+<dd> J. Gracia, I. Kernerman, and J. Bosque-Gil, <a href="https://elex.link/elex2017/wp-content/uploads/2017/09/paper33.pdf" <cite>"Toward linked data-native dictionaries"</cite> </a>. Proc. of eLex 2017 conference (Electronic lexicography in the 21st century), in Leiden, Netherlands. Lexical Computing CZ s.r.o., pp. 550-559, 2017.
 
 <dt id="bib-stolk-onomasiological">[13]</dt>
-<dd> S. Stolk, <cite>"OntoLex and Onomasiological Ordering: Supporting Topical Thesauri"</cite> in Proc. of the LDK2017 Workshops, NUI Galway, Ireland, 18 June (pp. 60–67), 2017.
+<dd> S. Stolk, <a href="https://pdfs.semanticscholar.org/8a5f/5cee8e3a263c1e1c09ebfdd7e6288c7749eb.pdf" <cite>"OntoLex and Onomasiological Ordering: Supporting Topical Thesauri"</cite></a>. Proc. of the LDK2017 Workshops, NUI Galway, Ireland, 18 June (pp. 60–67), 2017.
 
 <dt id="bib-elmaarouf-verbs">[14]</dt>
-<dd> I. El Maarouf, J. Bradbury, and P. Hanks, <cite>"PDEV-lemon: a Linked Data implementation of the Pattern Dictionary of English Verbs based on the Lemon model"</cite>. In 3rd Workshop on Linked Data in Linguistics: Multilingual Knowledge Resources and Natural Language Processing (p. 88). 2014.
+<dd> I. El Maarouf, J. Bradbury, and P. Hanks, <a href="http://www.lrec-conf.org/proceedings/lrec2014/workshops/LREC2014Workshop-LDL2014%20Proceedings.pdf" <cite>"PDEV-lemon: a Linked Data implementation of the Pattern Dictionary of English Verbs based on the Lemon model"</cite></a>. In 3rd Workshop on Linked Data in Linguistics: Multilingual Knowledge Resources and Natural Language Processing (p. 88), 2014.
 
 <dt id="bib-kahn-citations">[15]</dt>
-<dd> F. Khan and F. Boschetti, <cite>"Towards a Representation of Citations in Linked Data Lexical Resources"</cite> In proc. of the XVIII EURALEX International Congress (EURALEX 2018). 2018
+<dd> F. Khan and F. Boschetti, <a href="http://euralex.org/wp-content/themes/euralex/proceedings/Euralex%202018/118-4-2913-1-10-20180820.pdf" <cite>"Towards a Representation of Citations in Linked Data Lexical Resources"</cite></a>. Proc. of the XVIII EURALEX International Congress (EURALEX 2018), 2018.
 
 <dt id="american-heritage-dict">[16]</dt>
 <dd><cite>animal. American Heritage Dictionary. Houghton Mifflin Harcourt, 1994.</cite> Last accessed 28.10.18.
 
-<dt id="RAE-dict">[17]</dt>
-<dd><cite>blanco. Diccionario de la Lengua Española (DLE). Versión electrónica de la 23. Edición. December 2017.</cite> Last accessed 28.10.18.
+<!-- <dt id="RAE-dict">[17]</dt>
+<dd><cite>blanco. Diccionario de la Lengua Española (DLE). Versión electrónica de la 23. Edición. December 2017.</cite> Last accessed 28.10.18. -->
 
-<dt id="OED-dict-air">[18]</dt>
+<dt id="OED-dict-air">[17]</dt>
 <dd><cite>air. Oxford English Living Dictionaries Online. </cite> Last accessed 15.01.19.
 <a href="https://en.oxforddictionaries.com/definition/air">https://en.oxforddictionaries.com/definition/air</a>
 
 
-<dt id="OED-dict-glass">[19]</dt>
+<dt id="OED-dict-glass">[18]</dt>
 <dd><cite>glasses. glass.  Oxford English Living Dictionaries Online. </cite> Last accessed 15.01.19.
 <a href="https://en.oxforddictionaries.com/definition/glasses">https://en.oxforddictionaries.com/definition/glasses</a>
 <a href="https://en.oxforddictionaries.com/definition/glass">https://en.oxforddictionaries.com/definition/glass</a>
 
 
-<dt id="MWD-glass">[20]</dt>
+<dt id="MWD-glass">[19]</dt>
 <dd><cite>glass. Merriam-Webster Dictionary. </cite> Last accessed 15.01.19. <a href="https://www.merriam-webster.com/dictionary/glass">https://www.merriam-webster.com/dictionary/glass</a>
 
 
-<dt id="WR-monasterio">[21]</dt>
+<dt id="WR-monasterio">[20]</dt>
 <dd><cite>monastery. English-Spanish Word Reference Dictionary. </cite> Last accessed 15.01.19.
 <a href="http://www.wordreference.com/es/translation.asp?tranword=monastery">http://www.wordreference.com/es/translation.asp?tranword=monastery</a>
 
