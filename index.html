@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Ontolex Lexicography Module</title>
+    <title>The OntoLex Lemon Lexicography Module</title>
     <meta charset='utf-8'>
     <script src='javascripts/respec-w3c-common.js'
             async class='remove'></script>
@@ -125,10 +125,11 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
   <body>
     <section id='abstract'>
       <p>
-       This document describes the <em>lexicography module</em> of the Lexicon Model for Ontologies (<em>lemon</em>) as a result of the work of the Ontology Lexicon community group (OntoLex). The module is targeted at the representation of dictionaries and any other linguistic resource containing lexicographic data, and addresses structures and annotations commonly found in lexicography. This module operates in combination with the <em>lemon</em> core module, referred to as <em>OntoLex</em>.
+       This document describes the <em>lexicography module</em> of the Lexicon Model for Ontologies (<em>lemon</em>) as a result of the work of the Ontology Lexicon community group (OntoLex). The module is targeted at the representation of dictionaries and any other linguistic resource containing lexicographic data, and addresses structures and annotations commonly found in lexicography. This module operates in combination with the <em>lemon</em> core module, referred to as <em>OntoLex</em>. </p>
+	   <p> The RDF file with the OntoLex lemon lexicography module can be found at <a href="http://www.w3.org/ns/lemon/lexicog">http://www.w3.org/ns/lemon/lexicog</a>   
 	  </p>
     </section>
-
+	
     <section id='sotd'>
      <p>There are a number of ways that one may participate in future developments of this report:</p>
       <ul>
@@ -218,7 +219,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 		@prefix skos: &lt;http://www.w3.org/2004/02/skos#&gt; .
 		@prefix void: &lt;http://rdfs.org/ns/void#&gt; .
 		@prefix lexinfo: &lt;http://www.lexinfo.net/ontology/2.0/lexinfo#&gt; .
-		@prefix dct: &lt;http://purl.org/dc/terms/&gt; .
+		@prefix dc: &lt;http://purl.org/dc/elements/1.1/&gt; .
 	    </code>
   	   </pre>
 	  </p>
@@ -258,7 +259,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
     			<p>A <strong>lexicographic resource</strong> represents a collection of lexicographic entries (lexicog:Entry) in accord with the lexicographic criteria followed in the development of that resource. </p>
     		</div>
     		<div class='description'>
-    			<p><strong>SubClassOf:</strong> void:Dataset, dct:language min 1 xsd:language
+    			<p><strong>SubClassOf:</strong> void:Dataset, dc:language min 1
     		</div>
     </div>
 
@@ -293,7 +294,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
 
  <div id="entry" class="entity">
- <h3 id="entry-object-property">Entry (Object Property)<a class="self-link" aria-label="§" href="#entry-object-property"></a></h3>
+ <h3 id="entry-object-property">entry (Object Property)<a class="self-link" aria-label="§" href="#entry-object-property"></a></h3>
  <div>
  <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#entry" class="uri">http://www.w3.org/ns/lemon/lexicog#entry</a></p>
  </div>
@@ -342,7 +343,7 @@ adj.
 		<pre id="example1" class="example"><code>
 
      :myDictionary a lexicog:LexicographicResource ;
-	    dct:language "en" ;
+	    dc:language "en" ;
 	    lexicog:entry :animal_entry .
 
      :myLexicon a lime:Lexicon;
@@ -390,7 +391,7 @@ adj.
 		<div>
 		<pre id="example2" class="example"><code>
     :myDictionary a lexicog:LexicographicResource;
-       dct:language "en" ;
+       dc:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
@@ -441,7 +442,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
      <div>
      <pre id="example1" class="example"><code>
     :myDictionary a lexicog:LexicographicResource;
-       dct:language "en" ;
+       dc:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
@@ -477,7 +478,7 @@ The following code extends the previous example by adding more subcomponents tha
   <div>
 		<pre id="example4" class="example"><code>
     :myDictionary a lexicog:LexicographicResource;
-       dct:language "en" ;
+       dc:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
@@ -530,7 +531,7 @@ In our running example, we have represented so far the structural components of 
       <div>
 		<pre id="example5" class="example"><code>
     :myDictionary a lexicog:LexicographicResource;
-       dct:language "en" ;
+       dc:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
@@ -633,7 +634,7 @@ As an example, let us re-write <a href="#example2">Example 2</a> to describe tha
     <div>
   <pre id="example6" class="example"><code>
     :myDictionary a lexicog:LexicographicResource ;
-       dct:language "en" ;
+       dc:language "en" ;
        lexicog:entry :animal_entry .
 
     :myLexicon a lime:Lexicon;
@@ -712,7 +713,7 @@ The <tt>lexicog:FormRestriction</tt> class is intended to provide a way to speci
 The <tt>lexicog:restrictedTo</tt> allows us to relate an <tt>ontolex:LexicalSense</tt> to its <tt>lexicog:FormRestriction</tt>, if any:
 
 <div id="restrictedTo" class="entity">
-<h3 id="restrictedTo-object-property">RestrictedTo (Object Property)<a class="self-link" aria-label="§" href="#restrictedTo-object-property"></a></h3>
+<h3 id="restrictedTo-object-property">restrictedTo (Object Property)<a class="self-link" aria-label="§" href="#restrictedTo-object-property"></a></h3>
 <div>
 <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#restrictedTo" class="uri">http://www.w3.org/ns/lemon/lexicog#restrictedTo</a></p>
 </div>
@@ -789,17 +790,17 @@ The class <tt>lexicog:UsageExample</tt> is intentended to represent a textual ex
   </section>
 
   <section>
-  <h3>example</h3>
+  <h3>usageExample</h3>
 
-In those cases in which it is necessary to instantiate a <tt>lexicog:UsageExample</tt> because there is further information about an example beyond the text itself (otherwise, <tt>skos:example</tt> would suffice), the <tt>lexicog:example</tt> property allows us to link an <tt>ontolex:LexicalSense</tt> to a <tt>lexicog:UsageExample</tt> element.
+In those cases in which it is necessary to instantiate a <tt>lexicog:UsageExample</tt> because there is further information about an example beyond the text itself (otherwise, <tt>skos:example</tt> would suffice), the <tt>lexicog:usageExample</tt> property allows us to link an <tt>ontolex:LexicalSense</tt> to a <tt>lexicog:UsageExample</tt> element.
 
 <div id="example" class="entity">
-<h3 id="example-object-property">example (Object Property)<a class="self-link" aria-label="§" href="#example-object-property"></a></h3>
+<h3 id="example-object-property">usageExample (Object Property)<a class="self-link" aria-label="§" href="#example-object-property"></a></h3>
 <div>
-<p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#example" class="uri">http://www.w3.org/ns/lemon/lexicog#example</a></p>
+<p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#usageExample" class="uri">http://www.w3.org/ns/lemon/lexicog#usageExample</a></p>
 </div>
 <div class="comment">
-<p>The property <strong>example</strong> relates an ontolex:LexicalSense with a lexicog:UsageExample</p>
+<p>The property <strong>usageExample</strong> relates an ontolex:LexicalSense with a lexicog:UsageExample</p>
 </div>
 <div class="description">
 <p><strong>Domain</strong>: LexicalSense</p>
@@ -837,7 +838,7 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
     # Senses
     :monastery_n_sense a ontolex:LexicalSense ;
        ontolex:isLexicalizedSenseOf :monastery_n_sense_concept ;
-       lexicog:example :monastery_n_sense_ex .
+       lexicog:usageExample :monastery_n_sense_ex .
 
     :monasterio_monastery-sense a ontolex:LexicalSense ;
        ontolex:isLexicalizedSenseOf :monastery_n_sense_concept .
