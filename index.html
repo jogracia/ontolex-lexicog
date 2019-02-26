@@ -126,10 +126,10 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
     <section id='abstract'>
       <p>
        This document describes the <em>lexicography module</em> of the Lexicon Model for Ontologies (<em>lemon</em>) as a result of the work of the Ontology Lexicon community group (OntoLex). The module is targeted at the representation of dictionaries and any other linguistic resource containing lexicographic data, and addresses structures and annotations commonly found in lexicography. This module operates in combination with the <em>lemon</em> core module, referred to as <em>OntoLex</em>. </p>
-	   <p> The RDF file with the OntoLex lemon lexicography module can be found at <a href="http://www.w3.org/ns/lemon/lexicog">http://www.w3.org/ns/lemon/lexicog</a>   
+	   <p> The RDF file with the OntoLex lemon lexicography module can be found at <a href="http://www.w3.org/ns/lemon/lexicog">http://www.w3.org/ns/lemon/lexicog</a>
 	  </p>
     </section>
-	
+
     <section id='sotd'>
      <p>There are a number of ways that one may participate in future developments of this report:</p>
       <ul>
@@ -236,7 +236,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	  The following diagram depicts the OntoLex lexicography module (<i>lexicog</i>). Boxes represent classes of the model. Arrows with filled heads represent object properties, while arrows with empty heads represent the <tt>rdfs:subClassOf</tt> relation. Note that the module provides elements to account for structures common in lexicographic resources (shaded in blue) as well as some to capture annotations and additional information describing lexical elements as found in dictionaries (shaded in orange).
 
     <figure>
-        <img src="img/ontolex-lexicography-module_v.4.png" title="ontolex-lexicography-module_v.4.png" alt="ontolex-lexicography-module_v.4.png" ><figcaption>The OntoLex lexicography module (lexicog). The upper part accounts for structures common in lexicographic resources and the bottom part describes the lexicon, i.e., the elements describing the lexical information.</figcaption>
+        <img src="img/ontolex-lexicography-module_v.5.png" title="ontolex-lexicography-module_v.5.png" alt="ontolex-lexicography-module_v.5.png" ><figcaption>The OntoLex lexicography module (lexicog). The upper part accounts for structures common in lexicographic resources and the bottom part describes the lexicon, i.e., the elements describing the lexical information.</figcaption>
     </figure>
 
 
@@ -271,7 +271,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	  <section>
 	  <h3>Entry</h3>
 
-    <p>The class <a href="#Entry">Entry</a> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by the lexicographer (supported by the occurrences of the word or phrase in the corpus used for dictionary compilation). This class is thus intended to be the counterpart of the lemon lexical entry (<tt>ontolex:LexicalEntry</tt>) in the linked data representation of a dictionary, and fulfills a structural function. 
+    <p>The class <a href="#Entry">Entry</a> is introduced to represent the entry as it is encoded in a lexicographic resource, e.g. a dictionary entry, thereby reflecting the arrangement decided upon by the lexicographer (supported by the occurrences of the word or phrase in the corpus used for dictionary compilation). This class is thus intended to be the counterpart of the lemon lexical entry (<tt>ontolex:LexicalEntry</tt>) in the linked data representation of a dictionary, and fulfills a structural function.
 
     <div id="Entry" class='entity'>
     <h3>Entry (Class)</h3>
@@ -336,7 +336,7 @@ adj.
   <p>In this example, a dictionary provides one single dictionary entry for the word <i>animal</i>, comprising its noun and adjective definitions under one same structure. This is not compliant with the definition of <tt>ontolex:LexicalEntry</tt>, which requires a single part of speech. Therefore, a <tt>lime:Lexicon</tt> accounting for the lexical information in this dictionary will contain two lexical entries, one per part of speech. On the other hand, an instance of the <a href="#LexicographicResource"> Lexicographic Resource </a> class will gather entities <i>as they were presented in the original dictionary</i> in order to keep track of the original representation. In this example, <i>animal</i> will be the only entry of the lexicographic resource:
   </p>
 
- 
+
    <div class='beispiel'>
 		<p><a href='Examples/new-png/example1_LexicographicResource.png' class='tn'/><img src='Examples/new-png/example1_LexicographicResource.png' width="100%"/></a></p>
 		<div>
@@ -370,7 +370,7 @@ adj.
 	 <p>A <a href="#LexicographicComponent">lexicographic component</a> is a structural element in the <a href="#LexicographicResource">lexicographic resource</a> that represents either a lexicographic record or any other sub-structure to refer to senses, sense groups, or nested entries. Lexicographic components do not necessarily describe lexical data but can often fulfill a grouping function to gather other components that do. <a href="#Entry">Entry</a> is a particular subclass of <a href="#LexicographicComponent">Lexicographic Component</a> used to represent the main "entry point" in the dictionary, i.e., the headword or the root of the lexicographic record.
 	 The <a href="#LexicographicComponent">lexicographic components</a> can describe lexical senses (<tt>ontolex:LexicalSense</tt>) or lexical entries (<tt>ontolex:LexicalEntry</tt>), depending on the arrangement in the original resource. Components can in turn be arranged in a specific order and/or hierarchy or just be declared to be part of an <a href="#Entry">entry</a>. </p>
 
-   
+
         <div id="LexicographicComponent" class='entity'>
       <h3>Lexicographic Component (Class)</h3>
       <div>
@@ -471,7 +471,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
 </p></div>
 
 
-The following code extends the previous example by adding more subcomponents that describe the four senses that can be found in the <a href="#ExampleAmericanHeritage">original  lexicographic record</a>. In this example we capture the sense order by using the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>, in particular <tt>rdfs:ContainerMembershipProperty (rdf:_1, rdf:_2, ...)</tt>. 
+The following code extends the previous example by adding more subcomponents that describe the four senses that can be found in the <a href="#ExampleAmericanHeritage">original  lexicographic record</a>. In this example we capture the sense order by using the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>, in particular <tt>rdfs:ContainerMembershipProperty (rdf:_1, rdf:_2, ...)</tt>.
 
 <div class='beispiel'>
   <p><a href='Examples/new-png/example4_senses.png' class='tn'/><img src='Examples/new-png/example4_senses.png' width="100%"/></a></p>
@@ -606,7 +606,7 @@ In our running example, we have represented so far the structural components of 
 
     <h3 id=subComponent>subComponent</h3>
 
-There are cases in which lexicographic components are arranged in a particular hierarchy: a dictionary entry may include a list of senses (even with sub-senses) or sub-entries. 
+There are cases in which lexicographic components are arranged in a particular hierarchy: a dictionary entry may include a list of senses (even with sub-senses) or sub-entries.
 This can be expressed by means of the RDF native mechanisms for <a href="https://www.w3.org/TR/rdf-schema/#ch_containervocab">containers</a>. In the case that it is necessary to explicitly reflect that this is a hierarchical relation between lexicographic components, the <tt>lexicog:subComponent</tt> property can be used instead of, or in addition to, such RDF container mechanisms.
 
 
