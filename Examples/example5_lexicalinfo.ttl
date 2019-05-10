@@ -55,10 +55,14 @@
 	     ontolex:writtenRep "animal"@en .
 	
 	:animal_n ontolex:lexicalForm :animal_form ;
-	    lexinfo:partOfSpeech lexinfo:noun .
+	    lexinfo:partOfSpeech lexinfo:noun ;
+		ontolex:sense :animal_n_sense_1 ;
+		ontolex:sense :animal_n_sense_2 .
 		
 	:animal_adj ontolex:lexicalForm :animal_form ;
-	    lexinfo:partOfSpeech lexinfo:adjective .
+	    lexinfo:partOfSpeech lexinfo:adjective ;
+		ontolex:sense :animal_adj_sense_1 ;
+		ontolex:sense :animal_adj_sense_2 .
         
 	:animal_n_1_concept  a ontolex:LexicalConcept ;
 		skos:definition "Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)"@en .

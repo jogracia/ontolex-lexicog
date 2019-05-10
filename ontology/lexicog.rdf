@@ -25,14 +25,16 @@
         <dc:contributor rdf:resource="https://sites.google.com/site/francescafrontini/"/>
         <dc:contributor rdf:resource="https://www.lexicala.com/k-dictionaries#team"/>
         <dc:contributor rdf:resource="https://www.universiteitleiden.nl/en/staffmembers/sander-stolk"/>
-        <dc:creator rdf:resource="http://jogracia.url.ph/web/"/>
+        <dc:creator rdf:resource="http://purl.org/net/jorge-gracia"/>
         <dc:creator rdf:resource="http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/phdstudents/360-jbosque/index.html"/>
         <dc:description xml:lang="en">A model for the representation of lexicographic data that extends the Lexicon Model for Ontologies (lemon).</dc:description>
+		 <dc:description xml:lang="es">Un modelo para la representacion de datos lexicográficos que extiende el Lexicon Model for Ontologies (lemon).</dc:description>
         <dc:description xml:lang="nl">Een model voor de representatie van lexicografische data dat de Lexicon Model for Ontologies (lemon) uitbreidt.</dc:description>
         <dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-03-08</dc:modified>
         <dc:publisher rdf:resource="http://www.w3.org/community/ontolex"/>
         <dc:rights>CC-Zero</dc:rights>
         <dc:title xml:lang="en">The lemon lexicography module - Lexicog</dc:title>
+		<dc:title xml:lang="es">El módulo de lexicografía de lemon - Lexicog</dc:title>
         <dc:title xml:lang="nl">De lemon lexicografie module - Lexicog</dc:title>
         <imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
         <versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</versionInfo>

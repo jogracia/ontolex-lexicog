@@ -55,10 +55,10 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
     <script class='remove'>
       var respecConfig = {
 
-          specStatus: "CG-DRAFT",
+          specStatus: "CG-FINAL",
           doRDFa: "1.1",
           shortName:  "lexicography-ontolex",
-		  publishDate:  "2019-01-15",
+		  publishDate:  "2019-05-15",
           editors: [
                 {   name:       "Julia Bosque-Gil",
                     url:        "http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/phdstudents/360-jbosque/index.html ",
@@ -333,7 +333,7 @@ adj.
 
 
 
-  <p>In this example, a dictionary provides one single dictionary entry for the word <i>animal</i>, comprising its noun and adjective definitions under one same structure. This is not compliant with the definition of <tt>ontolex:LexicalEntry</tt>, which requires a single part of speech. Therefore, a <tt>lime:Lexicon</tt> accounting for the lexical information in this dictionary will contain two lexical entries, one per part of speech. On the other hand, an instance of the <a href="#LexicographicResource"> Lexicographic Resource </a> class will gather entities <i>as they were presented in the original dictionary</i> in order to keep track of the original representation. In this example, <i>animal</i> will be the only entry of the lexicographic resource:
+  <p>In this example, a dictionary provides one single dictionary entry for the word <i>animal</i>, comprising its noun and adjective definitions under one same structure. This is not compliant with the definition of <tt>ontolex:LexicalEntry</tt>, which requires a single part of speech. Therefore, a <tt>lime:Lexicon</tt> accounting for the lexical information in this dictionary will contain two lexical entries, one per part of speech. On the other hand, an instance of the <a href="#LexicographicResource"> Lexicographic Resource </a> class will gather entities <i>as they were presented in the original dictionary</i> in order to keep track of the original representation. In this simplified example, <i>animal</i> will be the only entry of the lexicographic resource:
   </p>
 
 
@@ -573,10 +573,14 @@ In our running example, we have represented so far the structural components of 
        ontolex:writtenRep "animal"@en .
 
     :animal_n ontolex:lexicalForm :animal_form ;
-       lexinfo:partOfSpeech lexinfo:noun .
-
+        lexinfo:partOfSpeech lexinfo:noun ;
+        ontolex:sense :animal_n_sense_1 ;
+        ontolex:sense :animal_n_sense_2 .
+		
     :animal_adj ontolex:lexicalForm :animal_form ;
-       lexinfo:partOfSpeech lexinfo:adjective .
+        lexinfo:partOfSpeech lexinfo:adjective ;
+        ontolex:sense :animal_adj_sense_1 ;
+        ontolex:sense :animal_adj_sense_2 .
 
     :animal_n_1_concept  a ontolex:LexicalConcept ;
        skos:definition "Any of numerous multicellular eukaryotic organisms of the kingdom Metazoa (or Animalia)"@en .
@@ -611,7 +615,7 @@ This can be expressed by means of the RDF native mechanisms for <a href="https:/
 
 
 <div id="subComponent" class="entity">
-<h3 id="subcomponent-object-property">subComponent (Object Property)<a class="self-link" aria-label="§" href="#subComponent-object-property"></a></h3>
+<h3 id="subComponent-object-property">subComponent (Object Property)<a class="self-link" aria-label="§" href="#subComponent-object-property"></a></h3>
 <div>
 <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#subComponent" class="uri">http://www.w3.org/ns/lemon/lexicog#subComponent</a></p>
 </div>
@@ -680,7 +684,7 @@ As an example, let us re-write <a href="#example2">Example 2</a> to describe tha
 
 
 <p>
-    While there are plural nouns which only occur in plural form (e.g. <i>amends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glasses</i></a> in Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glasses">18</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
+    While there are plural nouns which only occur in plural form (e.g. <i>amends</i>, <i>scissors</i>), the so-called <i>pluralia tantum</i>, and they are usually defined in their own dictionary entry, there is also some variance across lexicographic resources in cases in which the noun also occurs in singular form. For instance, see <a href="https://en.oxforddictionaries.com/definition/glasses"> <i>glasses</i></a> in Oxford Living Dictionaries, in an entry separate from <a href="https://en.oxforddictionaries.com/definition/glass"> <i>glass</i></a> [<cite><a href="#OED-dict-glass">18</a></cite>], as opposed to its treatment as a sub-sense of a sense of the lemma <a href="https://www.merriam-webster.com/dictionary/glass">
       <i>glass</i></a> in Merriam Webster Dictionary, with the annotation  "<i><strong>glasses</strong> plural</i>" [<cite><a href="#MWD-glass">19</a></cite>].
 
 </p>
