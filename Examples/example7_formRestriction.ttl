@@ -30,16 +30,16 @@
 :air_n_sense_2 a ontolex:LexicalSense;
    ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
 :air_n_sense_2_1 a ontolex:LexicalSense;
-   ontolex:isLexicalizedSenseOf :air_n_sense_2-1_lc ;
+   ontolex:isLexicalizedSenseOf :air_n_sense_2_1_lc ;
    lexicog:restrictedTo :air_n_formRes.
 
 :air_n_formRes a lexicog:FormRestriction ;
    lexinfo:number lexinfo:plural .
 
-:air_n_sense_2_lc a ontolex:LexicalConcept;
-   skos:definition "An impression of a quality or manner given by someone or something"@en.
+:air_n_sense_2_lc a ontolex:LexicalConcept ;
+   skos:definition "An impression of a quality or manner given by someone or something"@en .
 
 :air_n_sense_2_1_lc a ontolex:LexicalConcept;
-   skos:definition "An annoyingly affected and condescending manner"@en.
+   skos:definition "An annoyingly affected and condescending manner"@en .
 
 

@@ -36,7 +36,7 @@ h1 :visited {
 img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
 .beispiel { border: 1px dashed #808080; width:80%; margin-left:auto; margin-right:auto; margin-bottom:30px; margin-top:30px; overflow:hidden;}
 .beispiel img { text-align:center; margin: 0px; border: 1px solid #000080;}
-.beispiel pre { border:none; font-size:130%;}
+.beispiel pre { border:none; font-size:80%;}
 .beispiel a { display:block;  margin: 20px; padding:0px;}
 .caption {display:none;}
 .tn img {max-width:100%;}
@@ -754,7 +754,7 @@ The following example is the RDF representation of the above mentioned sense of 
        ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
 
     :air_n_sense_2_1 a ontolex:LexicalSense ;
-       ontolex:isLexicalizedSenseOf :air_n_sense_2-1_lc ;
+       ontolex:isLexicalizedSenseOf :air_n_sense_2_1_lc ;
        lexicog:restrictedTo :air_n_formRes .
 
     :air_n_formRes a lexicog:FormRestriction ;
@@ -858,8 +858,8 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 
     # Examples
     :monastery_n_sense_ex a lexicog:UsageExample;
-       rdf:value "We visited a Buddhist monastery deep in a jungle."@en;
-       rdf:value "Visitamos un monasterio budista en medio de la selva."@es.
+       rdf:value "We visited a Buddhist monastery deep in a jungle."@en ;
+       rdf:value "Visitamos un monasterio budista en medio de la selva."@es .
   </code></pre>
   </div>
   </div>

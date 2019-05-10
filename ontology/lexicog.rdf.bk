@@ -36,7 +36,8 @@
         <dc:title xml:lang="nl">De lemon lexicografie module - Lexicog</dc:title>
         <dc:title xml:lang="es">El módulo de lexicografía de lemon - Lexicog</dc:title>
         <dc:title xml:lang="en">The lemon lexicography module - Lexicog</dc:title>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+        <imports rdf:resource="http://www.w3.org/ns/lemon/ontolex"/>
+        <versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</versionInfo>
     </owl:Ontology>
     
 
@@ -50,6 +51,25 @@
      -->
 
     
+
+
+    <!-- http://www.w3.org/2002/07/owl#minQualifiedCardinality -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#minQualifiedCardinality"/>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lexicog#imports -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/lemon/lexicog#imports"/>
+    
+
+
+    <!-- http://www.w3.org/ns/lemon/lexicog#versionInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/lemon/lexicog#versionInfo"/>
+    
+
 
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
