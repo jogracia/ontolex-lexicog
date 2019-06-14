@@ -181,7 +181,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 	In terms of applying the module, we propose the following best practice or "rule of thumb" when representing a dictionary as linked data:
 		<ol>
 			<li> As long as the entities in OntoLex and the other  <em>lemon</em> modules, together with those of catalogues of linguistic categories (e.g. LexInfo), suffice to represent the information encoded in the lexicographic resource (e.g., lexical entry, part of speech, translation, ...), the OntoLex lexicography module need not be applied.
-			<li> In the case of lexicographic information that cannot be modelled by using either OntoLex nor any of the other <em>lemon</em> modules (e.g., to denote sense ordering), the model should be instantiated while avoiding duplicities and keeping extra information to the minimum.
+			<li> In the case of lexicographic information that cannot be modelled by using either OntoLex nor any of the other <em>lemon</em> modules (e.g., to denote sense ordering), the OntoLex lexicography module should be used, at the same time avoiding redundancies and keeping additional information to the minimum.
 		</ol>
 	The reason behind this is that this module adds some complexity by providing additional description capabilities to the purely lexical description accounted by OntoLex. If this information is not needed for a specific conversion, i.e, if the lexicographic view is not essential, reusing <em>lemon</em> would allow for keeping the representation simpler but yet sufficient.
 
@@ -195,7 +195,7 @@ Modelling existing dictionaries as linked data can be done by first extracting t
 
 	  This is a list of relevant namespaces that will be used in the rest of this document:
 
-	  <p> Ontolex lexicography module:
+	  <p> OntoLex lexicography module:
 	   <pre><code class="cm">
 		@prefix lexicog: &lt;http://www.w3.org/ns/lemon/lexicog#&gt; .
 		 </code>
@@ -467,7 +467,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
 
 
 <div class="note"><p>
-	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries. In case that this arrangement is not present in the dictionary or that there is no need to represent it in RDF (e.g., <i>animal </i>(adj.) and <i>animal</i> (n.) appear in different records) then the instantiation of lexicog:Entry, without sub-components, would suffice to keep track of the collection of lexicographic entries contained in the resource.
+	Note that this only states that there is a structure (entry) which contains sub-structures (components) which describe lexical elements, in this case, lexical entries. In case that this arrangement is not present in the dictionary or that there is no need to represent it in RDF (e.g., <i>animal </i>(adj.) and <i>animal</i> (n.) appear in different records) then the instantiation of lexicog:Entry without sub-components would suffice to keep track of the collection of lexicographic entries contained in the resource.
 </p></div>
 
 
@@ -694,7 +694,7 @@ There are dictionaries which provide grammatical annotations indicating varying 
 
 </p>
 
-The <tt>lexicog:FormRestriction</tt> class is intended to provide a way to specify, from an external catalogue of linguistic data categories, the set of grammatical features of a lexical entry when used in a specific <tt>ontolex:LexicalSense</tt> in cases in which it does not allow for all of those reflected in the lexical forms provided. For example, in Spanish, <i>ratón</i> 'mouse', in its meaning of "animal", has a masculine and a feminine form. In its meaning of computer device, small rock or biceps (in Costa Rica), it only occurs as masculine, and therefore these senses would receive a FormRestriction.
+The <tt>lexicog:FormRestriction</tt> class is intended to provide a way to specify the set of grammatical features of a lexical entry when used in a specific <tt>ontolex:LexicalSense</tt> in cases in which it does not allow for all of those reflected in the lexical forms provided. Any external catalogue can be used for this purpose. For example, in Spanish, <i>ratón</i> 'mouse', in its meaning of "animal", has a masculine and a feminine form. In its meaning of computer device, small rock or biceps (in Costa Rica), it only occurs as masculine, and therefore these senses would receive a FormRestriction.
 
 
      <div class='entity'>
@@ -703,7 +703,7 @@ The <tt>lexicog:FormRestriction</tt> class is intended to provide a way to speci
         <p><strong>URI:</strong> <a href="http://www.w3.org/ns/lemon/lexicog#FormRestriction" class="uri">http://www.w3.org/ns/lemon/lexicog#FormRestriction</a></p>
       </div>
       <div class='comment'>
-        <p>There are cases in which a specific <tt>ontolex:LexicalSense</tt> does not occur with all the available <tt>ontolex:Form</tt>(s) of the <tt>ontolex:LexicalEntry</tt>. In those cases, the class <strong>FormRestriction</strong> represents (a set of) grammatical features of the <tt>ontolex:Form</tt>(s) in which that sense occurs. The sense does not occur in forms whose features do not match with those of such a set.</p>
+        <p>There are cases in which a specific <tt>ontolex:LexicalSense</tt> does not allow for all the available <tt>ontolex:Form</tt>(s) of the <tt>ontolex:LexicalEntry</tt>. In those cases, the class <strong>FormRestriction</strong> represents (a set of) grammatical features of the <tt>ontolex:Form</tt>(s) in which that sense occurs. The sense does not occur in forms whose features do not match with those of such a set.</p>
       </div>
       <div class='description'>
         <p><strong>SubClassOf:</strong> owl:Thing</p>
