@@ -341,20 +341,22 @@ adj.
 		<p><a href='Examples/new-png/example1_LexicographicResource.png' class='tn'/><img src='Examples/new-png/example1_LexicographicResource.png' width="100%"/></a></p>
 		<div>
 		<pre id="example1" class="example"><code>
-
+     # LEXICOGRAPHIC RESOURCE
+	 
      :myDictionary a lexicog:LexicographicResource ;
 	    dc:language "en" ;
 	    lexicog:entry :animal_entry .
 
+     :animal_entry a lexicog:Entry .
+
+     # LEXICON
+     
      :myLexicon a lime:Lexicon;
 	    lime:language "en" ;
 	    lime:entry  :animal_n, :animal_adj .
 
-     :animal_entry a lexicog:Entry .
      :animal_n a ontolex:LexicalEntry .
      :animal_adj a ontolex:LexicalEntry .
-
-
     </code></pre>
 		</div>
 
@@ -390,22 +392,27 @@ adj.
 	<p><a href='Examples/new-png/example2_LexicographicComponent.png' class='tn'/><img src='Examples/new-png/example2_LexicographicComponent.png' width="100%"/></a></p>
 		<div>
 		<pre id="example2" class="example"><code>
+    # LEXICOGRAPHIC RESOURCE
+	 
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
+
+    :animal_entry a lexicog:Entry ;
+       rdfs:member :animal_n_comp, :animal_adj_comp .
+
+    :animal_n_comp a lexicog:LexicographicComponent .
+    :animal_adj_comp a lexicog:LexicographicComponent .
+
+ 
+    # LEXICON
 
     :myLexicon a lime:Lexicon;
        lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
-    :animal_entry a lexicog:Entry .
     :animal_n a ontolex:LexicalEntry .
     :animal_adj a ontolex:LexicalEntry .
-
-    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
-
-    :animal_n_comp a lexicog:LexicographicComponent .
-    :animal_adj_comp a lexicog:LexicographicComponent .
      </code></pre>
 
 	  </div>
@@ -441,24 +448,31 @@ Following our example, we can use the <a href="#describes">describes</a> propert
      <p><a href='Examples/new-png/example3_describes.png' class='tn'/><img src='Examples/new-png/example3_describes.png' width="100%"/></a></p>
      <div>
      <pre id="example1" class="example"><code>
+    # LEXICOGRAPHIC RESOURCE
+	 
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
+
+    :animal_entry a lexicog:Entry ;
+       rdfs:member :animal_n_comp, :animal_adj_comp .
+
+    :animal_n_comp a lexicog:LexicographicComponent .
+    :animal_adj_comp a lexicog:LexicographicComponent .
+
+    # LEXICON
 
     :myLexicon a lime:Lexicon;
        lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
-    :animal_entry a lexicog:Entry .
     :animal_n a ontolex:LexicalEntry .
-    :animal_adj ontolex:LexicalEntry .
+    :animal_adj a ontolex:LexicalEntry .
 
-    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
+    # LEXICOGRAPHIC RESOURCE - LEXICON RELATIONS
 
-    :animal_n_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_n .
-    :animal_adj_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_adj .
+    :animal_n_comp lexicog:describes :animal_n .
+    :animal_adj_comp lexicog:describes :animal_adj .
     </code></pre>
      </div>
   </div>
@@ -477,38 +491,14 @@ The following code extends the previous example by adding more subcomponents tha
   <p><a href='Examples/new-png/example4_senses.png' class='tn'/><img src='Examples/new-png/example4_senses.png' width="100%"/></a></p>
   <div>
 		<pre id="example4" class="example"><code>
+    # LEXICOGRAPHIC RESOURCE
+	 
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
 
-    :myLexicon a lime:Lexicon;
-       lime:language "en" ;
-       lime:entry :animal_n, :animal_adj .
-
-    :animal_entry a lexicog:Entry .
-    :animal_n a ontolex:LexicalEntry .
-    :animal_adj a ontolex:LexicalEntry .
-
-    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
-
-    :animal_n_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_n .
-    :animal_adj_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_adj .
-
-    :animal_n_sense_1 a ontolex:LexicalSense .
-    :animal_n_sense_2 a ontolex:LexicalSense .
-    :animal_adj_sense_1 a ontolex:LexicalSense .
-    :animal_adj_sense_2 a ontolex:LexicalSense .
-
-    :animal_n_sense_1_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_n_sense_1 .
-    :animal_n_sense_2_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_n_sense_2 .
-    :animal_adj_sense_1_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_adj_sense_1 .
-    :animal_adj_sense_2_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_adj_sense_2 .
+    :animal_entry a lexicog:Entry ;
+       rdfs:member :animal_n_comp, :animal_adj_comp .
 
     :animal_n_comp
 	   rdf:_1 :animal_n_sense_1_comp ;
@@ -517,6 +507,37 @@ The following code extends the previous example by adding more subcomponents tha
     :animal_adj_comp
        rdf:_1 :animal_adj_sense_1_comp ;
        rdf:_2 :animal_adj_sense_2_comp .
+
+    :animal_n_comp a lexicog:LexicographicComponent .
+    :animal_adj_comp a lexicog:LexicographicComponent .
+    :animal_n_sense_1_comp a lexicog:LexicographicComponent .
+    :animal_n_sense_2_comp a lexicog:LexicographicComponent .
+    :animal_adj_sense_1_comp a lexicog:LexicographicComponent .
+    :animal_adj_sense_2_comp a lexicog:LexicographicComponent .
+
+    # LEXICON
+
+    :myLexicon a lime:Lexicon;
+       lime:language "en" ;
+       lime:entry :animal_n, :animal_adj .
+
+    :animal_n a ontolex:LexicalEntry .
+    :animal_adj a ontolex:LexicalEntry .
+
+    :animal_n_sense_1 a ontolex:LexicalSense .
+    :animal_n_sense_2 a ontolex:LexicalSense .
+    :animal_adj_sense_1 a ontolex:LexicalSense .
+    :animal_adj_sense_2 a ontolex:LexicalSense .
+
+    # LEXICOGRAPHIC RESOURCE - LEXICON RELATIONS
+
+    :animal_n_comp lexicog:describes :animal_n .
+    :animal_adj_comp lexicog:describes :animal_adj .
+
+    :animal_n_sense_1_comp lexicog:describes :animal_n_sense_1 .
+    :animal_n_sense_2_comp lexicog:describes :animal_n_sense_2 .
+    :animal_adj_sense_1_comp lexicog:describes :animal_adj_sense_1 .
+    :animal_adj_sense_2_comp lexicog:describes :animal_adj_sense_2 .
     </code></pre>
 		</div>
     </div>
@@ -530,45 +551,46 @@ In our running example, we have represented so far the structural components of 
       <p><a href='Examples/new-png/example5_lexicalinfo.png' class='tn'/><img src='Examples/new-png/example5_lexicalinfo.png' width="100%"/></a></p>
       <div>
 		<pre id="example5" class="example"><code>
+    # LEXICOGRAPHIC RESOURCE
+	 
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
+
+    :animal_entry a lexicog:Entry ;
+       rdfs:member :animal_n_comp, :animal_adj_comp .
+
+    :animal_n_comp
+	   rdf:_1 :animal_n_sense_1_comp ;
+	   rdf:_2 :animal_n_sense_2_comp .
+
+    :animal_adj_comp
+       rdf:_1 :animal_adj_sense_1_comp ;
+       rdf:_2 :animal_adj_sense_2_comp .
+
+    :animal_n_comp a lexicog:LexicographicComponent .
+    :animal_adj_comp a lexicog:LexicographicComponent .
+    :animal_n_sense_1_comp a lexicog:LexicographicComponent .
+    :animal_n_sense_2_comp a lexicog:LexicographicComponent .
+    :animal_adj_sense_1_comp a lexicog:LexicographicComponent .
+    :animal_adj_sense_2_comp a lexicog:LexicographicComponent .
+
+    # LEXICON (entries and senses)
 
     :myLexicon a lime:Lexicon;
        lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
-    :animal_entry a lexicog:Entry .
     :animal_n a ontolex:LexicalEntry .
     :animal_adj a ontolex:LexicalEntry .
-
-    :animal_entry rdfs:member :animal_n_comp, :animal_adj_comp .
-
-    :animal_n_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_n .
-    :animal_adj_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_adj .
 
     :animal_n_sense_1 a ontolex:LexicalSense .
     :animal_n_sense_2 a ontolex:LexicalSense .
     :animal_adj_sense_1 a ontolex:LexicalSense .
     :animal_adj_sense_2 a ontolex:LexicalSense .
-
-    :animal_n_sense_1_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_n_sense_1 .
-    :animal_n_sense_2_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_n_sense_2 .
-    :animal_adj_sense_1_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_adj_sense_1 .
-    :animal_adj_sense_2_comp a lexicog:LexicographicComponent ;
-       lexicog:describes :animal_adj_sense_2 .
-
-    :animal_n_comp rdf:_1 :animal_n_sense_1_comp ;
-       rdf:_2 :animal_n_sense_2_comp .
-
-    :animal_adj_comp rdf:_1 :animal_adj_sense_1_comp ;
-       rdf:_2 :animal_adj_sense_2_comp .
-
+	
+    # LEXICON (forms and lexical concepts)
+	
     :animal_form a ontolex:Form ;
        ontolex:writtenRep "animal"@en .
 
@@ -598,6 +620,16 @@ In our running example, we have represented so far the structural components of 
     :animal_n_sense_2 ontolex:isLexicalizedSenseOf :animal_n_2_concept .
     :animal_adj_sense_1 ontolex:isLexicalizedSenseOf :animal_adj_1_concept .
     :animal_adj_sense_2 ontolex:isLexicalizedSenseOf :animal_adj_2_concept .
+
+    # LEXICOGRAPHIC RESOURCE - LEXICON RELATIONS
+
+    :animal_n_comp lexicog:describes :animal_n .
+    :animal_adj_comp lexicog:describes :animal_adj .
+
+    :animal_n_sense_1_comp lexicog:describes :animal_n_sense_1 .
+    :animal_n_sense_2_comp lexicog:describes :animal_n_sense_2 .
+    :animal_adj_sense_1_comp lexicog:describes :animal_adj_sense_1 .
+    :animal_adj_sense_2_comp lexicog:describes :animal_adj_sense_2 .
     </code></pre>
     </div>
 		</div>
@@ -637,24 +669,27 @@ As an example, let us re-write <a href="#example2">Example 2</a> to describe tha
     <p><a href='Examples/new-png/example6_subcomponent.png' class='tn'/><img src='Examples/new-png/example6_subcomponent.png' width="100%"/></a></p>
     <div>
   <pre id="example6" class="example"><code>
+    # LEXICOGRAPHIC RESOURCE
+
     :myDictionary a lexicog:LexicographicResource ;
        dc:language "en" ;
        lexicog:entry :animal_entry .
+
+    :animal_entry a lexicog:Entry ;
+       lexicog:subComponent :animal_n_comp ;
+       lexicog:subComponent :animal_adj_comp .
+
+    :animal_n_comp a lexicog:LexicographicComponent .
+    :animal_adj_comp a lexicog:LexicographicComponent .
+
+    # LEXICON
 
     :myLexicon a lime:Lexicon;
        lime:language "en" ;
        lime:entry :animal_n, :animal_adj .
 
-    :animal_entry a lexicog:Entry .
     :animal_n a ontolex:LexicalEntry .
-    :animal_adj ontolex:LexicalEntry .
-
-
-    :animal_entry lexicog:subComponent :animal_n_comp ;
-       lexicog:subComponent :animal_adj_comp .
-
-    :animal_n_comp a lexicog:LexicographicComponent ;
-    :animal_adj_comp a lexicog:LexicographicComponent .
+    :animal_adj a ontolex:LexicalEntry .
   </code></pre>
   </div>
   </div>
