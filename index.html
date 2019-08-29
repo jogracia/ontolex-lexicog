@@ -862,39 +862,65 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 
 </blockquote>
 
-
+We fist show how to represent the monolingual information only (English). 
 
 <div class='beispiel'>
-    <p><a href='Examples/new-png/example8_usageExample.png' class='tn'/><img src='Examples/new-png/example8_usageExample.png' width="100%"/></a></p>
+  <!--  <p><a href='Examples/new-png/example8_usageExample.png' class='tn'/><img src='Examples/new-png/example8_usageExample.png' width="100%"/></a></p>  -->
     <div>
   <pre id="example8" class="example"><code>
     # Entries
-    :monastery_n a ontolex:LexicalEntry ;
-       ontolex:sense :monastery_sense .
-    :monasterio_n a ontolex:LexicalEntry ;
-       ontolex:sense :monasterio_monastery-sense .
-
+    :monastery_n_en a ontolex:LexicalEntry ;
+       ontolex:sense :monastery_n_en_sense .
+ 
     # Senses
-    :monastery_n_sense a ontolex:LexicalSense ;
-       ontolex:isLexicalizedSenseOf :monastery_n_sense_concept ;
-       lexicog:usageExample :monastery_n_sense_ex .
-
-    :monasterio_monastery-sense a ontolex:LexicalSense ;
-       ontolex:isLexicalizedSenseOf :monastery_n_sense_concept .
+    :monastery_n_en_sense a ontolex:LexicalSense ;
+       ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept ;
+       lexicog:usageExample :monastery_n_en_sense_ex .
 
     # Concepts
-    :monastery_n_sense_concept a ontolex:LexicalConcept ;
+    :monastery_n_en_sense_concept a ontolex:LexicalConcept ;
+      skos:definition "monk's residence"@en .
+
+    # Examples
+    :monastery_n_en_sense_ex a lexicog:UsageExample;
+       rdf:value "We visited a Buddhist monastery deep in a jungle."@en.
+  </code></pre>
+  </div>
+  </div>
+
+Then, we show the complete example where a translation is involved and the same usage example has its own values both in English and Spanish. 
+
+<div class='beispiel'>
+  <!--   <p><a href='Examples/new-png/example9_usageExample.png' class='tn'/><img src='Examples/new-png/example9_usageExample.png' width="100%"/></a></p> -->
+    <div>
+  <pre id="example9" class="example"><code>
+    # Entries
+    :monastery_n_en a ontolex:LexicalEntry ;
+       ontolex:sense :monastery_n_en_sense .
+    :monasterio_n_es a ontolex:LexicalEntry ;
+       ontolex:sense :monasterio_n_es_sense .
+
+    # Senses
+    :monastery_n_en_sense a ontolex:LexicalSense ;
+       ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept ;
+       lexicog:usageExample :monastery_n_en_sense_ex .
+
+    :monasterio_n_es_sense a ontolex:LexicalSense ;
+       ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept .
+
+    # Concepts
+    :monastery_n_en_sense_concept a ontolex:LexicalConcept ;
       skos:definition "monk's residence"@en .
 
     # Translations
-    :monastery_n_sense-monasterio_monastery-sense-tr a vartrans:Translation ;
-       vartrans:source :monastery_n_sense ;
-       vartrans:target :monasterio_monastery-sense .
+    :monastery_n_en_sense-monasterio_n_es_sense-tr a vartrans:Translation ;
+       vartrans:source :monastery_n_en_sense ;
+       vartrans:target :monasterio_n_es_sense-tr .
 
     # Examples
-    :monastery_n_sense_ex a lexicog:UsageExample;
-       rdf:value "We visited a Buddhist monastery deep in a jungle."@en ;
-       rdf:value "Visitamos un monasterio budista en medio de la selva."@es .
+    :monastery_n_en_sense_ex a lexicog:UsageExample;
+       rdf:value "We visited a Buddhist monastery deep in a jungle."@en;
+       rdf:value "Visitamos un monasterio budista en medio de la selva."@es.
   </code></pre>
   </div>
   </div>

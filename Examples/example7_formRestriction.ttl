@@ -1,4 +1,4 @@
-@prefix :      <file:///home/labra/#> .
+@prefix :      <#> .
 @prefix void:  <http://rdfs.org/ns/void#> .
 @prefix dc:   <http://purl.org/dc/elements/1.1/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -12,11 +12,10 @@
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix lexinfo: <http://www.lexinfo.net/ontology/2.0/lexinfo#> .
 
- :air_n a ontolex:LexicalEntry;
+:air_n a ontolex:LexicalEntry;
    ontolex:sense :air_n_sense_2, :air_n_sense_2_1;
    ontolex:canonicalForm :air_n_form ;
    ontolex:otherForm :airs_n_form .
-
    
 :air_n_form a ontolex:Form;
    ontolex:writtenRep "air"@en;
@@ -25,10 +24,10 @@
 :airs_n_form a ontolex:Form;
    ontolex:writtenRep "airs"@en;
    lexinfo:number lexinfo:plural.
-
    
 :air_n_sense_2 a ontolex:LexicalSense;
    ontolex:isLexicalizedSenseOf :air_n_sense_2_lc .
+   
 :air_n_sense_2_1 a ontolex:LexicalSense;
    ontolex:isLexicalizedSenseOf :air_n_sense_2_1_lc ;
    lexicog:restrictedTo :air_n_formRes.

@@ -15,16 +15,28 @@
 # Entries
 :monastery_n_en a ontolex:LexicalEntry ;
    ontolex:sense :monastery_n_en_sense .
+:monasterio_n_es a ontolex:LexicalEntry ;
+      ontolex:sense :monasterio_n_es_sense .
 
 # Senses
 :monastery_n_en_sense a ontolex:LexicalSense ;
    ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept ;
    lexicog:usageExample :monastery_n_en_sense_ex .
 
+:monasterio_n_es_sense a ontolex:LexicalSense ;
+   ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept .
+
+
 # Concepts
 :monastery_n_en_sense_concept a ontolex:LexicalConcept ;
   skos:definition "monk's residence"@en .
 
+# Translations
+:monastery_n_en_sense-monasterio_n_es_sense-tr a vartrans:Translation ;
+   vartrans:source :monastery_n_en_sense ;
+   vartrans:target :monasterio_n_es_sense-tr .
+
 # Examples
 :monastery_n_en_sense_ex a lexicog:UsageExample;
-   rdf:value "We visited a Buddhist monastery deep in a jungle."@en.
+   rdf:value "We visited a Buddhist monastery deep in a jungle."@en;
+   rdf:value "Visitamos un monasterio budista en medio de la selva."@es.

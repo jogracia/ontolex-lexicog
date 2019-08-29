@@ -1,4 +1,4 @@
- @prefix :      <#> .
+@prefix :      <#> .
 @prefix void:  <http://rdfs.org/ns/void#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix vartrans: <http://www.w3.org/ns/lemon/vartrans#> .
