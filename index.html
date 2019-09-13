@@ -58,7 +58,7 @@ img.example { max-width:100%; margin-left:auto;margin-right:auto;display:block;}
           specStatus: "CG-FINAL",
           doRDFa: "1.1",
           shortName:  "lexicography-ontolex",
-		  publishDate:  "2019-05-15",
+		  publishDate:  "2019-09-13",
           editors: [
                 {   name:       "Julia Bosque-Gil",
                     url:        "http://mayor2.dia.fi.upm.es/oeg-upm/index.php/en/phdstudents/360-jbosque/index.html ",
@@ -342,7 +342,7 @@ adj.
 		<div>
 		<pre id="example1" class="example"><code>
      # LEXICOGRAPHIC RESOURCE
-	 
+
      :myDictionary a lexicog:LexicographicResource ;
 	    dc:language "en" ;
 	    lexicog:entry :animal_entry .
@@ -350,7 +350,7 @@ adj.
      :animal_entry a lexicog:Entry .
 
      # LEXICON
-     
+
      :myLexicon a lime:Lexicon;
 	    lime:language "en" ;
 	    lime:entry  :animal_n, :animal_adj .
@@ -393,7 +393,7 @@ adj.
 		<div>
 		<pre id="example2" class="example"><code>
     # LEXICOGRAPHIC RESOURCE
-	 
+
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
@@ -404,7 +404,7 @@ adj.
     :animal_n_comp a lexicog:LexicographicComponent .
     :animal_adj_comp a lexicog:LexicographicComponent .
 
- 
+
     # LEXICON
 
     :myLexicon a lime:Lexicon;
@@ -449,7 +449,7 @@ Following our example, we can use the <a href="#describes">describes</a> propert
      <div>
      <pre id="example1" class="example"><code>
     # LEXICOGRAPHIC RESOURCE
-	 
+
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
@@ -492,7 +492,7 @@ The following code extends the previous example by adding more subcomponents tha
   <div>
 		<pre id="example4" class="example"><code>
     # LEXICOGRAPHIC RESOURCE
-	 
+
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
@@ -552,7 +552,7 @@ In our running example, we have represented so far the structural components of 
       <div>
 		<pre id="example5" class="example"><code>
     # LEXICOGRAPHIC RESOURCE
-	 
+
     :myDictionary a lexicog:LexicographicResource;
        dc:language "en" ;
        lexicog:entry :animal_entry .
@@ -588,9 +588,9 @@ In our running example, we have represented so far the structural components of 
     :animal_n_sense_2 a ontolex:LexicalSense .
     :animal_adj_sense_1 a ontolex:LexicalSense .
     :animal_adj_sense_2 a ontolex:LexicalSense .
-	
+
     # LEXICON (forms and lexical concepts)
-	
+
     :animal_form a ontolex:Form ;
        ontolex:writtenRep "animal"@en .
 
@@ -598,7 +598,7 @@ In our running example, we have represented so far the structural components of 
         lexinfo:partOfSpeech lexinfo:noun ;
         ontolex:sense :animal_n_sense_1 ;
         ontolex:sense :animal_n_sense_2 .
-		
+
     :animal_adj ontolex:lexicalForm :animal_form ;
         lexinfo:partOfSpeech lexinfo:adjective ;
         ontolex:sense :animal_adj_sense_1 ;
@@ -862,16 +862,16 @@ For instance, a bilingual dictionary such as <a href="https://www.wordreference.
 
 </blockquote>
 
-We fist show how to represent the monolingual information only (English). 
+We fist show how to represent the monolingual information only (English).
 
 <div class='beispiel'>
-  <!--  <p><a href='Examples/new-png/example8_usageExample.png' class='tn'/><img src='Examples/new-png/example8_usageExample.png' width="100%"/></a></p>  -->
+  <p><a href='Examples/new-png/example8_usageExample-monolingual.png' class='tn'/><img src='Examples/new-png/example8_usageExample-monolingual.png' width="100%"/></a></p>
     <div>
   <pre id="example8" class="example"><code>
     # Entries
     :monastery_n_en a ontolex:LexicalEntry ;
        ontolex:sense :monastery_n_en_sense .
- 
+
     # Senses
     :monastery_n_en_sense a ontolex:LexicalSense ;
        ontolex:isLexicalizedSenseOf :monastery_n_en_sense_concept ;
@@ -888,10 +888,10 @@ We fist show how to represent the monolingual information only (English).
   </div>
   </div>
 
-Then, we show the complete example where a translation is involved and the same usage example has its own values both in English and Spanish. 
+Then, we show the complete example where a translation is involved and the same usage example has its own values both in English and Spanish.
 
 <div class='beispiel'>
-  <!--   <p><a href='Examples/new-png/example9_usageExample.png' class='tn'/><img src='Examples/new-png/example9_usageExample.png' width="100%"/></a></p> -->
+   <p><a href='Examples/new-png/example9_usageExample-multilingual.png' class='tn'/><img src='Examples/new-png/example9_usageExample-multilingual.png' width="100%"/></a></p>
     <div>
   <pre id="example9" class="example"><code>
     # Entries
